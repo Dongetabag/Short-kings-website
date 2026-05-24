@@ -5,8 +5,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { TESTIMONIALS } from "@/lib/testimonials";
 
 export function RoyalCourt() {
-  // Show 3 on the homepage. The full list lives at /testimonials.
-  const featured = TESTIMONIALS.slice(0, 3);
+  const featured = TESTIMONIALS;
 
   return (
     <section id="testimonials" className="py-24">
@@ -42,6 +41,10 @@ export function RoyalCourt() {
                   ))}
                 </div>
 
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gold/80">
+                  {t.product}
+                </p>
+
                 <p className="mt-4 text-sm leading-7 text-white/80">{t.quote}</p>
 
                 <footer className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
@@ -54,6 +57,9 @@ export function RoyalCourt() {
                     </p>
                     <p className="text-xs text-white/50">
                       {t.height} · {t.city}
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/40">
+                      {t.title} · {t.daysIn} days in
                     </p>
                   </div>
                 </footer>

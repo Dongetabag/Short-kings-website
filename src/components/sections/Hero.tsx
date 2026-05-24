@@ -56,11 +56,10 @@ export function Hero() {
             </span>
 
             <h1 className="mt-6 font-royal text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
-              <span className="block">Dating isn&apos;t random.</span>
               <span className="block gold-gradient drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]">
-                It&apos;s a system
+                Short Kings
               </span>
-              <span className="block">you can learn.</span>
+              <span className="block">Empire</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
@@ -87,9 +86,6 @@ export function Hero() {
               </Link>
             </div>
 
-            <p className="mt-8 text-xs uppercase tracking-[0.3em] text-white/35">
-              {SITE.communitySize} men in the system
-            </p>
           </div>
 
           <div className="lg:col-span-5">

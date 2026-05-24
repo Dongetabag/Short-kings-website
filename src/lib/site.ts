@@ -15,7 +15,6 @@ export const SITE = {
     pricePerSession: 150,
   },
   email: "support@shortkingsempire.com",
-  communitySize: "10,000+",
 } as const;
 
 export const NAV_LINKS = [
@@ -48,19 +47,18 @@ export const ADMIN_NAV = [
 ] as const;
 
 export const BUNDLE = {
-  id: "full-library",
-  title: "The Full Library",
+  id: "complete-playbook",
+  title: "The Complete Playbook",
   eyebrow: "Bundle",
   description:
-    "All 5 ebooks plus lifetime access to the King's Counsel AI. Everything you need to install the system.",
-  priceUsd: 60,
-  originalPriceUsd: 100,
-  saveLabel: "Save $40",
+    "All 7 ebooks plus Built Different plus one 30 min coaching call to map out your personal game plan.",
+  priceUsd: 127,
+  originalPriceUsd: 206,
+  saveLabel: "Save $79",
   includes: [
-    "All 5 dating ebooks ($20 each)",
-    "King's Counsel AI — first month free",
-    "Free SKE fitness library",
-    "Lifetime updates on every ebook",
+    "All 7 ebooks ($84 value)",
+    "Built Different program ($47 value)",
+    "1 coaching call ($75 value)",
     "Instant digital delivery",
   ],
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUNDLE",
@@ -71,41 +69,50 @@ export const COUNSEL_AI = {
   title: "King's Counsel AI",
   eyebrow: "Always-on advisor",
   description:
-    "Trained on the Short Kings system. Ask it anything — texts, profiles, first-date plans, mindset reframes. Lives in your portal.",
+    "Trained on the Short Kings system. Ask it anything: texts, profiles, first-date plans, mindset reframes. Lives in your portal.",
   priceUsd: 15,
   cadence: "/month",
   trialDays: 7,
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COUNSEL",
 } as const;
 
+export const TRANSFORMATION_3MO = {
+  id: "transformation-3-month",
+  title: "3 Month Transformation",
+  eyebrow: "Program",
+  description:
+    "Every product plus 12 coaching calls over 3 months. Your results, your timeline, your game built from the ground up.",
+  priceUsd: 997,
+  cadence: "3 months",
+  includes: [
+    "All 7 ebooks",
+    "Built Different program",
+    "12 coaching calls weekly",
+    "WhatsApp access included",
+  ],
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_TRANSFORMATION_3MO",
+} as const;
+
 export const COACHING = {
-  id: "coaching-1on1",
-  title: "1-on-1 Coaching",
+  id: "monthly-coaching",
+  title: "Monthly Coaching",
   eyebrow: "1-on-1",
   description:
-    "Direct access. Forty-five minutes. We map your situation, build your next move, and you leave with a written game plan.",
-  priceUsd: 150,
-  cadence: "/session",
+    "4 tailored calls a month. Every session built around where you are actually at. Plus unlimited WhatsApp access between calls.",
+  priceUsd: 197,
+  cadence: "/month",
 } as const;
 
 export const GYM_NUTRITION_PLAN = {
-  id: "gym-nutrition-plan",
-  title: "Gym & Nutrition Plan",
-  eyebrow: "Plan",
+  id: "built-different",
+  title: "Built Different",
+  eyebrow: "Gym & Nutrition",
   description:
-    "A structured training and nutrition program built for short frames. Compound lifts, macros, weekly check-ins.",
-  priceUsd: 0, // PENDING: owner to confirm price
-  cadence: "/program",
-  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_GYM_NUTRITION",
+    "A fully structured gym and nutrition program on Trainerize. Built to maximize your physique as a shorter guy.",
+  priceUsd: 47,
+  cadence: "one time",
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUILT_DIFFERENT",
 } as const;
 
-export const COACHING_3_MONTH = {
-  id: "coaching-3-month",
-  title: "3-Month Coaching",
-  eyebrow: "Program",
-  description:
-    "Three months of guided work: weekly calls, async access between sessions, every ebook and program included.",
-  priceUsd: 0, // PENDING: owner to confirm price
-  cadence: "/3 months",
-  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COACHING_3MO",
-} as const;
+/** @deprecated use TRANSFORMATION_3MO */
+export const COACHING_3_MONTH = TRANSFORMATION_3MO;

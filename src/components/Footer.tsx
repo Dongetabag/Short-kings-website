@@ -29,7 +29,7 @@ export function Footer() {
           <div className="flex flex-col gap-3 text-sm">
             <p className="eyebrow">Products</p>
             <Link href="/products#bundle" className="text-white/65 hover:text-white">
-              The Full Library
+              The Complete Playbook
             </Link>
             <Link href="/products#ebooks" className="text-white/65 hover:text-white">
               Dating Ebooks
@@ -92,9 +92,6 @@ export function Footer() {
                 <Video className="h-4 w-4" />
               </a>
             </div>
-            <p className="mt-2 text-xs text-white/40">
-              {SITE.communitySize} men in the system.
-            </p>
           </div>
         </div>
 

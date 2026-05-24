@@ -8,19 +8,12 @@ import { RoyalCourt } from "@/components/sections/RoyalCourt";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FloatingSectionFrame } from "@/components/ui/FloatingSectionFrame";
 import {
-  DATING_TILES,
   LIFESTYLE_TILES,
   GYM_TILES,
   THRONE_TILES,
   PILLARS,
 } from "@/lib/media-pillars";
 
-/**
- * Funnel order (attention → third-party proof → pain → product preview →
- * social proof → offer → differentiation → close). Mirrors Eleven Views pacing.
- *
- * Each pillar shows 4 tiles on the homepage and links to its full pillar page.
- */
 const HOME_TILE_CAP = 4;
 
 export default function Home() {
@@ -38,18 +31,12 @@ export default function Home() {
         <Challenge />
       </FloatingSectionFrame>
 
-      <FloatingSectionFrame preset="media">
-        <MediaGrid
-          id="dating"
-          eyebrow={PILLARS.dating.homeEyebrow}
-          titleTop={PILLARS.dating.homeTitleTop}
-          titleHighlight={PILLARS.dating.homeTitleHighlight}
-          subtitle={PILLARS.dating.homeSubtitle}
-          tiles={DATING_TILES}
-          maxTiles={HOME_TILE_CAP}
-          fullPageHref={PILLARS.dating.href}
-          fullPageLabel={PILLARS.dating.ctaLabel}
-        />
+      <FloatingSectionFrame preset="offer">
+        <RoyalArsenal />
+      </FloatingSectionFrame>
+
+      <FloatingSectionFrame preset="proof">
+        <RoyalCourt />
       </FloatingSectionFrame>
 
       <FloatingSectionFrame preset="media">
@@ -93,14 +80,6 @@ export default function Home() {
           fullPageLabel={PILLARS["throne-room"].ctaLabel}
           variant={PILLARS["throne-room"].variant}
         />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="proof">
-        <RoyalCourt />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="offer">
-        <RoyalArsenal />
       </FloatingSectionFrame>
 
       <FloatingSectionFrame preset="counsel">
