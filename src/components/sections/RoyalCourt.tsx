@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TESTIMONIALS } from "@/lib/testimonials";
+import { TESTIMONIALS, MEMBER_SNAPSHOTS } from "@/lib/testimonials";
 
 export function RoyalCourt() {
   const featured = TESTIMONIALS;
@@ -25,6 +26,28 @@ export function RoyalCourt() {
               Read every review
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
             </Link>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-10">
+            <p className="eyebrow text-center">Snapshots from members</p>
+            <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+              {MEMBER_SNAPSHOTS.map((src, i) => (
+                <div
+                  key={src}
+                  className="relative overflow-hidden rounded-lg border border-white/10 bg-black aspect-[4/3]"
+                >
+                  <Image
+                    src={src}
+                    alt={`Member transformation ${i + 1}`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
 
@@ -69,7 +92,7 @@ export function RoyalCourt() {
         </div>
 
         <p className="mt-8 text-center text-[10px] uppercase tracking-[0.22em] text-white/30">
-          Names and outcomes preserved. Headshots replace the gradient ring as members opt in.
+          Real member before-and-after snapshots from the Short Kings system.
         </p>
       </div>
     </section>

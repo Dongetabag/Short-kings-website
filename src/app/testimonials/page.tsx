@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Crown, Quote, Sparkles, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TESTIMONIALS, type Testimonial } from "@/lib/testimonials";
+import { TESTIMONIALS, MEMBER_SNAPSHOTS, type Testimonial } from "@/lib/testimonials";
 
 export const metadata = {
   title: "Reviews",
@@ -10,13 +10,7 @@ export const metadata = {
     "Real reviews from members. Real heights, real cities, real outcomes.",
 };
 
-const PROOF_IMAGES = [
-  "/media/testimonials/testimonial-1.jpg",
-  "/media/testimonials/testimonial-2.jpg",
-  "/media/testimonials/testimonial-3.jpg",
-  "/media/testimonials/testimonial-4.jpg",
-  "/media/testimonials/success-1.jpg",
-];
+const PROOF_IMAGES = [...MEMBER_SNAPSHOTS];
 
 export default function TestimonialsPage() {
   const total = TESTIMONIALS.length;
@@ -59,24 +53,24 @@ export default function TestimonialsPage() {
       <section className="border-b border-white/10 bg-black/40 py-10">
         <div className="mx-auto max-w-6xl px-4">
           <p className="eyebrow text-center">Snapshots from members</p>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
-            {PROOF_IMAGES.map((src) => (
+          <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {PROOF_IMAGES.map((src, i) => (
               <div
                 key={src}
-                className="overflow-hidden rounded-lg border border-white/10 aspect-square"
+                className="overflow-hidden rounded-lg border border-white/10 bg-black aspect-[4/3]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src}
-                  alt=""
-                  className="h-full w-full object-cover transition duration-700 hover:scale-[1.05]"
+                  alt={`Member transformation ${i + 1}`}
+                  className="h-full w-full object-contain"
                   loading="lazy"
                 />
               </div>
             ))}
           </div>
           <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em] text-white/30">
-            Live event footage. Real members replace placeholders as they opt in.
+            Real member before-and-after snapshots from the Short Kings system.
           </p>
         </div>
       </section>

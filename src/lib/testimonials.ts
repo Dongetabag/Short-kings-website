@@ -13,6 +13,14 @@ export type Testimonial = {
   rating: 5 | 4;
 };
 
+/** Member before/after snapshots shown in the reviews proof strip. */
+export const MEMBER_SNAPSHOTS = [
+  "/media/testimonials/member-1.png",
+  "/media/testimonials/member-2.png",
+  "/media/testimonials/member-3.png",
+  "/media/testimonials/member-4.png",
+] as const;
+
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "marcus-t",
