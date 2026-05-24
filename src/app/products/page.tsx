@@ -11,7 +11,6 @@ import {
 } from "@/lib/site";
 import {
   EBOOKS,
-  FITNESS_PROGRAMS,
   COACHING_PRODUCTS,
   type Product,
   resolvePaymentLink,
@@ -38,11 +37,7 @@ function ProductCard({ product }: { product: Product }) {
 
       <div className="mt-6 flex items-center justify-between gap-4">
         <p className="font-royal text-2xl font-black text-gold">
-          {isPaid
-            ? `$${product.priceUsd}`
-            : product.kind === "fitness"
-              ? "Free"
-              : "Pricing soon"}
+          {isPaid ? `$${product.priceUsd}` : "Pricing soon"}
         </p>
         {isPaid ? (
           href ? (
@@ -171,6 +166,44 @@ export default function ProductsPage() {
           </div>
         </section>
 
+        <section id="counsel" className="scroll-mt-24">
+          <Reveal>
+            <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-stone/40 p-8 sm:p-10">
+              <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
+              <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+                <div>
+                  <p className="eyebrow">{COUNSEL_AI.eyebrow}</p>
+                  <h2 className="mt-2 font-royal text-3xl font-black uppercase text-white sm:text-4xl">
+                    {COUNSEL_AI.title}
+                  </h2>
+                  <p className="mt-4 text-base leading-7 text-white/70">
+                    {COUNSEL_AI.description}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-black/40 p-6">
+                  <p className="font-royal text-5xl font-black text-gold">
+                    ${COUNSEL_AI.priceUsd}
+                  </p>
+                  {counselHref ? (
+                    <a
+                      href={counselHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-12 items-center gap-2 rounded-md bg-gold px-5 font-semibold text-black hover:bg-goldLight"
+                    >
+                      <Sparkles className="h-4 w-4" /> Start trial
+                    </a>
+                  ) : (
+                    <span className="inline-flex h-12 items-center rounded-md border border-white/15 px-5 text-xs uppercase tracking-[0.2em] text-white/45">
+                      Setup pending
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
         <section id="built-different" className="scroll-mt-24">
           <Reveal>
             <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-stone/40 p-10">
@@ -283,61 +316,6 @@ export default function ProductsPage() {
               )}
             </div>
           </Reveal>
-        </section>
-
-        <section id="counsel" className="scroll-mt-24">
-          <Reveal>
-            <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-stone/40 p-8 sm:p-10">
-              <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-                <div>
-                  <p className="eyebrow">{COUNSEL_AI.eyebrow}</p>
-                  <h2 className="mt-2 font-royal text-3xl font-black uppercase text-white sm:text-4xl">
-                    {COUNSEL_AI.title}
-                  </h2>
-                  <p className="mt-4 text-base leading-7 text-white/70">
-                    {COUNSEL_AI.description}
-                  </p>
-                </div>
-                <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-black/40 p-6">
-                  <p className="font-royal text-5xl font-black text-gold">
-                    ${COUNSEL_AI.priceUsd}
-                  </p>
-                  {counselHref ? (
-                    <a
-                      href={counselHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-12 items-center gap-2 rounded-md bg-gold px-5 font-semibold text-black hover:bg-goldLight"
-                    >
-                      <Sparkles className="h-4 w-4" /> Start trial
-                    </a>
-                  ) : (
-                    <span className="inline-flex h-12 items-center rounded-md border border-white/15 px-5 text-xs uppercase tracking-[0.2em] text-white/45">
-                      Setup pending
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        <section id="fitness" className="scroll-mt-24">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Fitness"
-              titleTop="Free programs from"
-              titleHighlight="the SKE library."
-              subtitle="Bonus downloads included with the system."
-            />
-          </Reveal>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {FITNESS_PROGRAMS.map((p, i) => (
-              <Reveal key={p.id} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
-                <ProductCard product={p} />
-              </Reveal>
-            ))}
-          </div>
         </section>
 
         <div className="text-center">

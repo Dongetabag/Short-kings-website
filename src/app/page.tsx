@@ -35,6 +35,10 @@ export default function Home() {
         <RoyalArsenal />
       </FloatingSectionFrame>
 
+      <FloatingSectionFrame preset="counsel">
+        <CounselPreview />
+      </FloatingSectionFrame>
+
       <FloatingSectionFrame preset="proof">
         <RoyalCourt />
       </FloatingSectionFrame>
@@ -80,10 +84,6 @@ export default function Home() {
           fullPageLabel={PILLARS["throne-room"].ctaLabel}
           variant={PILLARS["throne-room"].variant}
         />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="counsel">
-        <CounselPreview />
       </FloatingSectionFrame>
 
       <FloatingSectionFrame preset="close">

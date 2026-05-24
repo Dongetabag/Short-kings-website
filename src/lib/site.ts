@@ -18,13 +18,13 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Dating", href: "/dating" },
-  { label: "Lifestyle", href: "/lifestyle" },
-  { label: "Gym", href: "/gym" },
-  { label: "Style", href: "/throne-room" },
-  { label: "Reviews", href: "/testimonials" },
-  { label: "Journal", href: "/journal" },
   { label: "Products", href: "/products" },
+  { label: "Reviews", href: "/testimonials" },
+  { label: "Dating", href: "/dating" },
+  { label: "Gym", href: "/gym" },
+  { label: "Lifestyle", href: "/lifestyle" },
+  { label: "Style", href: "/throne-room" },
+  { label: "Journal", href: "/journal" },
 ] as const;
 
 export const PORTAL_NAV = [

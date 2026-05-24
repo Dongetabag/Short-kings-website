@@ -4,12 +4,14 @@ import {
   Dumbbell,
   CalendarDays,
   MessageSquare,
+  Sparkles,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   BUNDLE,
   COACHING,
+  COUNSEL_AI,
   GYM_NUTRITION_PLAN,
   TRANSFORMATION_3MO,
 } from "@/lib/site";
@@ -43,6 +45,8 @@ export function RoyalArsenal() {
   const coachingHref =
     resolvePaymentLink("STRIPE_PAYMENT_LINK_MONTHLY_COACHING") ??
     "/products#monthly-coaching";
+  const counselHref =
+    resolvePaymentLink(COUNSEL_AI.paymentLinkEnvKey) ?? "/products#counsel";
 
   const items: Item[] = [
     {
@@ -67,6 +71,17 @@ export function RoyalArsenal() {
       priceNote: GYM_NUTRITION_PLAN.cadence,
       href: gymHref,
       cta: "Get Built Different",
+    },
+    {
+      badge: "Always-on AI",
+      badgeTone: "gold",
+      icon: Sparkles,
+      title: COUNSEL_AI.title,
+      description: COUNSEL_AI.description,
+      price: `$${COUNSEL_AI.priceUsd}`,
+      priceNote: `${COUNSEL_AI.cadence} · First ${COUNSEL_AI.trialDays} days free`,
+      href: counselHref,
+      cta: "Try Counsel",
     },
     {
       badge: "Program",
