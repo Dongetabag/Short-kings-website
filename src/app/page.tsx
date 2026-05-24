@@ -8,6 +8,7 @@ import { RoyalCourt } from "@/components/sections/RoyalCourt";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FloatingSectionFrame } from "@/components/ui/FloatingSectionFrame";
 import {
+  DATING_TILES,
   LIFESTYLE_TILES,
   GYM_TILES,
   THRONE_TILES,
@@ -41,6 +42,20 @@ export default function Home() {
 
       <FloatingSectionFrame preset="proof">
         <RoyalCourt />
+      </FloatingSectionFrame>
+
+      <FloatingSectionFrame preset="media">
+        <MediaGrid
+          id="dating"
+          eyebrow={PILLARS.dating.homeEyebrow}
+          titleTop={PILLARS.dating.homeTitleTop}
+          titleHighlight={PILLARS.dating.homeTitleHighlight}
+          subtitle={PILLARS.dating.homeSubtitle}
+          tiles={DATING_TILES}
+          maxTiles={HOME_TILE_CAP}
+          fullPageHref={PILLARS.dating.href}
+          fullPageLabel={PILLARS.dating.ctaLabel}
+        />
       </FloatingSectionFrame>
 
       <FloatingSectionFrame preset="media">
