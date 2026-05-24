@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   Crown,
-  BookOpen,
   Dumbbell,
   CalendarDays,
   MessageSquare,
@@ -14,7 +13,7 @@ import {
   GYM_NUTRITION_PLAN,
   TRANSFORMATION_3MO,
 } from "@/lib/site";
-import { EBOOKS, resolvePaymentLink } from "@/lib/products";
+import { resolvePaymentLink } from "@/lib/products";
 
 type Item = {
   badge: string;
@@ -89,7 +88,8 @@ export function RoyalArsenal() {
       price: `$${COACHING.priceUsd}`,
       priceNote: COACHING.cadence,
       href: coachingHref,
-      cta: "Start coaching",    },
+      cta: "Start coaching",
+    },
   ];
 
   return (
@@ -100,7 +100,7 @@ export function RoyalArsenal() {
             eyebrow="Products"
             titleTop="The full"
             titleHighlight="product suite."
-            subtitle="Seven ebooks at $12 each. Built Different for $47. Bundles and coaching when you want the full system done with you."
+            subtitle="Bundles, Built Different, and coaching. Individual ebooks live on the full product list."
           />
         </Reveal>
 
@@ -117,37 +117,13 @@ export function RoyalArsenal() {
         </div>
 
         <Reveal>
-          <div className="mt-14">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                eyebrow="Ebooks"
-                titleTop="Seven playbooks."
-                titleHighlight="$12 each."
-                subtitle="She Replied, Now What through Swipe Right on Yourself. Or grab all seven inside the Complete Playbook."
-              />
-              <Link
-                href="/products#ebooks"
-                className="inline-flex h-11 items-center rounded-md border border-gold/40 px-5 text-xs font-semibold uppercase tracking-[0.18em] text-white hover:border-gold"
-              >
-                View all products
-              </Link>
-            </div>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {EBOOKS.map((book, i) => (
-                <Reveal key={book.id} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
-                  <article className="h-full rounded-xl border border-white/10 bg-stone/40 p-5">
-                    <BookOpen className="h-5 w-5 text-gold" />
-                    <h3 className="mt-3 font-royal text-base font-bold text-white">
-                      {book.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/60">{book.tagline}</p>
-                    <p className="mt-4 font-royal text-xl font-black text-gold">
-                      ${book.priceUsd}
-                    </p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/products#ebooks"
+              className="inline-flex h-11 items-center rounded-md border border-gold/40 px-6 text-xs font-semibold uppercase tracking-[0.18em] text-white hover:border-gold hover:bg-white/[0.04]"
+            >
+              View full product list
+            </Link>
           </div>
         </Reveal>
       </div>
