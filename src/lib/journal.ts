@@ -14,7 +14,7 @@ export const POSTS: JournalPost[] = [
     slug: "the-first-ten-seconds",
     title: "The First Ten Seconds Decide the Date",
     excerpt:
-      "Posture. Pace. Eye contact. Voice tempo. The opening checklist most men skip and the one Sir Alex runs every time.",
+      "Posture. Pace. Eye contact. Voice tempo. The opening checklist most men skip and the one Alex runs every time.",
     category: "Dating",
     readMinutes: 4,
     publishedAt: "2026-04-22",
@@ -44,13 +44,13 @@ export const POSTS: JournalPost[] = [
     publishedAt: "2026-04-08",
     cover: "/media/lifestyle/alex-portrait-1.jpg",
     body:
-      "The test is not about height. The test is about whether you flinch. The Empire's response holds the frame, returns the question, and gives her a real choice. Defending your inches is the trap. Walk straight past it.",
+      "The test is not about height. The test is about whether you flinch. The system's response holds the frame, returns the question, and gives her a real choice. Defending your inches is the trap. Walk straight past it.",
   },
   {
     slug: "compound-lifts-for-short-frames",
-    title: "Compound Lifts for the King's Frame",
+    title: "Compound Lifts for the Short Frame",
     excerpt:
-      "Why short kings build visual mass faster than tall lifters and the four lifts that maximize the advantage.",
+      "Why short men build visual mass faster than tall lifters and the four lifts that maximize the advantage.",
     category: "Fitness",
     readMinutes: 6,
     publishedAt: "2026-04-01",

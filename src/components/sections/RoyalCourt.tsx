@@ -14,16 +14,16 @@ export function RoyalCourt() {
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
-              eyebrow="The Royal Court"
-              titleTop="Testimonies from"
-              titleHighlight="Crowned Kings"
-              subtitle="Real men. Real heights. Real outcomes. The Empire's voice is the voice of the Court."
+              eyebrow="Reviews"
+              titleTop="Real men."
+              titleHighlight="Real results."
+              subtitle="What members are saying after running the system. Names, heights, and outcomes preserved."
             />
             <Link
               href="/testimonials"
               className="group inline-flex items-center gap-2 self-start rounded-md border border-gold/40 bg-white/[0.04] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:border-gold hover:bg-white/[0.08] sm:self-end"
             >
-              Read every testimony
+              Read every review
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -63,7 +63,7 @@ export function RoyalCourt() {
         </div>
 
         <p className="mt-8 text-center text-[10px] uppercase tracking-[0.22em] text-white/30">
-          Names and outcomes preserved. Headshots replace the gradient ring as Kings opt in.
+          Names and outcomes preserved. Headshots replace the gradient ring as members opt in.
         </p>
       </div>
     </section>

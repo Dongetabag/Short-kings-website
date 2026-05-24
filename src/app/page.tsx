@@ -19,7 +19,7 @@ import {
  * Funnel order (attention → third-party proof → pain → product preview →
  * social proof → offer → differentiation → close). Mirrors Eleven Views pacing.
  *
- * Each pillar shows 4 tiles on the homepage and links to its full Realm page.
+ * Each pillar shows 4 tiles on the homepage and links to its full pillar page.
  */
 const HOME_TILE_CAP = 4;
 

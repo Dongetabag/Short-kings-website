@@ -3,11 +3,11 @@ export type Testimonial = {
   name: string;
   height: string;
   city: string;
-  /** Empire title we award. */
+  /** Short tag we surface on the testimonial card. */
   title: string;
-  /** Days since the buyer joined the Empire. */
+  /** Days since the buyer joined. */
   daysIn: number;
-  product: "Empire Bundle" | "Counsel AI" | "Royal Counsel";
+  product: "The Full Library" | "Counsel AI" | "1-on-1 Coaching";
   quote: string;
   /** Single-letter monogram for the gradient avatar. Real photos land later. */
   initial: string;
@@ -21,12 +21,12 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "marcus-t",
-    name: "Sir Marcus T.",
+    name: "Marcus T.",
     height: "5'6",
     city: "Los Angeles, CA",
-    title: "Knight of the Approach",
+    title: "Approach work",
     daysIn: 92,
-    product: "Empire Bundle",
+    product: "The Full Library",
     quote:
       "Three dates in week one with women I would have called out of my league. The Approach Blueprint did not change my height. It changed the first ten seconds.",
     initial: "M",
@@ -34,12 +34,12 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "james-r",
-    name: "Lord James R.",
+    name: "James R.",
     height: "5'5",
     city: "Austin, TX",
-    title: "Lord of the Frame",
+    title: "Frame + mindset",
     daysIn: 184,
-    product: "Empire Bundle",
+    product: "The Full Library",
     quote:
       "Six months in, my profile gets four times the matches and the conversations actually go somewhere. Unshakeable was the chapter that flipped the switch.",
     initial: "J",
@@ -47,51 +47,51 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "david-k",
-    name: "Baron David K.",
+    name: "David K.",
     height: "5'7",
     city: "Chicago, IL",
-    title: "Baron of the Counsel",
+    title: "AI advisor",
     daysIn: 41,
-    product: "Royal Counsel",
+    product: "1-on-1 Coaching",
     quote:
-      "I asked the Counsel for a text reply at 11pm on a Saturday. Got a frame, a question, and a plan. Tuesday I was on a date. The AI is the unfair advantage.",
+      "I asked Counsel for a text reply at 11pm on a Saturday. Got a frame, a question, and a plan. Tuesday I was on a date. The AI is the unfair advantage.",
     initial: "D",
     rating: 5,
   },
   {
     id: "ryan-s",
-    name: "Sir Ryan S.",
+    name: "Ryan S.",
     height: "5'8",
     city: "Brooklyn, NY",
-    title: "Knight of the Frame",
+    title: "AI advisor",
     daysIn: 67,
     product: "Counsel AI",
     quote:
-      "I ran the Counsel for a month before I bought the bundle. The AI alone reframed three situations I was about to fumble. Then I got the books and the rest of the system clicked.",
+      "I ran Counsel for a month before I bought the bundle. The AI alone reframed three situations I was about to fumble. Then I got the books and the rest of the system clicked.",
     initial: "R",
     rating: 5,
   },
   {
     id: "tony-l",
-    name: "Sir Tony L.",
+    name: "Tony L.",
     height: "5'4",
     city: "Miami, FL",
-    title: "Knight of the Throne Room",
+    title: "Style work",
     daysIn: 121,
-    product: "Empire Bundle",
+    product: "The Full Library",
     quote:
-      "Style Guide alone earned the bundle back in a week. Tailoring my existing closet to the inseam math added two visual inches and zero dollars.",
+      "The style chapter alone earned the bundle back in a week. Tailoring my existing closet to the inseam math added two visual inches and zero dollars.",
     initial: "T",
     rating: 5,
   },
   {
     id: "alex-b",
-    name: "Sir Alex B.",
+    name: "Alex B.",
     height: "5'6",
     city: "Seattle, WA",
-    title: "Knight of the Empire",
+    title: "Mindset reset",
     daysIn: 58,
-    product: "Empire Bundle",
+    product: "The Full Library",
     quote:
       "The frame work hit different than every PUA channel I had seen. Less acting, more identity. I stopped feeling like I was performing on dates.",
     initial: "A",

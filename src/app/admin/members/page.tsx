@@ -8,10 +8,10 @@ export default async function MembersPage() {
   return (
     <div className="mx-auto max-w-6xl">
       <SectionHeader
-        eyebrow="The Royal Court"
+        eyebrow="Members"
         titleTop="Members"
         titleHighlight={`(${members.length})`}
-        subtitle="Every King in the Empire. Click a row in Phase 2 to view their session history."
+        subtitle="Every member, with entitlements and LTV. Click a row in Phase 2 to view their session history."
       />
 
       <div className="mt-10 overflow-hidden rounded-xl border border-white/10 bg-stone/40">

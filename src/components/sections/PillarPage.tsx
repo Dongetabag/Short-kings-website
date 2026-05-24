@@ -48,13 +48,13 @@ export function PillarPage({ pillar, tiles }: Props) {
                 href="/products#bundle"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-6 font-semibold text-black hover:bg-goldLight"
               >
-                <Crown className="h-4 w-4" /> Take the Full Doctrine
+                <Crown className="h-4 w-4" /> Get the full system
               </Link>
               <Link
                 href="/portal/counsel"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white hover:bg-white/[0.08]"
               >
-                <Sparkles className="h-4 w-4" /> Ask the Counsel
+                <Sparkles className="h-4 w-4" /> Ask Counsel
               </Link>
             </div>
           </Reveal>
@@ -65,7 +65,7 @@ export function PillarPage({ pillar, tiles }: Props) {
         id={pillar.slug}
         eyebrow={`${pillar.pageEyebrow} · The Reels`}
         titleTop="Watch"
-        titleHighlight="The Doctrine"
+        titleHighlight="the lessons."
         subtitle="Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
         tiles={tiles}
         variant={pillar.variant}
@@ -75,9 +75,9 @@ export function PillarPage({ pillar, tiles }: Props) {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <SectionHeader
-              eyebrow="Doctrine"
+              eyebrow="Lessons"
               titleTop="Inside"
-              titleHighlight="The Realm"
+              titleHighlight="this pillar."
               subtitle="The chapters of this pillar, distilled. Read the principle. Train the rep."
             />
           </Reveal>
@@ -109,10 +109,10 @@ export function PillarPage({ pillar, tiles }: Props) {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <SectionHeader
-              eyebrow="Cross the Empire"
-              titleTop="The Other"
-              titleHighlight="Realms"
-              subtitle="The pillars are connected. One Realm strengthens the next."
+              eyebrow="Cross-train"
+              titleTop="The other"
+              titleHighlight="pillars."
+              subtitle="The four pillars are connected. One reinforces the next."
             />
           </Reveal>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

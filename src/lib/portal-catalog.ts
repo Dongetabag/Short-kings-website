@@ -29,7 +29,7 @@ export type CatalogItem = {
   entitlement:
     | "bundle"
     | "counsel-ai"
-    | "royal-counsel"
+    | "coaching"
     | "fitness-library"
     | "free";
 };
@@ -57,12 +57,12 @@ const PILLAR_ICONS: Record<string, ComponentType<{ className?: string }>> = {
 
 export const CATALOG: CatalogSection[] = [
   {
-    slug: "doctrine",
-    title: "The Four Doctrines",
+    slug: "pillars",
+    title: "The Four Pillars",
     blurb:
-      "Every Realm of the Empire as a course. Reels, chapters, and rituals. Train one a week, run all four together.",
+      "Every pillar of the system as a course. Reels, chapters, and rituals. Train one a week, run all four together.",
     items: Object.values(PILLARS).map((p) => ({
-      id: `realm-${p.slug}`,
+      id: `pillar-${p.slug}`,
       title: `${p.pageTitleTop} ${p.pageTitleHighlight}`,
       subtitle: p.pageSubtitle,
       type: "video-course",
@@ -79,9 +79,9 @@ export const CATALOG: CatalogSection[] = [
   },
   {
     slug: "playbooks",
-    title: "Dating Playbooks",
+    title: "Dating Ebooks",
     blurb:
-      "The five written manuscripts that ship with the Empire Bundle. Read sequentially or jump to your situation.",
+      "The five written ebooks that ship with The Full Library. Read sequentially or jump to your situation.",
     items: EBOOKS.map((p, idx) => ({
       id: p.id,
       title: p.title,
@@ -99,13 +99,13 @@ export const CATALOG: CatalogSection[] = [
     slug: "counsel",
     title: "King's Counsel",
     blurb:
-      "Your AI advisor. Trained on every doctrine. Always on, always sovereign.",
+      "Your AI advisor. Trained on every pillar. Always on.",
     items: [
       {
         id: "counsel-ai",
         title: "King's Counsel AI",
         subtitle:
-          "Ask it texts, profile audits, first-date plans, mindset reframes. Stays in your portal forever.",
+          "Ask it texts, profile audits, first-date plans, mindset reframes. Stays in your portal.",
         type: "ai",
         icon: Sparkles,
         href: "/portal/counsel",
@@ -115,17 +115,17 @@ export const CATALOG: CatalogSection[] = [
         entitlement: "counsel-ai",
       },
       {
-        id: "royal-counsel",
-        title: "1-on-1 Royal Counsel",
+        id: "coaching-1on1",
+        title: "1-on-1 Coaching",
         subtitle:
-          "Forty-five minutes with the Empire. Bring the situation. Leave with a written game plan.",
+          "Forty-five minutes, direct. Bring the situation. Leave with a written game plan.",
         type: "coaching",
         icon: Crown,
         href: "/portal/calendar",
         cover: "/media/lifestyle/axel-lifestyle-1.jpg",
-        meta: ["45 min", "Calendly", "$150/audience"],
+        meta: ["45 min", "Calendly", "$150/session"],
         progress: 0,
-        entitlement: "royal-counsel",
+        entitlement: "coaching",
       },
     ],
   },
@@ -133,7 +133,7 @@ export const CATALOG: CatalogSection[] = [
     slug: "fitness",
     title: "Fitness Library",
     blurb:
-      "Five free programs from the Royal Treasury. Pick a split and run it for six weeks.",
+      "Five free programs from the SKE library. Pick a split and run it for six weeks.",
     items: FITNESS_PROGRAMS.map((p, idx) => ({
       id: p.id,
       title: p.title,

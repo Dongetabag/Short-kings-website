@@ -1,8 +1,23 @@
 import Link from "next/link";
-import { Crown, Sparkles, Sword, Shirt, MessageSquare, Calendar } from "lucide-react";
+import {
+  Crown,
+  Sparkles,
+  BookOpen,
+  Dumbbell,
+  MessageSquare,
+  Calendar,
+  CalendarDays,
+} from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { BUNDLE, COUNSEL_AI, COACHING, SITE } from "@/lib/site";
+import {
+  BUNDLE,
+  COUNSEL_AI,
+  COACHING,
+  COACHING_3_MONTH,
+  GYM_NUTRITION_PLAN,
+  SITE,
+} from "@/lib/site";
 import { resolvePaymentLink } from "@/lib/products";
 
 type Item = {
@@ -18,58 +33,58 @@ type Item = {
   featured?: boolean;
 };
 
+const formatPrice = (priceUsd: number) =>
+  priceUsd > 0 ? `$${priceUsd}` : "Pricing soon";
+
 export function RoyalArsenal() {
   const bundleHref =
     resolvePaymentLink(BUNDLE.paymentLinkEnvKey) ?? "/products#bundle";
   const counselHref =
     resolvePaymentLink(COUNSEL_AI.paymentLinkEnvKey) ?? "/portal/counsel";
+  const gymPlanHref =
+    resolvePaymentLink(GYM_NUTRITION_PLAN.paymentLinkEnvKey) ??
+    "/products#gym-nutrition-plan";
+  const coaching3moHref =
+    resolvePaymentLink(COACHING_3_MONTH.paymentLinkEnvKey) ??
+    "/products#coaching-3-month";
 
   const items: Item[] = [
     {
-      badge: "King's Collection",
+      badge: "Bundle",
       badgeTone: "gold",
       icon: Crown,
       title: BUNDLE.title,
-      description:
-        "All five dating playbooks. Free month of King's Counsel. The fastest path between where you stand and where the throne sits.",
+      description: BUNDLE.description,
       price: `$${BUNDLE.priceUsd}`,
       priceNote: `Was $${BUNDLE.originalPriceUsd}. ${BUNDLE.saveLabel}.`,
       href: bundleHref,
-      cta: "Claim the Crown",
+      cta: "Get the bundle",
       featured: true,
     },
     {
-      badge: "Royal Decree",
+      badge: "Ebook",
       badgeTone: "gold",
-      icon: Sword,
+      icon: BookOpen,
       title: "The Approach Blueprint",
-      description: "Walk up like you belong there. Openers that work in daylight, in clubs, online.",
+      description:
+        "Walk up like you belong there. Openers that work in daylight, in clubs, online.",
       price: "$20",
       href: "/products#approach-blueprint",
-      cta: "Obtain Manuscript",
+      cta: "View ebook",
     },
     {
-      badge: "Royal Attire",
-      badgeTone: "gold",
-      icon: Shirt,
-      title: "Royal Style Guide",
-      description: "Cuts, proportions, and the inseam math that adds two visual inches without lifts.",
-      price: "$20",
-      href: "/products#conversation-mastery",
-      cta: "Obtain Manuscript",
-    },
-    {
-      badge: "Royal Speech",
+      badge: "Ebook",
       badgeTone: "gold",
       icon: MessageSquare,
       title: "Conversation Mastery",
-      description: "Pacing, presence, and the storytelling drills that make you the voice the room leans toward.",
+      description:
+        "Pacing, presence, and storytelling drills that make you the voice the room leans toward.",
       price: "$20",
       href: "/products#conversation-mastery",
-      cta: "Obtain Manuscript",
+      cta: "View ebook",
     },
     {
-      badge: "Royal Advisor",
+      badge: "Always-on AI",
       badgeTone: "gold",
       icon: Sparkles,
       title: COUNSEL_AI.title,
@@ -77,10 +92,10 @@ export function RoyalArsenal() {
       price: `$${COUNSEL_AI.priceUsd}`,
       priceNote: `${COUNSEL_AI.cadence} • First ${COUNSEL_AI.trialDays} days free`,
       href: counselHref,
-      cta: "Summon the Counsel",
+      cta: "Try Counsel",
     },
     {
-      badge: "Private Audience",
+      badge: "1-on-1",
       badgeTone: "ruby",
       icon: Calendar,
       title: COACHING.title,
@@ -88,7 +103,29 @@ export function RoyalArsenal() {
       price: `$${COACHING.priceUsd}`,
       priceNote: COACHING.cadence,
       href: SITE.coaching.calendly,
-      cta: "Request Audience",
+      cta: "Book coaching",
+    },
+    {
+      badge: "Plan",
+      badgeTone: "gold",
+      icon: Dumbbell,
+      title: GYM_NUTRITION_PLAN.title,
+      description: GYM_NUTRITION_PLAN.description,
+      price: formatPrice(GYM_NUTRITION_PLAN.priceUsd),
+      priceNote: GYM_NUTRITION_PLAN.cadence,
+      href: gymPlanHref,
+      cta: "View plan",
+    },
+    {
+      badge: "Program",
+      badgeTone: "ruby",
+      icon: CalendarDays,
+      title: COACHING_3_MONTH.title,
+      description: COACHING_3_MONTH.description,
+      price: formatPrice(COACHING_3_MONTH.priceUsd),
+      priceNote: COACHING_3_MONTH.cadence,
+      href: coaching3moHref,
+      cta: "View program",
     },
   ];
 
@@ -97,10 +134,10 @@ export function RoyalArsenal() {
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeader
-            eyebrow="The Royal Arsenal"
-            titleTop="Weapons for"
-            titleHighlight="Total Domination"
-            subtitle="Six instruments. One outcome. Pick the path. The Empire arms you for what's next."
+            eyebrow="Products"
+            titleTop="Pick the offer that"
+            titleHighlight="fits your stage."
+            subtitle="One bundle. Five ebooks. An always-on AI advisor. A fitness program. And direct coaching when you want the fastest path."
           />
         </Reveal>
 
@@ -111,7 +148,7 @@ export function RoyalArsenal() {
               stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}
               className={item.featured ? "lg:col-span-3" : ""}
             >
-              <ArsenalCard item={item} />
+              <ProductCard item={item} />
             </Reveal>
           ))}
         </div>
@@ -120,7 +157,7 @@ export function RoyalArsenal() {
   );
 }
 
-function ArsenalCard({ item }: { item: Item }) {
+function ProductCard({ item }: { item: Item }) {
   const Icon = item.icon;
   const featuredCls = item.featured
     ? "border-gold/50 bg-stone/70 shadow-[0_0_60px_rgba(212,175,55,0.12)] glow-pulse"
@@ -168,7 +205,11 @@ function ArsenalCard({ item }: { item: Item }) {
 
       <div className="mt-6 flex items-end justify-between gap-4">
         <div>
-          <p className={`font-royal font-black text-gold ${item.featured ? "text-5xl" : "text-3xl"}`}>
+          <p
+            className={`font-royal font-black text-gold ${
+              item.featured ? "text-5xl" : "text-3xl"
+            }`}
+          >
             {item.price}
           </p>
           {item.priceNote ? (

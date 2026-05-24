@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export const metadata = { title: "Content · Admin" };
 
-const REALM_ROWS = [
+const PILLAR_ROWS = [
   { meta: PILLARS.dating, tiles: DATING_TILES },
   { meta: PILLARS.lifestyle, tiles: LIFESTYLE_TILES },
   { meta: PILLARS.gym, tiles: GYM_TILES },
@@ -25,10 +25,10 @@ export default function ContentPage() {
   return (
     <div className="mx-auto max-w-6xl">
       <SectionHeader
-        eyebrow="The Royal Library"
+        eyebrow="Content"
         titleTop="Content"
         titleHighlight="Management."
-        subtitle="Every public Realm, ebook, fitness program, testimony, and journal post in one place. Phase 2 backs each row with a database. For now this is a live read of the source files."
+        subtitle="Every public pillar, ebook, fitness program, review, and journal post in one place. Phase 2 backs each row with a database. For now this is a live read of the source files."
       />
 
       {/* Quick actions */}
@@ -39,14 +39,14 @@ export default function ContentPage() {
         <Action icon={Edit3} label="New Journal" />
       </div>
 
-      {/* Realms */}
+      {/* Pillars */}
       <section className="mt-14">
         <header className="flex items-end justify-between gap-4">
           <div>
-            <p className="eyebrow">The Four Realms</p>
+            <p className="eyebrow">The Four Pillars</p>
             <p className="mt-1 text-sm text-white/55">
-              Each Realm is a public page plus a media set. Click "View" to open
-              the live page in a new tab.
+              Each pillar is a public page plus a media set. Click &quot;View&quot; to
+              open the live page in a new tab.
             </p>
           </div>
         </header>
@@ -54,7 +54,7 @@ export default function ContentPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.03] text-left text-[11px] uppercase tracking-[0.18em] text-white/45">
-                <th className="px-5 py-3">Realm</th>
+                <th className="px-5 py-3">Pillar</th>
                 <th className="px-5 py-3">Slug</th>
                 <th className="px-5 py-3 text-right">Reels</th>
                 <th className="px-5 py-3 text-right">Stills</th>
@@ -63,7 +63,7 @@ export default function ContentPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/10">
-              {REALM_ROWS.map(({ meta, tiles }) => {
+              {PILLAR_ROWS.map(({ meta, tiles }) => {
                 const reels = tiles.filter((t) => t.type === "video").length;
                 const stills = tiles.filter((t) => t.type === "image").length;
                 return (
@@ -102,8 +102,8 @@ export default function ContentPage() {
         <header>
           <p className="eyebrow">Ebooks ({EBOOKS.length})</p>
           <p className="mt-1 text-sm text-white/55">
-            Five playbooks shipping inside the Empire Bundle. Twenty dollars each
-            á la carte.
+            Five ebooks shipping inside The Full Library. Twenty dollars each à
+            la carte.
           </p>
         </header>
         <div className="mt-6 grid gap-3">
@@ -125,7 +125,7 @@ export default function ContentPage() {
         <header>
           <p className="eyebrow">Fitness Programs ({FITNESS_PROGRAMS.length})</p>
           <p className="mt-1 text-sm text-white/55">
-            Free programs from the Royal Treasury. Lead magnet plus bundle bonus.
+            Free programs from the SKE library. Lead magnet plus bundle bonus.
           </p>
         </header>
         <div className="mt-6 grid gap-3">
@@ -145,10 +145,10 @@ export default function ContentPage() {
       {/* Testimonials */}
       <section className="mt-14">
         <header>
-          <p className="eyebrow">Royal Court ({TESTIMONIALS.length})</p>
+          <p className="eyebrow">Reviews ({TESTIMONIALS.length})</p>
           <p className="mt-1 text-sm text-white/55">
-            Voices on the public testimonies page. Real headshots replace
-            placeholder gradients as Kings opt in.
+            Voices on the public reviews page. Real headshots replace
+            placeholder gradients as members opt in.
           </p>
         </header>
         <div className="mt-6 grid gap-3">

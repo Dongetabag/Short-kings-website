@@ -27,23 +27,23 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
-            <p className="eyebrow">The Vault</p>
+            <p className="eyebrow">Products</p>
             <Link href="/products#bundle" className="text-white/65 hover:text-white">
-              The Empire Bundle
+              The Full Library
             </Link>
             <Link href="/products#ebooks" className="text-white/65 hover:text-white">
-              Dating Playbooks
+              Dating Ebooks
             </Link>
             <Link href="/products#counsel" className="text-white/65 hover:text-white">
               King&apos;s Counsel AI
             </Link>
             <Link href="/products#coaching" className="text-white/65 hover:text-white">
-              Royal Counsel
+              1-on-1 Coaching
             </Link>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
-            <p className="eyebrow">The Empire</p>
+            <p className="eyebrow">Explore</p>
             <Link href="/gallery" className="text-white/65 hover:text-white">
               Gallery
             </Link>
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
-            <p className="eyebrow">Follow the Empire</p>
+            <p className="eyebrow">Follow</p>
             <div className="flex gap-3">
               <a
                 href={SITE.social.instagram}
@@ -93,7 +93,7 @@ export function Footer() {
               </a>
             </div>
             <p className="mt-2 text-xs text-white/40">
-              {SITE.communitySize} Kings crowned. The Empire grows.
+              {SITE.communitySize} men in the system.
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ export function Footer() {
         <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
           <p className="font-royal tracking-[0.2em] text-gold/70">
-            CROWN YOUR CONFIDENCE. RULE YOUR DOMAIN.
+            DATING ISN&apos;T RANDOM. IT&apos;S A SYSTEM.
           </p>
         </div>
       </div>

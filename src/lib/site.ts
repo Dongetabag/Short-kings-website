@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Short Kings Empire",
-  tagline: "Crown your confidence. Rule your domain.",
+  tagline: "Dating isn't random. It's a system you can learn.",
   description:
-    "Where kings rise to rule. Dating playbooks, fitness programs, and the mindset to move like royalty. Your height is your story. It will not be your limitation.",
+    "Playbooks, fitness programs, and direct coaching for men who refuse to wait their turn.",
   url: "https://shortkingsempire.com",
   social: {
     instagram: "https://instagram.com/shortkingsempire",
@@ -22,15 +22,15 @@ export const NAV_LINKS = [
   { label: "Dating", href: "/dating" },
   { label: "Lifestyle", href: "/lifestyle" },
   { label: "Gym", href: "/gym" },
-  { label: "Throne Room", href: "/throne-room" },
-  { label: "Court", href: "/testimonials" },
+  { label: "Style", href: "/throne-room" },
+  { label: "Reviews", href: "/testimonials" },
   { label: "Journal", href: "/journal" },
-  { label: "Arsenal", href: "/products" },
+  { label: "Products", href: "/products" },
 ] as const;
 
 export const PORTAL_NAV = [
   { label: "Dashboard", href: "/portal" },
-  { label: "The Vault", href: "/portal/library" },
+  { label: "Library", href: "/portal/library" },
   { label: "King's Counsel", href: "/portal/counsel" },
   { label: "Calendar", href: "/portal/calendar" },
   { label: "Account", href: "/portal/account" },
@@ -48,11 +48,11 @@ export const ADMIN_NAV = [
 ] as const;
 
 export const BUNDLE = {
-  id: "empire-bundle",
-  title: "The Empire Bundle",
-  eyebrow: "The Full Arsenal",
+  id: "full-library",
+  title: "The Full Library",
+  eyebrow: "Bundle",
   description:
-    "All five dating playbooks plus a free month of King's Counsel AI. The complete toolkit. Instant download.",
+    "All 5 ebooks plus lifetime access to the King's Counsel AI. Everything you need to install the system.",
   priceUsd: 60,
   originalPriceUsd: 100,
   saveLabel: "Save $40",
@@ -60,32 +60,52 @@ export const BUNDLE = {
     "All 5 dating ebooks ($20 each)",
     "King's Counsel AI — first month free",
     "Free SKE fitness library",
-    "Lifetime updates on every playbook",
+    "Lifetime updates on every ebook",
     "Instant digital delivery",
   ],
-  // Stripe payment-link URL — set via STRIPE_PAYMENT_LINK_BUNDLE env var.
-  // When unset, CTA degrades to "Setup pending".
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUNDLE",
 } as const;
 
 export const COUNSEL_AI = {
   id: "counsel-ai",
   title: "King's Counsel AI",
-  eyebrow: "Royal Advisor, On Call",
+  eyebrow: "Always-on advisor",
   description:
-    "Trained on the Empire's frameworks. Ask it anything — texts, profiles, first-date plans, mindset reframes. Lives in your portal forever.",
+    "Trained on the Short Kings system. Ask it anything — texts, profiles, first-date plans, mindset reframes. Lives in your portal.",
   priceUsd: 15,
-  cadence: "/moon cycle",
+  cadence: "/month",
   trialDays: 7,
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COUNSEL",
 } as const;
 
 export const COACHING = {
-  id: "royal-counsel",
-  title: "1-on-1 Royal Counsel",
-  eyebrow: "Private Audience",
+  id: "coaching-1on1",
+  title: "1-on-1 Coaching",
+  eyebrow: "1-on-1",
   description:
     "Direct access. Forty-five minutes. We map your situation, build your next move, and you leave with a written game plan.",
   priceUsd: 150,
-  cadence: "/audience",
+  cadence: "/session",
+} as const;
+
+export const GYM_NUTRITION_PLAN = {
+  id: "gym-nutrition-plan",
+  title: "Gym & Nutrition Plan",
+  eyebrow: "Plan",
+  description:
+    "A structured training and nutrition program built for short frames. Compound lifts, macros, weekly check-ins.",
+  priceUsd: 0, // PENDING: owner to confirm price
+  cadence: "/program",
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_GYM_NUTRITION",
+} as const;
+
+export const COACHING_3_MONTH = {
+  id: "coaching-3-month",
+  title: "3-Month Coaching",
+  eyebrow: "Program",
+  description:
+    "Three months of guided work: weekly calls, async access between sessions, every ebook and program included.",
+  priceUsd: 0, // PENDING: owner to confirm price
+  cadence: "/3 months",
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COACHING_3MO",
 } as const;

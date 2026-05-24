@@ -21,7 +21,7 @@ const SECTIONS = [
     assets: "Text-only section (icons from Lucide)",
   },
   {
-    name: "The Royal Challenge (pain)",
+    name: "The Challenge (pain)",
     route: "/#challenge",
     job: "Name four walls (apps, confidence, style, dynamics) so the visitor feels understood before the solution.",
     copyNotes:
@@ -38,7 +38,7 @@ const SECTIONS = [
       "/media/dating/*, /media/lifestyle/*, /media/gym/*, /media/throne-room/* (mirrors shortkings-empire/media)",
   },
   {
-    name: "Royal Court (social proof)",
+    name: "Reviews (social proof)",
     route: "/#testimonials",
     job: "Peer proof after they have seen the product surface. Photos from /media/testimonials when available.",
     copyNotes:
@@ -46,7 +46,7 @@ const SECTIONS = [
     assets: "/media/testimonials/testimonial-*.jpg",
   },
   {
-    name: "Royal Arsenal (offer)",
+    name: "Products (offer)",
     route: "/#products",
     job: "First hard merchandising: bundle as hero card, then singles, Counsel AI, then high-ticket Calendly.",
     copyNotes:
@@ -64,14 +64,14 @@ const SECTIONS = [
   {
     name: "Final CTA",
     route: "/ (footer zone)",
-    job: "Binary choice: enter arsenal or meet Counsel. No new information, only commitment.",
+    job: "Binary choice: get the bundle or try Counsel. No new information, only commitment.",
     copyNotes: "Crown icon, gold gradient headline, two buttons max.",
     assets: "Crown mask / Lucide",
   },
   {
     name: "Gallery (full archive)",
     route: "/gallery",
-    job: "Every synced asset under public/media plus pillar tiles. Filters: realm, photos, videos, archive, court, reels.",
+    job: "Every synced asset under public/media plus pillar tiles. Filters: pillar, photos, videos, archive, reviews, reels.",
     copyNotes:
       "Regenerate src/lib/media-catalog.json after adding files: npm run media:catalog",
     assets: "126+ files after sync from shortkings-empire/media",

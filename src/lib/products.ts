@@ -1,4 +1,4 @@
-export type ProductKind = "ebook" | "fitness" | "subscription" | "coaching" | "bundle";
+export type ProductKind = "ebook" | "fitness" | "subscription" | "coaching" | "plan" | "bundle";
 
 export type Product = {
   id: string;
@@ -19,7 +19,7 @@ export const EBOOKS: Product[] = [
     title: "The Approach Blueprint",
     tagline: "Walk up like you belong there.",
     description:
-      "The opener framework Sir Alex used to go from talking himself out of every introduction to closing in under sixty seconds. Bars, gyms, daytime, online.",
+      "The opener framework Alex used to go from talking himself out of every introduction to closing in under sixty seconds. Bars, gyms, daytime, online.",
     priceUsd: 20,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_APPROACH",
     file: {
@@ -73,7 +73,7 @@ export const EBOOKS: Product[] = [
     id: "unshakeable",
     kind: "ebook",
     title: "Unshakeable",
-    tagline: "Unbothered energy. King mindset.",
+    tagline: "Unbothered energy. Trainable frame.",
     description:
       "Frame, abundance, and the daily reps that make rejection feel like weather. The mindset chapter every other ebook references.",
     priceUsd: 20,
@@ -82,6 +82,45 @@ export const EBOOKS: Product[] = [
       href: "/products/ebooks/unshakeable_final.pdf",
       filename: "unshakeable_final.pdf",
     },
+  },
+];
+
+export const COACHING_PRODUCTS: Product[] = [
+  {
+    id: "coaching-1on1",
+    kind: "coaching",
+    title: "1-on-1 Coaching",
+    tagline: "Direct access. Forty-five minutes.",
+    description:
+      "We map your situation, build your next move, and you leave with a written game plan. Booked through Calendly.",
+    priceUsd: 150,
+    cadence: "/session",
+    // PENDING: confirm session pack pricing (single vs 4-pack) and Stripe link
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COACHING_1ON1",
+  },
+  {
+    id: "gym-nutrition-plan",
+    kind: "plan",
+    title: "Gym & Nutrition Plan",
+    tagline: "Built for short frames.",
+    description:
+      "A structured training and nutrition program: compound lifts, macros, weekly progression. Includes the full SKE fitness library.",
+    // PENDING: owner to confirm price + delivery (one-time PDF vs subscription vs hybrid)
+    priceUsd: 0,
+    cadence: "/program",
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_GYM_NUTRITION",
+  },
+  {
+    id: "coaching-3-month",
+    kind: "coaching",
+    title: "3-Month Coaching",
+    tagline: "Twelve weeks. Weekly calls. Async access.",
+    description:
+      "Three months of guided work: weekly 1-on-1 calls, async messaging between sessions, every ebook and program included.",
+    // PENDING: owner to confirm price and exact inclusions
+    priceUsd: 0,
+    cadence: "/3 months",
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COACHING_3MO",
   },
 ];
 
@@ -150,6 +189,11 @@ export const FITNESS_PROGRAMS: Product[] = [
 
 export const ALL_EBOOKS = EBOOKS;
 export const ALL_FITNESS = FITNESS_PROGRAMS;
+export const ALL_COACHING = COACHING_PRODUCTS;
+export const ALL_PAID_PRODUCTS: Product[] = [
+  ...EBOOKS,
+  ...COACHING_PRODUCTS,
+];
 
 /**
  * Resolve a product's checkout link from env at runtime.

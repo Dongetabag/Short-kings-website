@@ -9,7 +9,7 @@ type Message = { role: "user" | "assistant"; content: string };
 const GREETING: Message = {
   role: "assistant",
   content:
-    "Sovereign. Speak. Bring me the situation, the screenshot, the profile, the question. The Counsel is open.",
+    "Counsel here. Bring the situation: the screenshot, the profile, the question. Be specific.",
 };
 
 export function CounselChat() {
@@ -66,7 +66,7 @@ export function CounselChat() {
         });
       }
     } catch (e) {
-      const msg = e instanceof Error ? e.message : "The Counsel is silent.";
+      const msg = e instanceof Error ? e.message : "Counsel didn't respond. Try again.";
       setError(msg);
       setMessages((prev) => prev.slice(0, -1));
     } finally {
@@ -104,7 +104,7 @@ export function CounselChat() {
           onClick={reset}
           className="ml-auto inline-flex h-9 items-center gap-2 rounded-md border border-white/10 bg-transparent px-4 text-xs uppercase tracking-[0.16em] text-white/55 hover:text-white"
         >
-          <RefreshCw className="h-3 w-3" /> New Audience
+          <RefreshCw className="h-3 w-3" /> New chat
         </button>
       </div>
 
@@ -161,7 +161,7 @@ export function CounselChat() {
               send(input);
             }
           }}
-          placeholder="Speak to the Counsel… (Shift+Enter for newline)"
+          placeholder="Ask Counsel anything… (Shift+Enter for newline)"
           rows={2}
           className="flex-1 resize-none bg-transparent px-2 py-2 text-sm text-white placeholder:text-white/35 outline-none"
         />

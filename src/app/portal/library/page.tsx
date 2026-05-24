@@ -2,7 +2,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CourseCard } from "@/components/portal/CourseCard";
 import { CATALOG } from "@/lib/portal-catalog";
 
-export const metadata = { title: "The Vault" };
+export const metadata = { title: "Library" };
 
 // v1 stub: assume the user owns the bundle, counsel-ai trial, and fitness library.
 // Phase 2 reads real entitlements from NextAuth + Neon.
@@ -17,10 +17,10 @@ export default function LibraryPage() {
   return (
     <div className="mx-auto max-w-6xl">
       <SectionHeader
-        eyebrow="The Vault"
+        eyebrow="Library"
         titleTop="Your"
-        titleHighlight="Royal Library"
-        subtitle="Every doctrine, playbook, and program in your possession. Open one. Train one. Run them all."
+        titleHighlight="library."
+        subtitle="Every pillar, ebook, and program you own. Open one. Train one. Run them all."
       />
 
       {CATALOG.map((section) => (

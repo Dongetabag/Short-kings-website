@@ -23,7 +23,7 @@ type Props = {
   subtitle: string;
   tiles: MediaTile[];
   variant?: "default" | "throne";
-  /** When set, shows a "See the full Realm" link in the section header. */
+  /** When set, shows a "See more" link in the section header. */
   fullPageHref?: string;
   fullPageLabel?: string;
   /** Cap the number of tiles shown (e.g. 4 on home, full set on dedicated page). */
@@ -68,7 +68,7 @@ export function MediaGrid({
                 href={fullPageHref}
                 className="group inline-flex items-center gap-2 self-start rounded-md border border-gold/40 bg-white/[0.04] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:border-gold hover:bg-white/[0.08] sm:self-end"
               >
-                {fullPageLabel ?? "Enter the Realm"}
+                {fullPageLabel ?? "See more"}
                 <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </Link>
             ) : null}

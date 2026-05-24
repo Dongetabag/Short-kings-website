@@ -9,8 +9,8 @@ export default function AccountPage() {
       <SectionHeader
         eyebrow="Account"
         titleTop="Your"
-        titleHighlight="Royal Profile"
-        subtitle="The administrative business of being a King. Edit and forget."
+        titleHighlight="profile."
+        subtitle="The administrative bits. Edit and forget."
       />
 
       <div className="mt-10 space-y-5">
@@ -28,7 +28,7 @@ export default function AccountPage() {
 
         <Card icon={Crown} title="Entitlements">
           <ul className="mt-2 space-y-2 text-sm text-white/65">
-            <li>· The Empire Bundle · active</li>
+            <li>· The Full Library · active</li>
             <li>· King&apos;s Counsel AI · trial (7 days remaining)</li>
             <li>· Free Fitness Library · active</li>
           </ul>

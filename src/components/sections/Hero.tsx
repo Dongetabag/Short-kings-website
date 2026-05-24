@@ -52,41 +52,43 @@ export function Hero() {
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/[0.04] px-4 py-2 text-[11px] font-semibold tracking-[0.28em] text-gold">
               <Crown className="h-4 w-4" />
-              {SITE.communitySize} KINGS CROWNED
+              BUILT FOR SHORT KINGS
             </span>
 
             <h1 className="mt-6 font-royal text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
-              <span className="block">The</span>
+              <span className="block">Dating isn&apos;t random.</span>
               <span className="block gold-gradient drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]">
-                Short Kings
+                It&apos;s a system
               </span>
-              <span className="block">Empire.</span>
+              <span className="block">you can learn.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-              Where kings rise to rule. Crown your confidence. Conquer the dating
-              realm. Your height is your story. It will not be your limitation.
+              Playbooks, fitness programs, and direct coaching for men who
+              refuse to wait their turn.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/products#bundle"
+                href="/products"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-6 font-semibold text-black transition hover:bg-goldLight hover:shadow-[0_0_30px_rgba(212,175,55,0.35)]"
               >
                 <Crown className="h-4 w-4" />
-                Enter The Empire
+                Shop the products
               </Link>
-              <button
-                onClick={togglePlay}
+              <Link
+                href={SITE.coaching.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white transition hover:bg-white/[0.08] hover:border-gold/70"
               >
                 <Play className="h-4 w-4" />
-                Watch the Rise
-              </button>
+                Book coaching
+              </Link>
             </div>
 
             <p className="mt-8 text-xs uppercase tracking-[0.3em] text-white/35">
-              Descend to the Kingdom
+              {SITE.communitySize} men in the system
             </p>
           </div>
 

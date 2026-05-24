@@ -13,8 +13,8 @@ export default async function KpisPage() {
     <div className="mx-auto max-w-6xl">
       <SectionHeader
         eyebrow="Funnel KPIs"
-        titleTop="The Empire's"
-        titleHighlight="Vital Signs."
+        titleTop="The site's"
+        titleHighlight="vital signs."
         subtitle="Last 30 days. Numbers will populate live in Phase 2 when Vercel Analytics + the custom event log come online."
       />
 
@@ -24,7 +24,7 @@ export default async function KpisPage() {
         <Stat icon={ShoppingCart} label="Products views" value={k.productsViews30d.toLocaleString()} />
         <Stat icon={Crown} label="Bundle conversions" value={k.bundleConversions30d} sub={`${productConvRate}% rate`} />
         <Stat icon={TrendingUp} label="Counsel subs" value={k.counselSubs} />
-        <Stat icon={Calendar} label="Royal Counsels 30d" value={k.royalCounsels30d} />
+        <Stat icon={Calendar} label="Coaching sessions 30d" value={k.coachingSessions30d} />
         <Stat icon={Crown} label="Revenue 30d" value={`$${k.revenue30dUsd.toLocaleString()}`} highlight />
         <Stat icon={TrendingUp} label="ARPU 30d" value={`$${(k.revenue30dUsd / Math.max(1, k.bundleConversions30d + k.counselSubs)).toFixed(0)}`} />
       </div>

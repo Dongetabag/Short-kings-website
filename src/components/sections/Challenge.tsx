@@ -35,10 +35,10 @@ export function Challenge() {
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeader
-            eyebrow="The Royal Challenge"
-            titleTop="Society's Height Bias"
-            titleHighlight="Ends at Our Gates."
-            subtitle="94% of men under 5'9 say height has cost them at least one relationship. We refuse to call that fate. Here are the four walls you climb."
+            eyebrow="What's actually in the way"
+            titleTop="Height bias is real."
+            titleHighlight="It's not your ceiling."
+            subtitle="94% of men under 5'9 say height has cost them at least one connection. That's a real input, not a verdict. Here are the four walls and the system that gets you over each one."
           />
         </Reveal>
 

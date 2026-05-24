@@ -59,13 +59,13 @@ export default async function JournalPostPage({
           Take this further.
         </p>
         <p className="mt-2 text-sm text-white/65">
-          The Empire Bundle goes deeper on every theme above.
+          The Full Library goes deeper on every theme above.
         </p>
         <Link
           href="/products#bundle"
           className="mt-5 inline-flex h-11 items-center gap-2 rounded-md bg-gold px-5 font-semibold text-black hover:bg-goldLight"
         >
-          See the Bundle
+          See the bundle
         </Link>
       </div>
     </article>

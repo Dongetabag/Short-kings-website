@@ -18,7 +18,7 @@ const MESSAGES = [
   },
   {
     role: "ai",
-    text: "Then she did you a favor by filtering herself out of your court. You reinvest the energy. The Empire moves on.",
+    text: "Then she filtered herself out. You reinvest the energy. Next move.",
   },
 ];
 
@@ -29,9 +29,9 @@ export function CounselPreview() {
         <Reveal>
           <SectionHeader
             eyebrow="King's Counsel AI"
-            titleTop="Your Personal"
-            titleHighlight="Royal Advisor"
-            subtitle="A 24/7 strategist trained on the Empire's playbooks. Ask it anything. Texts. Profile bios. First-date plans. Mindset reframes. The Counsel does not flinch."
+            titleTop="Your always-on"
+            titleHighlight="strategist."
+            subtitle="A 24/7 advisor trained on the Short Kings system. Ask it anything. Texts. Profile bios. First-date plans. Mindset reframes."
           />
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -67,7 +67,7 @@ export function CounselPreview() {
                   <p className="font-royal text-sm font-bold tracking-[0.18em] text-white">
                     KING&apos;S COUNSEL
                   </p>
-                  <p className="text-[11px] text-emerald">In session • answering as Royal Advisor</p>
+                  <p className="text-[11px] text-emerald">Online · always available</p>
                 </div>
               </header>
 

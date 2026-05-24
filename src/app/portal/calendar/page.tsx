@@ -8,9 +8,9 @@ export default function CalendarPage() {
   return (
     <div className="mx-auto max-w-5xl">
       <SectionHeader
-        eyebrow="Private Audience"
-        titleTop="Book a"
-        titleHighlight="Royal Counsel"
+        eyebrow="1-on-1"
+        titleTop="Book"
+        titleHighlight="coaching."
         subtitle="45 minutes. Direct access. You leave with a written game plan."
       />
 

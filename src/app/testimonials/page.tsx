@@ -5,9 +5,9 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { TESTIMONIALS, type Testimonial } from "@/lib/testimonials";
 
 export const metadata = {
-  title: "The Royal Court",
+  title: "Reviews",
   description:
-    "Testimonies from crowned Kings. Real heights, real cities, real outcomes.",
+    "Real reviews from members. Real heights, real cities, real outcomes.",
 };
 
 const PROOF_IMAGES = [
@@ -35,20 +35,20 @@ export default function TestimonialsPage() {
         />
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <Reveal>
-            <p className="eyebrow">The Royal Court</p>
+            <p className="eyebrow">Reviews</p>
             <h1 className="mt-3 font-royal text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
-              <span className="block">Testimonies from</span>
+              <span className="block">Real men.</span>
               <span className="block gold-gradient drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]">
-                Crowned Kings
+                Real results.
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-              Real men. Real heights. Real outcomes. Every voice in the Court has run the
-              Empire&apos;s playbook end to end. No actors, no stock smiles, no AI faces.
+              Real men. Real heights. Real outcomes. Every voice here has run
+              the system end to end. No actors, no stock smiles, no AI faces.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              <Stat label="Voices in the Court" value={total.toString()} />
-              <Stat label="Five-star testimonies" value={`${fives} / ${total}`} />
+              <Stat label="Reviews on file" value={total.toString()} />
+              <Stat label="Five-star reviews" value={`${fives} / ${total}`} />
               <Stat label="Average days to first win" value={`${avgDays} days`} />
             </div>
           </Reveal>
@@ -58,13 +58,14 @@ export default function TestimonialsPage() {
       {/* Proof strip */}
       <section className="border-b border-white/10 bg-black/40 py-10">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="eyebrow text-center">Snapshots from the Court</p>
+          <p className="eyebrow text-center">Snapshots from members</p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
             {PROOF_IMAGES.map((src) => (
               <div
                 key={src}
                 className="overflow-hidden rounded-lg border border-white/10 aspect-square"
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src}
                   alt=""
@@ -75,7 +76,7 @@ export default function TestimonialsPage() {
             ))}
           </div>
           <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em] text-white/30">
-            Live event footage. Real Kings replacing placeholders as they opt in.
+            Live event footage. Real members replace placeholders as they opt in.
           </p>
         </div>
       </section>
@@ -85,10 +86,10 @@ export default function TestimonialsPage() {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <SectionHeader
-              eyebrow="Every voice"
-              titleTop="The Court,"
-              titleHighlight="In Their Own Words."
-              subtitle="Filter by Realm coming when the Court doubles in size. For now, every testimony, every product, in order of induction."
+              eyebrow="Every review"
+              titleTop="In their"
+              titleHighlight="own words."
+              subtitle="Filtering by product is coming when the list doubles in size. For now, every review, every product, in order of join date."
             />
           </Reveal>
 
@@ -109,23 +110,23 @@ export default function TestimonialsPage() {
             <Crown className="mx-auto h-10 w-10 text-gold" />
             <h2 className="mt-4 font-royal text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
               <span className="block">Add your name</span>
-              <span className="block gold-gradient">to the Court.</span>
+              <span className="block gold-gradient">to the list.</span>
             </h2>
             <p className="mt-5 text-base leading-7 text-white/65">
-              Run the playbook. Send us the win. Earn a title.
+              Run the system. Send us the win. We&apos;ll feature you.
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/products#bundle"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
               >
-                <Crown className="h-4 w-4" /> Take the Empire Bundle
+                <Crown className="h-4 w-4" /> Get the bundle
               </Link>
               <Link
                 href="/portal/counsel"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-7 font-semibold text-white hover:bg-white/[0.08]"
               >
-                <Sparkles className="h-4 w-4" /> Open the Counsel
+                <Sparkles className="h-4 w-4" /> Try Counsel
               </Link>
             </div>
           </Reveal>

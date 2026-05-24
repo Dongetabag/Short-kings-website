@@ -18,9 +18,9 @@ export default async function AdminOverview() {
   return (
     <div className="mx-auto max-w-6xl">
       <SectionHeader
-        eyebrow="Sovereign Console"
-        titleTop="The"
-        titleHighlight="Empire, at a Glance."
+        eyebrow="Admin"
+        titleTop="The site,"
+        titleHighlight="at a glance."
         subtitle="Members, orders, content, and the AI Counsel. All the levers in one console."
       />
 
