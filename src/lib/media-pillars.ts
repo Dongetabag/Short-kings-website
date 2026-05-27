@@ -50,9 +50,9 @@ export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = [
 
 /** Axel-approved gym pillar — 6 tiles in board order (ELE-1068). Slot 2 is a still image. */
 export const GYM_TILES: MediaTile[] = [
-  { src: "/media/gym/gym-transformation.mp4", type: "video", title: "gym transformation" },
+  { src: "/media/gym/gym-transformation.mp4", type: "video", title: "Client Transformation" },
   { src: "/media/gym/image.jpeg", type: "image", title: "Fitness results" },
-  { src: "/media/gym/client-result.mp4", type: "video", title: "client result" },
+  { src: "/media/gym/client-result.mp4", type: "video", title: "Gym Transformation" },
   { src: "/media/gym/foods-for-fat-loss.mp4", type: "video", title: "foods for fat loss" },
   { src: "/media/gym/back-day.mp4", type: "video", title: "back day" },
   { src: "/media/gym/bible-foods.mp4", type: "video", title: "bible foods" },
