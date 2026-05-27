@@ -20,14 +20,14 @@ export type PillarMeta = {
   chapters: { title: string; body: string }[];
 };
 
-/** Axel-approved dating pillar: 6 reels — slots 1–3 new uploads; 4–6 prior pillar head. */
+/** Axel-approved dating pillar — 6 reels in board order (ELE-1068). */
 export const DATING_TILES: MediaTile[] = [
-  { src: "/media/dating/scarcity.mp4", type: "video", title: "Scarcity", subtitle: "Why abundance mindset wins dates" },
-  { src: "/media/dating/hinge.mp4", type: "video", title: "Hinge", subtitle: "Profile, photos, and opener system" },
-  { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "Dating vs Sales", subtitle: "Same psychology, different close" },
   { src: "/media/dating/rizz-breakdown.mp4", type: "video", title: "Rizz Breakdown", subtitle: "The first 9 seconds of any approach" },
+  { src: "/media/dating/hinge.mp4", type: "video", title: "Hinge Success", subtitle: "Profile, photos, and opener system" },
   { src: "/media/dating/dating-funnel.mp4", type: "video", title: "The Dating Funnel", subtitle: "Match, date, second date, repeat" },
-  { src: "/media/dating/attraction-secrets.mp4", type: "video", title: "Attraction Secrets", subtitle: "What women actually filter for" },
+  { src: "/media/dating/scarcity.mp4", type: "video", title: "Scarcity", subtitle: "Why abundance mindset wins dates" },
+  { src: "/media/dating/hinge-prompts.mp4", type: "video", title: "Hinge Prompts", subtitle: "Prompts that get replies, not ghosted" },
+  { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "Dating vs Sales", subtitle: "Same psychology, different close" },
 ];
 
 export const LIFESTYLE_TILES: MediaTile[] = [
