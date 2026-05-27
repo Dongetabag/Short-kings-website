@@ -30,14 +30,18 @@ export const DATING_TILES: MediaTile[] = [
   { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "dating vs sales" },
 ];
 
+/** Axel-approved lifestyle pillar — 6 reels in board order (ELE-1068). */
 export const LIFESTYLE_TILES: MediaTile[] = [
-  { src: "/media/lifestyle/lifestyle-slot-1.mp4", type: "video", title: "Lifestyle I", subtitle: "Axel reel — slot 1" },
-  { src: "/media/lifestyle/lifestyle-slot-2.mp4", type: "video", title: "Lifestyle II", subtitle: "Axel reel — slot 2" },
-  { src: "/media/lifestyle/lifestyle-slot-3.mp4", type: "video", title: "Lifestyle III", subtitle: "Axel reel — slot 3" },
-  { src: "/media/lifestyle/lifestyle-slot-4.mp4", type: "video", title: "Lifestyle IV", subtitle: "Axel reel — slot 4" },
-  { src: "/media/lifestyle/lifestyle-slot-5.mp4", type: "video", title: "Lifestyle V", subtitle: "Axel reel — slot 5" },
-  { src: "/media/lifestyle/lifestyle-slot-6.mp4", type: "video", title: "Lifestyle VI", subtitle: "Axel reel — slot 6" },
+  { src: "/media/lifestyle/short-kings.mp4", type: "video", title: "short kings" },
+  { src: "/media/lifestyle/why-profiles-fail.mp4", type: "video", title: "why profiles fail" },
+  { src: "/media/lifestyle/looks-transformation.mp4", type: "video", title: "looks transformation" },
+  { src: "/media/lifestyle/napoleon-paradox.mp4", type: "video", title: "Napoleon paradox" },
+  { src: "/media/lifestyle/transformation.mp4", type: "video", title: "transformation" },
+  { src: "/media/lifestyle/gods-blessing.mp4", type: "video", title: "god's blessing" },
 ];
+
+/** Pillars that use tap-to-play reels (thumbnail preview, one at a time). */
+export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = ["dating", "lifestyle"];
 
 export const GYM_TILES: MediaTile[] = [
   { src: "/media/gym/gym-slot-1.mp4", type: "video", title: "Gym I", subtitle: "Axel reel — slot 1" },

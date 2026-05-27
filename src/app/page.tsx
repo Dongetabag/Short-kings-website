@@ -12,6 +12,7 @@ import {
   LIFESTYLE_TILES,
   GYM_TILES,
   THRONE_TILES,
+  MANUAL_PLAYBACK_PILLARS,
   PILLARS,
 } from "@/lib/media-pillars";
 
@@ -70,6 +71,7 @@ export default function Home() {
           maxTiles={HOME_TILE_CAP}
           fullPageHref={PILLARS.lifestyle.href}
           fullPageLabel={PILLARS.lifestyle.ctaLabel}
+          manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("lifestyle")}
         />
       </FloatingSectionFrame>
 

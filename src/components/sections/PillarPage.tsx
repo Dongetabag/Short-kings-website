@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MediaGrid } from "@/components/sections/MediaGrid";
 import type { PillarMeta } from "@/lib/media-pillars";
 import type { MediaTile } from "@/components/sections/MediaGrid";
-import { PILLAR_LIST } from "@/lib/media-pillars";
+import { MANUAL_PLAYBACK_PILLARS, PILLAR_LIST } from "@/lib/media-pillars";
 
 type Props = {
   pillar: PillarMeta;
@@ -67,13 +67,13 @@ export function PillarPage({ pillar, tiles }: Props) {
         titleTop="Watch"
         titleHighlight="the lessons."
         subtitle={
-          pillar.slug === "dating"
+          MANUAL_PLAYBACK_PILLARS.includes(pillar.slug)
             ? "Press play on any reel. Only one plays at a time — no autoplay."
             : "Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
         }
         tiles={tiles}
         variant={pillar.variant}
-        manualPlayback={pillar.slug === "dating"}
+        manualPlayback={MANUAL_PLAYBACK_PILLARS.includes(pillar.slug)}
       />
 
       <section className="border-y border-white/10 bg-white/[0.015] py-24">
