@@ -14,7 +14,7 @@ export const SITE = {
     /** Set NEXT_PUBLIC_CALENDLY_COACHING_URL in Vercel (full event URL, no trailing slash). */
     calendly:
       process.env.NEXT_PUBLIC_CALENDLY_COACHING_URL?.replace(/\/$/, "") ||
-      "https://calendly.com/shortkingsempire/coaching",
+      "https://calendly.com/shortkingsempire/30min",
     pricePerSession: 150,
   },
   email: "support@shortkingsempire.com",
