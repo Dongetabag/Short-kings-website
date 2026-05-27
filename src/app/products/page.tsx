@@ -87,7 +87,7 @@ export default function ProductsPage() {
           eyebrow="Products"
           titleTop="The full"
           titleHighlight="product suite."
-          subtitle="Seven ebooks at $12. Built Different at $47. Bundles and coaching when you want the system done with you."
+          subtitle="Bundle, coaching, Built Different at $65, King's Counsel, and seven ebooks at $12 each — in the order below."
         />
       </Reveal>
 
@@ -148,50 +148,70 @@ export default function ProductsPage() {
           </Reveal>
         </section>
 
-        <section id="ebooks" className="scroll-mt-24">
+        <section id="monthly-coaching" className="scroll-mt-24">
           <Reveal>
-            <SectionHeader
-              eyebrow="Ebooks"
-              titleTop="Seven playbooks."
-              titleHighlight="$12 each."
-              subtitle="From She Replied, Now What through Swipe Right on Yourself."
-            />
+            <div className="relative overflow-hidden rounded-2xl border border-ruby/30 bg-stone/40 p-10 text-center">
+              <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
+              <p className="eyebrow">{COACHING.eyebrow}</p>
+              <h2 className="mt-1 font-royal text-3xl font-black uppercase text-white sm:text-4xl">
+                {COACHING.title}
+              </h2>
+              <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-white/65">
+                {monthlyCoaching?.description ?? COACHING.description}
+              </p>
+              {monthlyHref ? (
+                <a
+                  href={monthlyHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
+                >
+                  <Calendar className="h-4 w-4" /> Start coaching · $
+                  {COACHING.priceUsd}
+                  {COACHING.cadence}
+                </a>
+              ) : (
+                <span className="mt-7 inline-flex h-12 items-center rounded-md border border-white/15 px-7 text-xs uppercase tracking-[0.2em] text-white/45">
+                  Setup pending
+                </span>
+              )}
+            </div>
           </Reveal>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {EBOOKS.map((p, i) => (
-              <Reveal key={p.id} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
-                <ProductCard product={p} />
-              </Reveal>
-            ))}
-          </div>
         </section>
 
-        <section id="counsel" className="scroll-mt-24">
+        <section id="transformation-3-month" className="scroll-mt-24">
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-stone/40 p-8 sm:p-10">
+            <div className="relative overflow-hidden rounded-2xl border border-ruby/30 bg-stone/40 p-10">
               <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
               <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                 <div>
-                  <p className="eyebrow">{COUNSEL_AI.eyebrow}</p>
+                  <p className="eyebrow">{TRANSFORMATION_3MO.eyebrow}</p>
                   <h2 className="mt-2 font-royal text-3xl font-black uppercase text-white sm:text-4xl">
-                    {COUNSEL_AI.title}
+                    {TRANSFORMATION_3MO.title}
                   </h2>
                   <p className="mt-4 text-base leading-7 text-white/70">
-                    {COUNSEL_AI.description}
+                    {TRANSFORMATION_3MO.description}
                   </p>
+                  <ul className="mt-6 space-y-2">
+                    {TRANSFORMATION_3MO.includes.map((item) => (
+                      <li key={item} className="text-sm text-white/65">
+                        · {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-black/40 p-6">
-                  <p className="font-royal text-5xl font-black text-gold">
-                    ${COUNSEL_AI.priceUsd}
+                  <p className="font-royal text-4xl font-black text-gold">
+                    ${TRANSFORMATION_3MO.priceUsd}
                   </p>
-                  {counselHref ? (
+                  {transformHref ? (
                     <a
-                      href={counselHref}
+                      href={transformHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex h-12 items-center gap-2 rounded-md bg-gold px-5 font-semibold text-black hover:bg-goldLight"
                     >
-                      <Sparkles className="h-4 w-4" /> Start trial
+                      Apply
                     </a>
                   ) : (
                     <span className="inline-flex h-12 items-center rounded-md border border-white/15 px-5 text-xs uppercase tracking-[0.2em] text-white/45">
@@ -242,39 +262,32 @@ export default function ProductsPage() {
           </Reveal>
         </section>
 
-        <section id="transformation-3-month" className="scroll-mt-24">
+        <section id="counsel" className="scroll-mt-24">
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl border border-ruby/30 bg-stone/40 p-10">
+            <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-stone/40 p-8 sm:p-10">
               <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
               <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                 <div>
-                  <p className="eyebrow">{TRANSFORMATION_3MO.eyebrow}</p>
+                  <p className="eyebrow">{COUNSEL_AI.eyebrow}</p>
                   <h2 className="mt-2 font-royal text-3xl font-black uppercase text-white sm:text-4xl">
-                    {TRANSFORMATION_3MO.title}
+                    {COUNSEL_AI.title}
                   </h2>
                   <p className="mt-4 text-base leading-7 text-white/70">
-                    {TRANSFORMATION_3MO.description}
+                    {COUNSEL_AI.description}
                   </p>
-                  <ul className="mt-6 space-y-2">
-                    {TRANSFORMATION_3MO.includes.map((item) => (
-                      <li key={item} className="text-sm text-white/65">
-                        · {item}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
                 <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-black/40 p-6">
-                  <p className="font-royal text-4xl font-black text-gold">
-                    ${TRANSFORMATION_3MO.priceUsd}
+                  <p className="font-royal text-5xl font-black text-gold">
+                    ${COUNSEL_AI.priceUsd}
                   </p>
-                  {transformHref ? (
+                  {counselHref ? (
                     <a
-                      href={transformHref}
+                      href={counselHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex h-12 items-center gap-2 rounded-md bg-gold px-5 font-semibold text-black hover:bg-goldLight"
                     >
-                      Apply
+                      <Sparkles className="h-4 w-4" /> Start trial
                     </a>
                   ) : (
                     <span className="inline-flex h-12 items-center rounded-md border border-white/15 px-5 text-xs uppercase tracking-[0.2em] text-white/45">
@@ -287,35 +300,22 @@ export default function ProductsPage() {
           </Reveal>
         </section>
 
-        <section id="monthly-coaching" className="scroll-mt-24">
+        <section id="ebooks" className="scroll-mt-24">
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl border border-ruby/30 bg-stone/40 p-10 text-center">
-              <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
-              <p className="eyebrow">{COACHING.eyebrow}</p>
-              <h2 className="mt-1 font-royal text-3xl font-black uppercase text-white sm:text-4xl">
-                {COACHING.title}
-              </h2>
-              <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-white/65">
-                {monthlyCoaching?.description ?? COACHING.description}
-              </p>
-              {monthlyHref ? (
-                <a
-                  href={monthlyHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
-                >
-                  <Calendar className="h-4 w-4" /> Start coaching · $
-                  {COACHING.priceUsd}
-                  {COACHING.cadence}
-                </a>
-              ) : (
-                <span className="mt-7 inline-flex h-12 items-center rounded-md border border-white/15 px-7 text-xs uppercase tracking-[0.2em] text-white/45">
-                  Setup pending
-                </span>
-              )}
-            </div>
+            <SectionHeader
+              eyebrow="Ebooks"
+              titleTop="Seven playbooks."
+              titleHighlight="$12 each."
+              subtitle="From She Replied, Now What through Swipe Right on Yourself."
+            />
           </Reveal>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {EBOOKS.map((p, i) => (
+              <Reveal key={p.id} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
+                <ProductCard product={p} />
+              </Reveal>
+            ))}
+          </div>
         </section>
 
         <div className="text-center">

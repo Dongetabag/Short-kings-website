@@ -98,7 +98,7 @@ export const GYM_PROGRAM: Product = {
   tagline: "Train like your dating life depends on it.",
   description:
     "A fully structured gym and nutrition program on Trainerize. Built to maximize your physique as a shorter guy. Proportions, density, and the exact macros to get there.",
-  priceUsd: 47,
+  priceUsd: 65,
   cadence: "one time",
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUILT_DIFFERENT",
 };
@@ -111,7 +111,7 @@ export const COACHING_PRODUCTS: Product[] = [
     tagline: "Your coach in your corner.",
     description:
       "4 tailored calls a month. Every session built around where you are actually at. Plus unlimited WhatsApp access between calls.",
-    priceUsd: 197,
+    priceUsd: 150,
     cadence: "/month",
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_MONTHLY_COACHING",
   },

@@ -52,13 +52,13 @@ export const BUNDLE = {
   eyebrow: "Bundle",
   description:
     "All 7 ebooks plus Built Different plus one 30 min coaching call to map out your personal game plan.",
-  priceUsd: 127,
-  originalPriceUsd: 206,
-  saveLabel: "Save $79",
+  priceUsd: 185,
+  originalPriceUsd: 299,
+  saveLabel: "Save $114",
   includes: [
     "All 7 ebooks ($84 value)",
-    "Built Different program ($47 value)",
-    "1 coaching call ($75 value)",
+    "Built Different program ($65 value)",
+    "1 coaching call ($150 value)",
     "Instant digital delivery",
   ],
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUNDLE",
@@ -99,7 +99,7 @@ export const COACHING = {
   eyebrow: "1-on-1",
   description:
     "4 tailored calls a month. Every session built around where you are actually at. Plus unlimited WhatsApp access between calls.",
-  priceUsd: 197,
+  priceUsd: 150,
   cadence: "/month",
 } as const;
 
@@ -109,7 +109,7 @@ export const GYM_NUTRITION_PLAN = {
   eyebrow: "Gym & Nutrition",
   description:
     "A fully structured gym and nutrition program on Trainerize. Built to maximize your physique as a shorter guy.",
-  priceUsd: 47,
+  priceUsd: 65,
   cadence: "one time",
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUILT_DIFFERENT",
 } as const;
