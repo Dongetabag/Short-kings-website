@@ -6,7 +6,9 @@ import { CounselPreview } from "@/components/sections/CounselPreview";
 import { MediaGrid } from "@/components/sections/MediaGrid";
 import { RoyalCourt } from "@/components/sections/RoyalCourt";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { FloatingSectionFrame } from "@/components/ui/FloatingSectionFrame";
+import { SectionBand } from "@/components/ui/SectionBand";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   DATING_TILES,
   LIFESTYLE_TILES,
@@ -16,37 +18,42 @@ import {
   PILLARS,
 } from "@/lib/media-pillars";
 
-/** Homepage shows first three tiles per pillar; full sets live on pillar pages. */
 const HOME_TILE_CAP = 3;
 
 export default function Home() {
   return (
-    <>
-      <FloatingSectionFrame preset="hero">
+    <div className="funnel-flow">
+      <SectionBand variant="hero">
         <Hero />
-      </FloatingSectionFrame>
+      </SectionBand>
 
-      <FloatingSectionFrame preset="stats">
-        <StatsAuthority />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="pain">
+      <SectionBand variant="red" id="challenge">
         <Challenge />
-      </FloatingSectionFrame>
+      </SectionBand>
 
-      <FloatingSectionFrame preset="offer">
+      <SectionBand variant="gold">
         <RoyalArsenal />
-      </FloatingSectionFrame>
+      </SectionBand>
 
-      <FloatingSectionFrame preset="counsel">
-        <CounselPreview />
-      </FloatingSectionFrame>
+      <SectionBand variant="alt">
+        <StatsAuthority />
+      </SectionBand>
 
-      <FloatingSectionFrame preset="proof">
+      <SectionBand variant="default">
         <RoyalCourt />
-      </FloatingSectionFrame>
+      </SectionBand>
 
-      <FloatingSectionFrame preset="media">
+      <SectionBand variant="alt" className="pb-8">
+        <div className="mx-auto max-w-6xl px-4 pt-20 pb-4">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Proof in motion"
+              titleTop="See the"
+              titleHighlight="system work."
+              subtitle="Dating, lifestyle, gym, and style — tap any reel on the homepage or open the full pillar page."
+            />
+          </Reveal>
+        </div>
         <MediaGrid
           id="dating"
           eyebrow={PILLARS.dating.homeEyebrow}
@@ -58,10 +65,8 @@ export default function Home() {
           fullPageHref={PILLARS.dating.href}
           fullPageLabel={PILLARS.dating.ctaLabel}
           manualPlayback
+          compact
         />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="media">
         <MediaGrid
           id="lifestyle"
           eyebrow={PILLARS.lifestyle.homeEyebrow}
@@ -73,10 +78,8 @@ export default function Home() {
           fullPageHref={PILLARS.lifestyle.href}
           fullPageLabel={PILLARS.lifestyle.ctaLabel}
           manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("lifestyle")}
+          compact
         />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="media">
         <MediaGrid
           id="gym"
           eyebrow={PILLARS.gym.homeEyebrow}
@@ -88,10 +91,8 @@ export default function Home() {
           fullPageHref={PILLARS.gym.href}
           fullPageLabel={PILLARS.gym.ctaLabel}
           manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("gym")}
+          compact
         />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="media">
         <MediaGrid
           id="throne-room"
           eyebrow={PILLARS["throne-room"].homeEyebrow}
@@ -104,12 +105,17 @@ export default function Home() {
           fullPageLabel={PILLARS["throne-room"].ctaLabel}
           variant={PILLARS["throne-room"].variant}
           manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("throne-room")}
+          compact
         />
-      </FloatingSectionFrame>
+      </SectionBand>
 
-      <FloatingSectionFrame preset="close">
+      <SectionBand variant="gold">
+        <CounselPreview />
+      </SectionBand>
+
+      <SectionBand variant="red">
         <FinalCta />
-      </FloatingSectionFrame>
-    </>
+      </SectionBand>
+    </div>
   );
 }

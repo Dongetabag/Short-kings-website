@@ -52,7 +52,7 @@ export function Challenge() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {CHALLENGES.map((c, i) => (
             <Reveal key={c.n} stagger={(i + 1) as 1 | 2 | 3 | 4}>
-              <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-stoneDeep/60 p-7 transition hover:-translate-y-1 hover:border-gold/40">
+              <article className="group relative h-full overflow-hidden rounded-sm border border-white/10 bg-panel p-7 transition hover:-translate-y-1 hover:border-ruby/40">
                 <span className="font-royal text-[120px] leading-none text-gold/10 absolute -top-4 -right-2">
                   {c.n}
                 </span>

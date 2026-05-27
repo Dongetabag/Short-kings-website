@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter } from "next/font/google";
+import { Bebas_Neue, Outfit } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const cinzel = Cinzel({
-  variable: "--font-royal",
+const bebas = Bebas_Neue({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600", "700", "900"],
+  weight: "400",
 });
 
-const inter = Inter({
+const outfit = Outfit({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${inter.variable} dark h-full antialiased`}
+      className={`${bebas.variable} ${outfit.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a

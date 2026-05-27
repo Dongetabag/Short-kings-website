@@ -41,10 +41,10 @@ export function ProductTierPicker({ tiers }: Props) {
               aria-controls={`${tier.id}-panel`}
               id={`${tier.id}-tab`}
               onClick={() => setActiveId(tier.id)}
-              className={`rounded-xl border px-4 py-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
+              className={`rounded-sm border px-4 py-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
                 selected
-                  ? "border-gold bg-gold/15 shadow-[0_0_40px_rgba(212,175,55,0.15)]"
-                  : "border-gold/25 bg-stone/40 hover:border-gold/50 hover:bg-stone/60"
+                  ? "border-gold bg-gold/10"
+                  : "border-white/15 bg-panel hover:border-ruby/40"
               }`}
             >
               <span
@@ -93,7 +93,7 @@ function TierProductCard({ product }: { product: ResolvedTierProduct }) {
   const ctaHref = product.href ?? `/products${product.productsAnchor}`;
 
   return (
-    <article className="relative flex h-full flex-col overflow-hidden rounded-xl border border-gold/30 bg-stone/50 p-7">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-sm border border-gold/30 bg-panel p-7">
       <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">
         {product.eyebrow}
@@ -101,7 +101,7 @@ function TierProductCard({ product }: { product: ResolvedTierProduct }) {
       <h3 className="mt-2 font-royal text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
         {product.title}
       </h3>
-      <p className="mt-2 text-sm font-semibold text-sky-300/90">{product.forWho}</p>
+      <p className="mt-2 text-sm font-semibold text-ruby">{product.forWho}</p>
       <p className="mt-3 text-sm leading-7 text-white/65">{product.description}</p>
 
       {product.includes?.length ? (
@@ -119,7 +119,7 @@ function TierProductCard({ product }: { product: ResolvedTierProduct }) {
       ) : null}
 
       {product.nudge ? (
-        <p className="mt-5 border-l-2 border-sky-500/50 pl-3 text-xs italic leading-6 text-white/45">
+        <p className="mt-5 border-l-2 border-ruby/60 pl-3 text-xs italic leading-6 text-white/45">
           {product.nudge}
         </p>
       ) : null}

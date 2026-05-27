@@ -23,8 +23,8 @@ export function Nav() {
       className={cn(
         "sticky top-0 z-40 transition-all",
         scrolled
-          ? "border-b border-gold/15 bg-obsidian/85 backdrop-blur"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-ruby/40 bg-black/90 backdrop-blur-md"
+          : "border-b border-transparent bg-black/40 backdrop-blur-sm"
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
@@ -40,10 +40,10 @@ export function Nav() {
             />
           </span>
           <span className="leading-tight">
-            <span className="block font-royal text-sm font-bold tracking-[0.18em] text-white">
+            <span className="block font-display text-base tracking-[0.12em] text-white">
               SHORT KINGS
             </span>
-            <span className="block text-[10px] font-semibold tracking-[0.35em] text-gold">
+            <span className="block font-display text-[11px] tracking-[0.28em] text-gold">
               EMPIRE
             </span>
           </span>
@@ -61,7 +61,7 @@ export function Nav() {
           ))}
           <Link
             href="/products#the-playbook"
-            className="ml-3 inline-flex h-10 items-center gap-2 rounded-md bg-gold px-4 text-sm font-semibold text-black transition hover:bg-goldLight hover:shadow-[0_0_30px_rgba(212,175,55,0.35)]"
+            className="ml-3 inline-flex h-10 items-center gap-2 rounded-sm bg-gold px-4 text-sm font-semibold uppercase tracking-wide text-black transition hover:bg-goldLight"
           >
             <Crown className="h-4 w-4" />
             Get the bundle

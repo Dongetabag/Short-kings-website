@@ -1,61 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  /* Short Kings Empire — royal tokens (dark-first) */
-  --ske-obsidian: #0d0d0d;
-  --ske-stone: #1a1a2e;
-  --ske-stone-deep: #0f0f1a;
-  --ske-gold: #d4af37;
-  --ske-gold-light: #f4d03f;
-  --ske-gold-dark: #b8860b;
-  --ske-purple: #4b0082;
-  --ske-ruby: #e0115f;
-  --ske-emerald: #50c878;
+  /* Short Kings Empire — black · gold · red */
+  --ske-black: #000000;
+  --ske-carbon: #080808;
+  --ske-panel: #111111;
+  --ske-panel-raised: #161616;
+  --ske-gold: #c9a84c;
+  --ske-gold-light: #e8c96a;
+  --ske-gold-dark: #9a7b2f;
+  --ske-red: #b91c1c;
+  --ske-ruby: #dc2626;
+  --ske-red-glow: rgba(220, 38, 38, 0.35);
 
-  --background: var(--ske-obsidian);
-  --foreground: #ededed;
+  /* Legacy aliases — mapped to neutral blacks (no purple) */
+  --ske-obsidian: var(--ske-black);
+  --ske-stone: var(--ske-panel);
+  --ske-stone-deep: var(--ske-carbon);
+  --ske-purple: var(--ske-red);
+  --ske-emerald: #22c55e;
+
+  --background: var(--ske-black);
+  --foreground: #f5f5f5;
 
   --gradient-crown: linear-gradient(
     135deg,
-    var(--ske-gold) 0%,
-    var(--ske-gold-light) 25%,
-    var(--ske-gold) 50%,
-    var(--ske-gold-dark) 100%
+    var(--ske-gold-dark) 0%,
+    var(--ske-gold) 40%,
+    var(--ske-gold-light) 100%
   );
-  --gradient-throne: linear-gradient(
-    180deg,
-    #2e0854 0%,
-    var(--ske-purple) 50%,
-    var(--ske-stone) 100%
-  );
-  --gradient-royal-glow: radial-gradient(
-    ellipse at center,
-    rgba(212, 175, 55, 0.3) 0%,
-    transparent 70%
+  --gradient-red-accent: linear-gradient(
+    90deg,
+    transparent,
+    var(--ske-ruby) 50%,
+    transparent
   );
 
-  --shadow-crown: 0 0 30px rgba(212, 175, 55, 0.4),
-    0 0 60px rgba(212, 175, 55, 0.2);
-  --shadow-throne: 0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(75, 0, 130, 0.3);
-
-  --mask-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M2.5 19h19v2h-19v-2zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-2.92-6-2.92 6-5.31-1.42c-.8-.21-1.63.26-1.84 1.06-.21.8.26 1.63 1.06 1.84l4.62 1.24L9.5 19h5l1.89-6.28 4.62-1.24c.8-.21 1.28-1.04 1.06-1.84z'/%3E%3C/svg%3E");
+  --shadow-crown: 0 0 24px rgba(201, 168, 76, 0.25);
+  --shadow-red: 0 0 32px var(--ske-red-glow);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-royal: var(--font-royal);
+  --font-display: var(--font-display);
+  --font-royal: var(--font-display);
 
-  --color-obsidian: var(--ske-obsidian);
-  --color-stone: var(--ske-stone);
-  --color-stoneDeep: var(--ske-stone-deep);
+  --color-obsidian: var(--ske-black);
+  --color-carbon: var(--ske-carbon);
+  --color-panel: var(--ske-panel);
+  --color-panelRaised: var(--ske-panel-raised);
+  --color-stone: var(--ske-panel);
+  --color-stoneDeep: var(--ske-carbon);
   --color-gold: var(--ske-gold);
   --color-goldLight: var(--ske-gold-light);
   --color-goldDark: var(--ske-gold-dark);
-  --color-purple: var(--ske-purple);
   --color-ruby: var(--ske-ruby);
+  --color-red: var(--ske-red);
+  --color-purple: var(--ske-red);
   --color-emerald: var(--ske-emerald);
 }
 
@@ -69,16 +72,18 @@ body {
   min-height: 100%;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto,
-    Arial, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-.font-royal {
-  font-family: var(--font-royal), ui-serif, Georgia, "Times New Roman", Times,
-    serif;
+.font-royal,
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.04em;
 }
 
-/* Gold-gradient text — used for the second line of every two-line H2 */
+/* Gold-gradient headline accent */
 .gold-gradient {
   background: var(--gradient-crown);
   background-size: 200% auto;
@@ -88,78 +93,61 @@ body {
   color: transparent;
 }
 
-/* Reveal on scroll — IntersectionObserver toggles .active */
+/* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
 .stagger-1 {
-  transition-delay: 0.1s;
+  transition-delay: 0.08s;
 }
 .stagger-2 {
-  transition-delay: 0.2s;
+  transition-delay: 0.16s;
 }
 .stagger-3 {
-  transition-delay: 0.3s;
+  transition-delay: 0.24s;
 }
 .stagger-4 {
-  transition-delay: 0.4s;
+  transition-delay: 0.32s;
 }
 
-/* Floating phone-frame in hero */
 @keyframes floatPhone {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-10px);
   }
 }
 .float-phone {
-  animation: floatPhone 6s ease-in-out infinite;
+  animation: floatPhone 5s ease-in-out infinite;
 }
 
-/* Gold shimmer for premium accents */
+.shimmer-gold {
+  background-size: 200% auto;
+  animation: shimmerGold 3s ease-in-out infinite;
+}
 @keyframes shimmerGold {
-  0% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
     background-position: 100% 50%;
   }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.shimmer-gold {
-  background-size: 200% auto;
-  animation: shimmerGold 3s ease-in-out infinite;
 }
 
-/* Glow pulse on featured cards */
-@keyframes glowPulse {
-  0%,
-  100% {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.18),
-      0 0 60px rgba(212, 175, 55, 0.08);
-  }
-  50% {
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.32),
-      0 0 90px rgba(212, 175, 55, 0.16);
-  }
-}
 .glow-pulse {
-  animation: glowPulse 4s ease-in-out infinite;
+  box-shadow: var(--shadow-crown);
 }
 
-/* Crown icon mask — used on logo lockup + bullet markers */
 .icon-crown-mask {
   -webkit-mask-image: var(--mask-crown);
   mask-image: var(--mask-crown);
@@ -171,66 +159,109 @@ body {
   mask-position: center;
 }
 
-/* Royal phone frame — wraps the hero video */
+:root {
+  --mask-crown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M2.5 19h19v2h-19v-2zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-2.92-6-2.92 6-5.31-1.42c-.8-.21-1.63.26-1.84 1.06-.21.8.26 1.63 1.06 1.84l4.62 1.24L9.5 19h5l1.89-6.28 4.62-1.24c.8-.21 1.28-1.04 1.06-1.84z'/%3E%3C/svg%3E");
+}
+
 .royal-phone-frame {
   position: relative;
-  border-radius: 36px;
-  padding: 12px;
+  border-radius: 28px;
+  padding: 10px;
   background: linear-gradient(
     145deg,
-    rgba(212, 175, 55, 0.6),
-    rgba(184, 134, 11, 0.2)
+    rgba(201, 168, 76, 0.55),
+    rgba(185, 28, 28, 0.15)
   );
   box-shadow: var(--shadow-crown);
 }
 .royal-phone-screen {
   position: relative;
-  border-radius: 26px;
+  border-radius: 20px;
   overflow: hidden;
   background: #000;
 }
 
-/* Top hairline rule used across all premium cards */
 .crown-hairline {
   background: linear-gradient(
     90deg,
-    rgba(212, 175, 55, 0.9),
-    rgba(244, 208, 63, 0.9),
-    rgba(212, 175, 55, 0.9)
+    var(--ske-red),
+    var(--ske-gold),
+    var(--ske-red)
   );
 }
 
-/* Section headline uppercase tracking */
 .eyebrow {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
   color: var(--ske-gold);
   text-transform: uppercase;
 }
 
-/* Custom scrollbar in dark mode */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--ske-obsidian);
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.25);
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.5);
+.eyebrow-red {
+  color: var(--ske-ruby);
 }
 
-/* Reduce motion respects user preference */
+/* Funnel section bands — drives page rhythm */
+.section-band {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.section-band-hero {
+  border-top: none;
+  background: var(--ske-black);
+}
+.section-band-red {
+  background: linear-gradient(
+    180deg,
+    rgba(185, 28, 28, 0.12) 0%,
+    var(--ske-black) 100%
+  );
+  border-top-color: rgba(220, 38, 38, 0.35);
+}
+.section-band-gold {
+  background: linear-gradient(
+    180deg,
+    rgba(201, 168, 76, 0.08) 0%,
+    var(--ske-black) 100%
+  );
+  border-top-color: rgba(201, 168, 76, 0.25);
+}
+.section-band-alt {
+  background: var(--ske-carbon);
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.section-divider {
+  height: 2px;
+  width: 4rem;
+  background: var(--gradient-red-accent);
+  margin-top: 0.75rem;
+}
+
+.funnel-flow > .section-band + .section-band {
+  margin-top: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ske-black);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 38, 38, 0.5);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .float-phone,
-  .shimmer-gold,
-  .glow-pulse {
+  .shimmer-gold {
     animation: none;
     transition: none;
     transform: none;

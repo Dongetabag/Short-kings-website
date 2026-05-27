@@ -30,6 +30,8 @@ type Props = {
   maxTiles?: number;
   /** Tap-to-play only; no viewport autoplay or loop. Pauses other tiles in this grid when one plays. */
   manualPlayback?: boolean;
+  /** Tighter vertical rhythm when stacked on the homepage funnel. */
+  compact?: boolean;
 };
 
 export function MediaGrid({
@@ -44,6 +46,7 @@ export function MediaGrid({
   fullPageLabel,
   maxTiles,
   manualPlayback = false,
+  compact = false,
 }: Props) {
   const visibleTiles = maxTiles ? tiles.slice(0, maxTiles) : tiles;
   const hasMore = maxTiles && tiles.length > maxTiles;
@@ -60,11 +63,13 @@ export function MediaGrid({
   return (
     <section
       id={id}
-      className={`py-24 ${
-        variant === "throne"
-          ? "bg-[radial-gradient(ellipse_at_center,rgba(75,0,130,0.18),transparent_70%)]"
-          : ""
-      }`}
+      className={
+        compact
+          ? "border-t border-white/[0.06] py-14"
+          : variant === "throne"
+            ? "border-t border-ruby/20 py-24"
+            : "py-24"
+      }
     >
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
