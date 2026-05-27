@@ -102,6 +102,7 @@ export default function Home() {
           fullPageHref={PILLARS["throne-room"].href}
           fullPageLabel={PILLARS["throne-room"].ctaLabel}
           variant={PILLARS["throne-room"].variant}
+          manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("throne-room")}
         />
       </FloatingSectionFrame>
 

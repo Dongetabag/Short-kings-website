@@ -41,7 +41,12 @@ export const LIFESTYLE_TILES: MediaTile[] = [
 ];
 
 /** Pillars that use tap-to-play reels (thumbnail preview, one at a time). */
-export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = ["dating", "lifestyle", "gym"];
+export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = [
+  "dating",
+  "lifestyle",
+  "gym",
+  "throne-room",
+];
 
 /** Axel-approved gym pillar — 6 tiles in board order (ELE-1068). Slot 2 is a still image. */
 export const GYM_TILES: MediaTile[] = [
@@ -53,13 +58,14 @@ export const GYM_TILES: MediaTile[] = [
   { src: "/media/gym/bible-foods.mp4", type: "video", title: "bible foods" },
 ];
 
+/** Axel-approved style/fashion pillar — 6 tiles in board order (ELE-1068). Slots 2 & 4 are stills. */
 export const THRONE_TILES: MediaTile[] = [
-  { src: "/media/throne-room/style-slot-1.mp4", type: "video", title: "Style I", subtitle: "Axel reel — slot 1" },
-  { src: "/media/throne-room/style-slot-2.mp4", type: "video", title: "Style II", subtitle: "Axel reel — slot 2" },
-  { src: "/media/throne-room/style-slot-3.jpeg", type: "image", title: "Style III", subtitle: "Axel photo — slot 3" },
-  { src: "/media/throne-room/style-slot-4.mp4", type: "video", title: "Style IV", subtitle: "Axel reel — slot 4" },
-  { src: "/media/throne-room/style-slot-5.jpeg", type: "image", title: "Style V", subtitle: "Axel photo — slot 5" },
-  { src: "/media/throne-room/style-slot-6.mp4", type: "video", title: "Style VI", subtitle: "Axel reel — slot 6" },
+  { src: "/media/throne-room/clothes-to-stay-away-from.mp4", type: "video", title: "clothes to stay away from" },
+  { src: "/media/throne-room/professional-photo.jpeg", type: "image", title: "Professional Photo" },
+  { src: "/media/throne-room/fashion-tips.mp4", type: "video", title: "Fashion tips" },
+  { src: "/media/throne-room/lifestyle-picture.jpeg", type: "image", title: "lifestyle picture" },
+  { src: "/media/throne-room/sneakers-for-short-kings.mp4", type: "video", title: "sneakers for short kings" },
+  { src: "/media/throne-room/best-shirts.mp4", type: "video", title: "best shirts" },
 ];
 
 export const PILLARS: Record<PillarSlug, PillarMeta> = {
