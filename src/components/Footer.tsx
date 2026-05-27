@@ -98,6 +98,36 @@ export function Footer() {
             DATING ISN&apos;T RANDOM. IT&apos;S A SYSTEM.
           </p>
         </div>
+
+        <div className="mt-6 flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-center sm:gap-8">
+          <a
+            href={SITE.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-gold"
+          >
+            <Camera className="h-4 w-4" aria-hidden />
+            Instagram
+          </a>
+          <a
+            href={SITE.social.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-gold"
+          >
+            <Music2 className="h-4 w-4" aria-hidden />
+            TikTok
+          </a>
+          <a
+            href={SITE.social.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-gold"
+          >
+            <Video className="h-4 w-4" aria-hidden />
+            YouTube
+          </a>
+        </div>
       </div>
     </footer>
   );

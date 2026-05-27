@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { Crown, Play, Pause, Volume2, VolumeX } from "lucide-react";
-import { SITE } from "@/lib/site";
+import { Crown, Play, Pause, Sparkles, Volume2, VolumeX } from "lucide-react";
+import { COUNSEL_AI, SITE } from "@/lib/site";
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -56,8 +56,8 @@ export function Hero() {
             </span>
 
             <h1 className="mt-8 font-display text-[3.25rem] font-bold leading-[0.95] text-white sm:text-7xl lg:text-8xl">
-              <span className="block gold-gradient">Dating isn&apos;t</span>
-              <span className="block">random.</span>
+              <span className="block gold-gradient">Short Kings</span>
+              <span className="block">Empire</span>
             </h1>
 
             <p className="mt-6 max-w-lg text-lg font-medium leading-relaxed text-white/75 sm:text-xl">
@@ -65,19 +65,28 @@ export function Hero() {
               refuse to wait their turn.
             </p>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href="#products" className="btn-primary">
-                <Crown className="h-4 w-4" aria-hidden />
-                Shop products
-              </Link>
+            <div className="mt-10 flex flex-col gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link href="#products" className="btn-primary">
+                  <Crown className="h-4 w-4" aria-hidden />
+                  Shop products
+                </Link>
+                <Link
+                  href={SITE.coaching.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                >
+                  <Play className="h-4 w-4 text-ruby" aria-hidden />
+                  Book coaching
+                </Link>
+              </div>
               <Link
-                href={SITE.coaching.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
+                href="/portal/counsel"
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-sm border border-gold/35 bg-gold/10 px-5 text-xs font-semibold uppercase tracking-[0.14em] text-gold transition hover:border-gold hover:bg-gold/15 sm:w-auto sm:self-start"
               >
-                <Play className="h-4 w-4 text-ruby" aria-hidden />
-                Book coaching
+                <Sparkles className="h-4 w-4" aria-hidden />
+                {COUNSEL_AI.title}
               </Link>
             </div>
           </div>
