@@ -22,12 +22,12 @@ export type PillarMeta = {
 
 /** Axel-approved dating pillar — 6 reels in board order (ELE-1068). */
 export const DATING_TILES: MediaTile[] = [
-  { src: "/media/dating/rizz-breakdown.mp4", type: "video", title: "Rizz Breakdown", subtitle: "The first 9 seconds of any approach" },
-  { src: "/media/dating/hinge.mp4", type: "video", title: "Hinge Success", subtitle: "Profile, photos, and opener system" },
-  { src: "/media/dating/dating-funnel.mp4", type: "video", title: "The Dating Funnel", subtitle: "Match, date, second date, repeat" },
-  { src: "/media/dating/scarcity.mp4", type: "video", title: "Scarcity", subtitle: "Why abundance mindset wins dates" },
-  { src: "/media/dating/hinge-prompts.mp4", type: "video", title: "Hinge Prompts", subtitle: "Prompts that get replies, not ghosted" },
-  { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "Dating vs Sales", subtitle: "Same psychology, different close" },
+  { src: "/media/dating/rizz-breakdown.mp4", type: "video", title: "Rizz Breakdown", subtitle: "Rizz breakdown" },
+  { src: "/media/dating/hinge.mp4", type: "video", title: "Hinge Success", subtitle: "Hinge success" },
+  { src: "/media/dating/dating-funnel.mp4", type: "video", title: "The Dating Funnel", subtitle: "Dating funnel" },
+  { src: "/media/dating/scarcity.mp4", type: "video", title: "Scarcity", subtitle: "Scarcity" },
+  { src: "/media/dating/hinge-prompts.mp4", type: "video", title: "Hinge Prompts", subtitle: "Hinge prompts" },
+  { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "Dating vs Sales", subtitle: "Dating vs sales" },
 ];
 
 export const LIFESTYLE_TILES: MediaTile[] = [
