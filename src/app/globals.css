@@ -6,9 +6,9 @@
   --ske-carbon: #080808;
   --ske-panel: #111111;
   --ske-panel-raised: #161616;
-  --ske-gold: #c9a84c;
-  --ske-gold-light: #e8c96a;
-  --ske-gold-dark: #9a7b2f;
+  --ske-gold: #d4af37;
+  --ske-gold-light: #f0d78c;
+  --ske-gold-dark: #a8861e;
   --ske-red: #b91c1c;
   --ske-ruby: #dc2626;
   --ske-red-glow: rgba(220, 38, 38, 0.35);
@@ -74,13 +74,65 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: #fff;
 }
 
 .font-royal,
 .font-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Shared CTAs */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: 2px;
+  background: var(--ske-gold);
+  color: #000;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--ske-gold-light);
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: 2px;
+  border: 1px solid rgba(220, 38, 38, 0.55);
+  background: transparent;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn-outline:hover {
+  background: rgba(220, 38, 38, 0.12);
+  border-color: var(--ske-ruby);
 }
 
 /* Gold-gradient headline accent */
@@ -191,10 +243,10 @@ body {
 }
 
 .eyebrow {
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.32em;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   color: var(--ske-gold);
   text-transform: uppercase;
 }

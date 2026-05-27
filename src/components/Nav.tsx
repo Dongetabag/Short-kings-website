@@ -40,10 +40,10 @@ export function Nav() {
             />
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-base tracking-[0.12em] text-white">
+            <span className="block font-display text-sm font-semibold text-white">
               SHORT KINGS
             </span>
-            <span className="block font-display text-[11px] tracking-[0.28em] text-gold">
+            <span className="block font-display text-[10px] font-medium tracking-[0.2em] text-gold">
               EMPIRE
             </span>
           </span>

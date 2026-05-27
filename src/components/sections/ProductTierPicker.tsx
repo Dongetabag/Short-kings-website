@@ -54,7 +54,7 @@ export function ProductTierPicker({ tiers }: Props) {
               >
                 {tier.label}
               </span>
-              <span className="mt-1 block font-royal text-lg font-bold uppercase leading-tight text-white">
+              <span className="mt-1 block font-display text-xl font-semibold leading-tight text-white">
                 {tier.shortLabel}
               </span>
               <span className="mt-1 block text-[11px] leading-snug text-white/50">
@@ -98,7 +98,7 @@ function TierProductCard({ product }: { product: ResolvedTierProduct }) {
       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">
         {product.eyebrow}
       </p>
-      <h3 className="mt-2 font-royal text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
+      <h3 className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
         {product.title}
       </h3>
       <p className="mt-2 text-sm font-semibold text-ruby">{product.forWho}</p>

@@ -12,7 +12,7 @@ export function FinalCta() {
       <div className="relative mx-auto max-w-4xl px-4 text-center">
         <Reveal>
           <span aria-hidden className="icon-crown-mask mx-auto inline-block h-12 w-12 bg-gold" />
-          <h2 className="mt-6 font-display text-5xl font-normal uppercase leading-[0.95] tracking-wide text-white sm:text-7xl">
+          <h2 className="mt-6 font-display text-5xl font-semibold leading-[1] text-white sm:text-6xl">
             <span className="block">Ready to install</span>
             <span className="block gold-gradient">the system?</span>
           </h2>
@@ -22,18 +22,12 @@ export function FinalCta() {
             advice and start running a process.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/products#the-playbook"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-gold px-7 text-sm font-semibold uppercase tracking-wide text-black transition hover:bg-goldLight"
-            >
-              <Crown className="h-4 w-4" />
+            <Link href="/products#the-playbook" className="btn-primary">
+              <Crown className="h-4 w-4" aria-hidden />
               Get The Playbook
             </Link>
-            <Link
-              href="/portal/counsel"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-ruby/50 px-7 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-ruby/10"
-            >
-              <Sparkles className="h-4 w-4 text-gold" />
+            <Link href="/portal/counsel" className="btn-outline">
+              <Sparkles className="h-4 w-4 text-gold" aria-hidden />
               Try Counsel
             </Link>
           </div>

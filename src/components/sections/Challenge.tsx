@@ -57,7 +57,7 @@ export function Challenge() {
                   {c.n}
                 </span>
                 <c.icon className="h-7 w-7 text-gold" />
-                <h3 className="mt-4 font-royal text-xl font-bold uppercase tracking-tight text-white">
+                <h3 className="mt-4 font-display text-xl font-semibold text-white">
                   {c.title}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-white/65">{c.body}</p>
