@@ -2,7 +2,6 @@ import { Hero } from "@/components/sections/Hero";
 import { StatsAuthority } from "@/components/sections/StatsAuthority";
 import { Challenge } from "@/components/sections/Challenge";
 import { RoyalArsenal } from "@/components/sections/RoyalArsenal";
-import { CounselPreview } from "@/components/sections/CounselPreview";
 import { MediaGrid } from "@/components/sections/MediaGrid";
 import { RoyalCourt } from "@/components/sections/RoyalCourt";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -33,10 +32,6 @@ export default function Home() {
 
       <SectionBand variant="gold">
         <RoyalArsenal />
-      </SectionBand>
-
-      <SectionBand variant="alt">
-        <CounselPreview />
       </SectionBand>
 
       <SectionBand variant="alt">

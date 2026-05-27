@@ -47,9 +47,6 @@ export function Footer() {
             <Link href="/gallery" className="text-white/65 hover:text-white">
               Gallery
             </Link>
-            <Link href="/journal" className="text-white/65 hover:text-white">
-              Journal
-            </Link>
             <Link href="/portal" className="text-white/65 hover:text-white">
               Member Portal
             </Link>

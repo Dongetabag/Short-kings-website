@@ -22,13 +22,12 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: "Products", href: "/products" },
-  { label: "King's Counsel", href: "/#kings-counsel" },
   { label: "Reviews", href: "/testimonials" },
   { label: "Dating", href: "/dating" },
   { label: "Gym", href: "/gym" },
   { label: "Lifestyle", href: "/lifestyle" },
   { label: "Style", href: "/throne-room" },
-  { label: "Journal", href: "/journal" },
+  { label: "King's Counsel", href: "/portal/counsel" },
 ] as const;
 
 export const PORTAL_NAV = [
