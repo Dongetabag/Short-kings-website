@@ -23,10 +23,10 @@ export type PillarMeta = {
 /** Axel-approved dating pillar — 6 reels in board order (ELE-1068). */
 export const DATING_TILES: MediaTile[] = [
   { src: "/media/dating/rizz-breakdown.mp4", type: "video", title: "Rizz breakdown" },
-  { src: "/media/dating/hinge.mp4", type: "video", title: "hinge success" },
-  { src: "/media/dating/dating-funnel.mp4", type: "video", title: "Dating funnel" },
+  { src: "/media/dating/hinge.mp4", type: "video", title: "hinge prompts" },
+  { src: "/media/dating/dating-funnel.mp4", type: "video", title: "hinge success" },
   { src: "/media/dating/scarcity.mp4", type: "video", title: "scarcity" },
-  { src: "/media/dating/hinge-prompts.mp4", type: "video", title: "hinge prompts" },
+  { src: "/media/dating/hinge-prompts.mp4", type: "video", title: "Dating funnel" },
   { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "dating vs sales" },
 ];
 
