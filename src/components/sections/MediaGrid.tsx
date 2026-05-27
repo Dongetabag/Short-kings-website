@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from "react";
 import { ArrowRight, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -133,21 +133,61 @@ function primeVideoPoster(video: HTMLVideoElement) {
   video.currentTime = target;
 }
 
+function captureFramePoster(video: HTMLVideoElement): string | null {
+  if (video.videoWidth === 0 || video.videoHeight === 0) return null;
+  const canvas = document.createElement("canvas");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  ctx.drawImage(video, 0, 0);
+  try {
+    return canvas.toDataURL("image/jpeg", 0.85);
+  } catch {
+    return null;
+  }
+}
+
 function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
   const [manuallyPaused, setManuallyPaused] = useState(manualPlayback);
+  const [inView, setInView] = useState(!manualPlayback);
+  const [framePoster, setFramePoster] = useState<string | null>(tile.poster ?? null);
+
+  useEffect(() => {
+    setFramePoster(tile.poster ?? null);
+  }, [tile.src, tile.poster]);
+
+  const refreshFramePoster = useCallback((video: HTMLVideoElement) => {
+    const dataUrl = captureFramePoster(video);
+    if (dataUrl) setFramePoster(dataUrl);
+  }, []);
 
   useEffect(() => {
     if (tile.type !== "video" || !manualPlayback) return;
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.12, rootMargin: "80px 0px" }
+    );
+    io.observe(wrapper);
+    return () => io.disconnect();
+  }, [tile.type, manualPlayback]);
+
+  useEffect(() => {
+    if (tile.type !== "video" || !manualPlayback || !inView) return;
     const video = videoRef.current;
     if (!video) return;
 
     const onLoaded = () => primeVideoPoster(video);
     const onSeeked = () => {
-      if (video.paused) video.pause();
+      video.pause();
+      refreshFramePoster(video);
     };
 
     video.addEventListener("loadeddata", onLoaded);
@@ -158,7 +198,7 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
       video.removeEventListener("loadeddata", onLoaded);
       video.removeEventListener("seeked", onSeeked);
     };
-  }, [tile.src, tile.type, manualPlayback]);
+  }, [tile.src, tile.type, manualPlayback, inView, refreshFramePoster]);
 
   useEffect(() => {
     if (tile.type !== "video" || manualPlayback) return;
@@ -196,40 +236,62 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
     }
   };
 
-  const handlePause = () => {
+  const handlePause = (e: SyntheticEvent<HTMLVideoElement>) => {
     setPlaying(false);
-    if (manualPlayback && videoRef.current) primeVideoPoster(videoRef.current);
+    if (manualPlayback) {
+      const v = e.currentTarget;
+      refreshFramePoster(v);
+      primeVideoPoster(v);
+    }
   };
 
   const handleEnded = () => {
     if (!manualPlayback) return;
     setManuallyPaused(true);
     const v = videoRef.current;
-    if (v) primeVideoPoster(v);
+    if (v) {
+      refreshFramePoster(v);
+      primeVideoPoster(v);
+    }
   };
 
   const showCenterPlay = manualPlayback && !playing;
+  const thumbSrc = framePoster ?? tile.poster;
+  const showThumb = manualPlayback && !playing && Boolean(thumbSrc);
+  const videoSrc = manualPlayback ? (inView ? tile.src : undefined) : tile.src;
 
   return (
     <article
       ref={wrapperRef}
-      className="group relative overflow-hidden rounded-xl border border-white/10 bg-black transition hover:-translate-y-1 hover:border-gold/40"
+      className="group relative overflow-hidden rounded-xl border border-white/10 bg-zinc-900 transition hover:-translate-y-1 hover:border-gold/40"
     >
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
         {tile.type === "video" ? (
-          <video
-            ref={videoRef}
-            src={tile.src}
-            poster={tile.poster}
-            muted={muted}
-            loop={!manualPlayback}
-            playsInline
-            preload={manualPlayback ? "auto" : "metadata"}
-            onPlay={() => setPlaying(true)}
-            onPause={handlePause}
-            onEnded={handleEnded}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-          />
+          <>
+            {showThumb ? (
+              <img
+                src={thumbSrc!}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+              />
+            ) : null}
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              poster={thumbSrc ?? undefined}
+              muted={muted}
+              loop={!manualPlayback}
+              playsInline
+              preload={manualPlayback ? (inView ? "auto" : "none") : "metadata"}
+              onPlay={() => setPlaying(true)}
+              onPause={handlePause}
+              onEnded={handleEnded}
+              className={`h-full w-full object-cover transition duration-700 group-hover:scale-[1.04] ${
+                showThumb ? "opacity-0" : "opacity-100"
+              }`}
+            />
+          </>
         ) : (
           <img
             src={tile.src}
