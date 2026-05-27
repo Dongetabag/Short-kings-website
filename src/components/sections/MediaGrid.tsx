@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -28,6 +28,8 @@ type Props = {
   fullPageLabel?: string;
   /** Cap the number of tiles shown (e.g. 4 on home, full set on dedicated page). */
   maxTiles?: number;
+  /** Tap-to-play only; no viewport autoplay or loop. Pauses other tiles in this grid when one plays. */
+  manualPlayback?: boolean;
 };
 
 export function MediaGrid({
@@ -41,9 +43,19 @@ export function MediaGrid({
   fullPageHref,
   fullPageLabel,
   maxTiles,
+  manualPlayback = false,
 }: Props) {
   const visibleTiles = maxTiles ? tiles.slice(0, maxTiles) : tiles;
   const hasMore = maxTiles && tiles.length > maxTiles;
+  const gridRef = useRef<HTMLDivElement | null>(null);
+
+  const pauseOtherVideos = useCallback((current: HTMLVideoElement) => {
+    gridRef.current?.querySelectorAll("video").forEach((v) => {
+      if (v !== current) {
+        v.pause();
+      }
+    });
+  }, []);
 
   return (
     <section
@@ -75,10 +87,14 @@ export function MediaGrid({
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visibleTiles.map((tile, i) => (
             <Reveal key={tile.src} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
-              <Tile tile={tile} />
+              <Tile
+                tile={tile}
+                manualPlayback={manualPlayback}
+                onPlayStart={pauseOtherVideos}
+              />
             </Reveal>
           ))}
         </div>
@@ -99,20 +115,21 @@ export function MediaGrid({
   );
 }
 
-/**
- * Tile auto-plays its video when it enters the viewport (Instagram-reel feel),
- * pauses when out of view, and exposes mute + pause controls on hover.
- * No poster image. The video itself is the visual.
- */
-function Tile({ tile }: { tile: MediaTile }) {
+type TileProps = {
+  tile: MediaTile;
+  manualPlayback: boolean;
+  onPlayStart: (video: HTMLVideoElement) => void;
+};
+
+function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
-  const [manuallyPaused, setManuallyPaused] = useState(false);
+  const [manuallyPaused, setManuallyPaused] = useState(manualPlayback);
 
   useEffect(() => {
-    if (tile.type !== "video") return;
+    if (tile.type !== "video" || manualPlayback) return;
     const wrapper = wrapperRef.current;
     const video = videoRef.current;
     if (!wrapper || !video) return;
@@ -131,7 +148,22 @@ function Tile({ tile }: { tile: MediaTile }) {
     );
     io.observe(wrapper);
     return () => io.disconnect();
-  }, [tile.type, manuallyPaused]);
+  }, [tile.type, manuallyPaused, manualPlayback]);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      onPlayStart(v);
+      setManuallyPaused(false);
+      v.play().catch(() => {});
+    } else {
+      setManuallyPaused(true);
+      v.pause();
+    }
+  };
+
+  const showCenterPlay = manualPlayback && !playing;
 
   return (
     <article
@@ -144,11 +176,14 @@ function Tile({ tile }: { tile: MediaTile }) {
             ref={videoRef}
             src={tile.src}
             muted={muted}
-            loop
+            loop={!manualPlayback}
             playsInline
             preload="metadata"
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
+            onEnded={() => {
+              if (manualPlayback) setManuallyPaused(true);
+            }}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
           />
         ) : (
@@ -173,39 +208,51 @@ function Tile({ tile }: { tile: MediaTile }) {
         </div>
 
         {tile.type === "video" ? (
-          <div className="pointer-events-auto absolute right-3 top-3 flex gap-2 opacity-0 transition group-hover:opacity-100">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                const v = videoRef.current;
-                if (!v) return;
-                if (v.paused) {
-                  setManuallyPaused(false);
-                  v.play().catch(() => {});
-                } else {
-                  setManuallyPaused(true);
-                  v.pause();
-                }
-              }}
-              aria-label={playing ? "Pause" : "Play"}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gold text-black"
+          <>
+            {showCenterPlay ? (
+              <button
+                type="button"
+                onClick={togglePlay}
+                aria-label={`Play ${tile.title}`}
+                className="pointer-events-auto absolute inset-0 flex items-center justify-center bg-black/35 transition hover:bg-black/45"
+              >
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-black shadow-lg">
+                  <Play className="h-6 w-6 translate-x-0.5" />
+                </span>
+              </button>
+            ) : null}
+            <div
+              className={`pointer-events-auto absolute right-3 top-3 flex gap-2 ${
+                manualPlayback ? "opacity-100" : "opacity-0 transition group-hover:opacity-100"
+              }`}
             >
-              {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                const v = videoRef.current;
-                if (!v) return;
-                v.muted = !v.muted;
-                setMuted(v.muted);
-              }}
-              aria-label={muted ? "Unmute" : "Mute"}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur"
-            >
-              {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
-            </button>
-          </div>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  togglePlay();
+                }}
+                aria-label={playing ? "Pause" : "Play"}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gold text-black"
+              >
+                {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const v = videoRef.current;
+                  if (!v) return;
+                  v.muted = !v.muted;
+                  setMuted(v.muted);
+                }}
+                aria-label={muted ? "Unmute" : "Mute"}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur"
+              >
+                {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
+              </button>
+            </div>
+          </>
         ) : null}
       </div>
     </article>

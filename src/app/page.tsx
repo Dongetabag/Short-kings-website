@@ -55,6 +55,7 @@ export default function Home() {
           maxTiles={HOME_TILE_CAP}
           fullPageHref={PILLARS.dating.href}
           fullPageLabel={PILLARS.dating.ctaLabel}
+          manualPlayback
         />
       </FloatingSectionFrame>
 

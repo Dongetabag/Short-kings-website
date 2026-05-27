@@ -66,9 +66,14 @@ export function PillarPage({ pillar, tiles }: Props) {
         eyebrow={`${pillar.pageEyebrow} · The Reels`}
         titleTop="Watch"
         titleHighlight="the lessons."
-        subtitle="Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
+        subtitle={
+          pillar.slug === "dating"
+            ? "Press play on any reel. Only one plays at a time — no autoplay."
+            : "Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
+        }
         tiles={tiles}
         variant={pillar.variant}
+        manualPlayback={pillar.slug === "dating"}
       />
 
       <section className="border-y border-white/10 bg-white/[0.015] py-24">
