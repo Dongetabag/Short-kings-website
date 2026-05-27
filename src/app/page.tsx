@@ -52,7 +52,7 @@ export default function Home() {
           titleHighlight={PILLARS.dating.homeTitleHighlight}
           subtitle={PILLARS.dating.homeSubtitle}
           tiles={DATING_TILES}
-          maxTiles={HOME_TILE_CAP}
+          maxTiles={3}
           fullPageHref={PILLARS.dating.href}
           fullPageLabel={PILLARS.dating.ctaLabel}
         />

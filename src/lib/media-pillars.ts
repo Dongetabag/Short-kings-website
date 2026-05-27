@@ -20,14 +20,11 @@ export type PillarMeta = {
   chapters: { title: string; body: string }[];
 };
 
-/** Axel-approved order: 6 reels per homepage pillar (slots 1–2 kept on dating). */
+/** Axel-approved dating pillar: 3 reels in order. */
 export const DATING_TILES: MediaTile[] = [
-  { src: "/media/dating/rizz-breakdown.mp4", type: "video", title: "Rizz Breakdown", subtitle: "The first 9 seconds of any approach" },
-  { src: "/media/dating/dating-funnel.mp4", type: "video", title: "The Dating Funnel", subtitle: "Match, date, second date, repeat" },
-  { src: "/media/dating/attraction-secrets.mp4", type: "video", title: "Attraction Secrets", subtitle: "What women actually filter for" },
-  { src: "/media/dating/pedestal.mp4", type: "video", title: "Off the Pedestal", subtitle: "The frame reset that flips the script" },
-  { src: "/media/dating/be-unpredictable.mp4", type: "video", title: "Be Unpredictable", subtitle: "Why pattern interruption wins" },
-  { src: "/media/dating/dating-slot-6.mp4", type: "video", title: "Dating Reel VI", subtitle: "Axel reel — slot 6" },
+  { src: "/media/dating/scarcity.mp4", type: "video", title: "Scarcity", subtitle: "Why abundance mindset wins dates" },
+  { src: "/media/dating/hinge.mp4", type: "video", title: "Hinge", subtitle: "Profile, photos, and opener system" },
+  { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "Dating vs Sales", subtitle: "Same psychology, different close" },
 ];
 
 export const LIFESTYLE_TILES: MediaTile[] = [
