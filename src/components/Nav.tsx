@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, Crown } from "lucide-react";
+import { Calendar, Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -60,11 +60,13 @@ export function Nav() {
             </Link>
           ))}
           <Link
-            href="/products#the-playbook"
+            href={SITE.coaching.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-3 inline-flex h-10 items-center gap-2 rounded-sm bg-gold px-4 text-sm font-semibold uppercase tracking-wide text-black transition hover:bg-goldLight"
           >
-            <Crown className="h-4 w-4" />
-            Get the bundle
+            <Calendar className="h-4 w-4" />
+            1-on-1 coaching
           </Link>
         </nav>
 
@@ -92,11 +94,13 @@ export function Nav() {
               </Link>
             ))}
             <Link
-              href="/products#the-playbook"
+              href={SITE.coaching.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-gold font-semibold text-black"
             >
-              <Crown className="h-4 w-4" /> Get the bundle
+              <Calendar className="h-4 w-4" /> 1-on-1 coaching
             </Link>
           </nav>
         </div>

@@ -26,16 +26,16 @@ export default function Home() {
         <Hero />
       </SectionBand>
 
+      <SectionBand variant="alt">
+        <StatsAuthority />
+      </SectionBand>
+
       <SectionBand variant="red" id="challenge">
         <Challenge />
       </SectionBand>
 
       <SectionBand variant="gold">
         <RoyalArsenal />
-      </SectionBand>
-
-      <SectionBand variant="alt">
-        <StatsAuthority />
       </SectionBand>
 
       <SectionBand variant="default">
