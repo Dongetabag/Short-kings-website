@@ -20,11 +20,14 @@ export type PillarMeta = {
   chapters: { title: string; body: string }[];
 };
 
-/** Axel-approved dating pillar: 3 reels in order. */
+/** Axel-approved dating pillar: 6 reels — new uploads slots 1–3, prior slots 4–6 kept. */
 export const DATING_TILES: MediaTile[] = [
   { src: "/media/dating/scarcity.mp4", type: "video", title: "Scarcity", subtitle: "Why abundance mindset wins dates" },
   { src: "/media/dating/hinge.mp4", type: "video", title: "Hinge", subtitle: "Profile, photos, and opener system" },
   { src: "/media/dating/dating-vs-sales.mp4", type: "video", title: "Dating vs Sales", subtitle: "Same psychology, different close" },
+  { src: "/media/dating/pedestal.mp4", type: "video", title: "Off the Pedestal", subtitle: "The frame reset that flips the script" },
+  { src: "/media/dating/be-unpredictable.mp4", type: "video", title: "Be Unpredictable", subtitle: "Why pattern interruption wins" },
+  { src: "/media/dating/dating-slot-6.mp4", type: "video", title: "Dating Reel VI", subtitle: "Axel reel — slot 6" },
 ];
 
 export const LIFESTYLE_TILES: MediaTile[] = [
