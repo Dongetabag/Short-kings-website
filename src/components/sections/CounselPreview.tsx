@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Sparkles, Send } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { COUNSEL_AI } from "@/lib/site";
 
 const MESSAGES = [
   {
@@ -22,27 +23,43 @@ const MESSAGES = [
   },
 ];
 
+const FEATURES = [
+  "Reply coaching for texts, bios, and first messages",
+  "Frame checks when she tests you or goes cold",
+  "Date ideas and mindset reframes on demand",
+  `${COUNSEL_AI.trialDays}-day free trial · then $${COUNSEL_AI.priceUsd}${COUNSEL_AI.cadence}`,
+];
+
 export function CounselPreview() {
   return (
-    <section id="ai-agent" className="border-y border-white/10 bg-gradient-to-b from-stoneDeep/60 via-obsidian to-obsidian py-24">
+    <section id="kings-counsel" className="scroll-mt-24 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
         <Reveal>
           <SectionHeader
-            eyebrow="King's Counsel AI"
-            titleTop="Your always-on"
-            titleHighlight="strategist."
-            subtitle="A 24/7 advisor trained on the Short Kings system. Ask it anything. Texts. Profile bios. First-date plans. Mindset reframes."
+            eyebrow={COUNSEL_AI.eyebrow}
+            titleTop="Meet"
+            titleHighlight={COUNSEL_AI.title}
+            subtitle={COUNSEL_AI.description}
           />
+          <ul className="mt-6 flex flex-col gap-3 text-sm leading-relaxed text-white/70">
+            {FEATURES.map((item) => (
+              <li key={item} className="flex gap-3">
+                <Sparkles
+                  className="mt-0.5 h-4 w-4 shrink-0 text-gold"
+                  aria-hidden
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/portal/counsel"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-6 font-semibold text-black hover:bg-goldLight"
-            >
-              <Sparkles className="h-4 w-4" /> Try the Counsel
+            <Link href="/portal/counsel" className="btn-primary">
+              <Sparkles className="h-4 w-4" aria-hidden />
+              Try the Counsel
             </Link>
             <Link
               href="/products#counsel"
-              className="inline-flex h-12 items-center justify-center rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white hover:bg-white/[0.08]"
+              className="btn-outline border-gold/40 hover:border-gold hover:bg-gold/10"
             >
               See pricing
             </Link>
@@ -64,7 +81,7 @@ export function CounselPreview() {
                   />
                 </div>
                 <div>
-                  <p className="font-royal text-sm font-bold tracking-[0.18em] text-white">
+                  <p className="font-display text-sm font-semibold tracking-[0.18em] text-white">
                     KING&apos;S COUNSEL
                   </p>
                   <p className="text-[11px] text-emerald">Online · always available</p>
@@ -77,8 +94,8 @@ export function CounselPreview() {
                     key={i}
                     className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-6 ${
                       m.role === "user"
-                        ? "self-end bg-gold/15 text-white border border-gold/30"
-                        : "self-start bg-white/[0.04] text-white/85 border border-white/10"
+                        ? "self-end border border-gold/30 bg-gold/15 text-white"
+                        : "self-start border border-white/10 bg-white/[0.04] text-white/85"
                     }`}
                   >
                     {m.text}

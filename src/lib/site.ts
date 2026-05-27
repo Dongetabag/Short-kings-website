@@ -22,6 +22,7 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: "Products", href: "/products" },
+  { label: "King's Counsel", href: "/#kings-counsel" },
   { label: "Reviews", href: "/testimonials" },
   { label: "Dating", href: "/dating" },
   { label: "Gym", href: "/gym" },

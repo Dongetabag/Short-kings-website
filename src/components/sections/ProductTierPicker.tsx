@@ -54,7 +54,7 @@ export function ProductTierPicker({ tiers }: Props) {
               >
                 {tier.label}
               </span>
-              <span className="mt-1 block font-display text-xl font-medium italic leading-tight text-white">
+              <span className="mt-1 block font-display text-xl font-semibold leading-tight text-white">
                 {tier.shortLabel}
               </span>
               <span className="mt-1 block text-[11px] leading-snug text-white/50">

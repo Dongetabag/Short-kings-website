@@ -32,9 +32,14 @@ export function PillarPage({ pillar, tiles }: Props) {
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <Reveal>
             <p className={cn("eyebrow", theme?.eyebrowClass)}>{pillar.pageEyebrow}</p>
-            <h1 className="mt-3 font-display text-5xl font-semibold leading-[1] text-white sm:text-7xl">
-              <span className="block not-italic font-medium">{pillar.pageTitleTop}</span>
-              <span className={cn("block italic", theme?.highlightClass ?? "gold-gradient")}>
+            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
+              <span className="block">{pillar.pageTitleTop}</span>
+              <span
+                className={cn(
+                  "block drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]",
+                  theme?.highlightClass ?? "gold-gradient"
+                )}
+              >
                 {pillar.pageTitleHighlight}
               </span>
             </h1>
@@ -102,7 +107,7 @@ export function PillarPage({ pillar, tiles }: Props) {
                   <p className="font-royal text-3xl font-black text-gold/30">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 font-display text-2xl font-medium text-white">
+                  <h3 className="mt-2 font-display text-xl font-bold text-white">
                     {c.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-white/65">

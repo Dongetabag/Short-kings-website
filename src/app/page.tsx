@@ -36,6 +36,10 @@ export default function Home() {
       </SectionBand>
 
       <SectionBand variant="alt">
+        <CounselPreview />
+      </SectionBand>
+
+      <SectionBand variant="alt">
         <StatsAuthority />
       </SectionBand>
 
@@ -43,19 +47,18 @@ export default function Home() {
         <RoyalCourt />
       </SectionBand>
 
-      <div className="border-t border-white/10 bg-carbon">
-        <div className="mx-auto max-w-6xl px-4 pt-20 pb-6">
+      <SectionBand variant="alt" className="pb-8">
+        <div className="mx-auto max-w-6xl px-4 pt-20 pb-4">
           <Reveal>
             <SectionHeader
               eyebrow="Proof in motion"
               titleTop="See the"
               titleHighlight="system work."
-              subtitle="Each pillar has its own lane — dating in red, lifestyle in gold, gym in blue, style in black."
+              subtitle="Dating, lifestyle, gym, and style — tap any reel on the homepage or open the full pillar page."
             />
           </Reveal>
         </div>
         <MediaGrid
-          theme="dating"
           id="dating"
           eyebrow={PILLARS.dating.homeEyebrow}
           titleTop={PILLARS.dating.homeTitleTop}
@@ -69,7 +72,6 @@ export default function Home() {
           compact
         />
         <MediaGrid
-          theme="lifestyle"
           id="lifestyle"
           eyebrow={PILLARS.lifestyle.homeEyebrow}
           titleTop={PILLARS.lifestyle.homeTitleTop}
@@ -83,7 +85,6 @@ export default function Home() {
           compact
         />
         <MediaGrid
-          theme="gym"
           id="gym"
           eyebrow={PILLARS.gym.homeEyebrow}
           titleTop={PILLARS.gym.homeTitleTop}
@@ -97,7 +98,6 @@ export default function Home() {
           compact
         />
         <MediaGrid
-          theme="style"
           id="throne-room"
           eyebrow={PILLARS["throne-room"].homeEyebrow}
           titleTop={PILLARS["throne-room"].homeTitleTop}
@@ -110,10 +110,6 @@ export default function Home() {
           manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("throne-room")}
           compact
         />
-      </div>
-
-      <SectionBand variant="gold">
-        <CounselPreview />
       </SectionBand>
 
       <SectionBand variant="red">

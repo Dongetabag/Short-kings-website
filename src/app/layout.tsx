@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { DM_Sans, Oswald } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const oswald = Oswald({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
-const sourceSans = Source_Sans_3({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -47,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${sourceSans.variable} dark h-full antialiased`}
+      className={`${oswald.variable} ${dmSans.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a
