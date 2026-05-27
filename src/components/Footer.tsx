@@ -3,12 +3,18 @@ import Link from "next/link";
 import { Camera, Music2, Video } from "lucide-react";
 import { SITE } from "@/lib/site";
 
+const SOCIAL_LINKS = [
+  { label: "Instagram", href: SITE.social.instagram, icon: Camera },
+  { label: "TikTok", href: SITE.social.tiktok, icon: Music2 },
+  { label: "YouTube", href: SITE.social.youtube, icon: Video },
+] as const;
+
 export function Footer() {
   return (
     <footer className="border-t border-ruby/25 bg-black">
-      <div className="mx-auto max-w-6xl px-4 py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="flex flex-col gap-3">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col gap-3 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3">
               <span className="relative h-8 w-8 shrink-0">
                 <Image
@@ -23,7 +29,7 @@ export function Footer() {
                 SHORT KINGS EMPIRE
               </p>
             </div>
-            <p className="text-sm text-white/55 leading-6">{SITE.tagline}</p>
+            <p className="max-w-xs text-sm leading-6 text-white/55">{SITE.tagline}</p>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
@@ -57,76 +63,30 @@ export function Footer() {
               Contact
             </a>
           </div>
-
-          <div className="flex flex-col gap-3 text-sm">
-            <p className="eyebrow">Follow</p>
-            <div className="flex gap-3">
-              <a
-                href={SITE.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/65 hover:border-gold/40 hover:text-gold"
-              >
-                <Camera className="h-4 w-4" />
-              </a>
-              <a
-                href={SITE.social.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/65 hover:border-gold/40 hover:text-gold"
-              >
-                <Music2 className="h-4 w-4" />
-              </a>
-              <a
-                href={SITE.social.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/65 hover:border-gold/40 hover:text-gold"
-              >
-                <Video className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-          <p className="font-royal tracking-[0.2em] text-gold/70">
-            DATING ISN&apos;T RANDOM. IT&apos;S A SYSTEM.
+        <div className="mt-8 border-t border-white/10 pt-6">
+          <p className="text-center text-xs text-white/40 sm:text-left">
+            © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-center sm:gap-8">
-          <a
-            href={SITE.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-gold"
-          >
-            <Camera className="h-4 w-4" aria-hidden />
-            Instagram
-          </a>
-          <a
-            href={SITE.social.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-gold"
-          >
-            <Music2 className="h-4 w-4" aria-hidden />
-            TikTok
-          </a>
-          <a
-            href={SITE.social.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-gold"
-          >
-            <Video className="h-4 w-4" aria-hidden />
-            YouTube
-          </a>
+        <div className="mt-6 border-t border-white/10 pt-6">
+          <p className="eyebrow mb-4 text-center sm:mb-5 sm:text-left">Follow</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:border-gold/40 hover:bg-gold/10 hover:text-gold sm:justify-center"
+              >
+                <Icon className="h-4 w-4 shrink-0" aria-hidden />
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
