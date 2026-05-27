@@ -7,6 +7,7 @@ import {
   COUNSEL_AI,
   COACHING,
   GYM_NUTRITION_PLAN,
+  SITE,
   TRANSFORMATION_3MO,
 } from "@/lib/site";
 import {
@@ -159,22 +160,32 @@ export default function ProductsPage() {
               <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-white/65">
                 {monthlyCoaching?.description ?? COACHING.description}
               </p>
-              {monthlyHref ? (
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                {monthlyHref ? (
+                  <a
+                    href={monthlyHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
+                  >
+                    <Calendar className="h-4 w-4" /> Start coaching · $
+                    {COACHING.priceUsd}
+                    {COACHING.cadence}
+                  </a>
+                ) : (
+                  <span className="inline-flex h-12 items-center rounded-md border border-white/15 px-7 text-xs uppercase tracking-[0.2em] text-white/45">
+                    Checkout setup pending
+                  </span>
+                )}
                 <a
-                  href={monthlyHref}
+                  href={SITE.coaching.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 px-7 font-semibold text-white hover:bg-white/5"
                 >
-                  <Calendar className="h-4 w-4" /> Start coaching · $
-                  {COACHING.priceUsd}
-                  {COACHING.cadence}
+                  <Calendar className="h-4 w-4" /> Book on Calendly
                 </a>
-              ) : (
-                <span className="mt-7 inline-flex h-12 items-center rounded-md border border-white/15 px-7 text-xs uppercase tracking-[0.2em] text-white/45">
-                  Setup pending
-                </span>
-              )}
+              </div>
             </div>
           </Reveal>
         </section>

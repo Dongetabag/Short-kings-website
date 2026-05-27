@@ -37,7 +37,7 @@ export function Footer() {
             <Link href="/products#counsel" className="text-white/65 hover:text-white">
               King&apos;s Counsel AI
             </Link>
-            <Link href="/products#coaching" className="text-white/65 hover:text-white">
+            <Link href="/products#monthly-coaching" className="text-white/65 hover:text-white">
               1-on-1 Coaching
             </Link>
           </div>
