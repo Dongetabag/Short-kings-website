@@ -121,12 +121,44 @@ type TileProps = {
   onPlayStart: (video: HTMLVideoElement) => void;
 };
 
+/** Seek to the first decodable frame so paused reels show a thumbnail, not black. */
+function primeVideoPoster(video: HTMLVideoElement) {
+  const target = video.duration && Number.isFinite(video.duration)
+    ? Math.min(0.1, video.duration * 0.02)
+    : 0.05;
+  if (Math.abs(video.currentTime - target) < 0.001) {
+    video.pause();
+    return;
+  }
+  video.currentTime = target;
+}
+
 function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
   const [manuallyPaused, setManuallyPaused] = useState(manualPlayback);
+
+  useEffect(() => {
+    if (tile.type !== "video" || !manualPlayback) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const onLoaded = () => primeVideoPoster(video);
+    const onSeeked = () => {
+      if (video.paused) video.pause();
+    };
+
+    video.addEventListener("loadeddata", onLoaded);
+    video.addEventListener("seeked", onSeeked);
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) onLoaded();
+
+    return () => {
+      video.removeEventListener("loadeddata", onLoaded);
+      video.removeEventListener("seeked", onSeeked);
+    };
+  }, [tile.src, tile.type, manualPlayback]);
 
   useEffect(() => {
     if (tile.type !== "video" || manualPlayback) return;
@@ -160,7 +192,20 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
     } else {
       setManuallyPaused(true);
       v.pause();
+      if (manualPlayback) primeVideoPoster(v);
     }
+  };
+
+  const handlePause = () => {
+    setPlaying(false);
+    if (manualPlayback && videoRef.current) primeVideoPoster(videoRef.current);
+  };
+
+  const handleEnded = () => {
+    if (!manualPlayback) return;
+    setManuallyPaused(true);
+    const v = videoRef.current;
+    if (v) primeVideoPoster(v);
   };
 
   const showCenterPlay = manualPlayback && !playing;
@@ -175,15 +220,14 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
           <video
             ref={videoRef}
             src={tile.src}
+            poster={tile.poster}
             muted={muted}
             loop={!manualPlayback}
             playsInline
-            preload="metadata"
+            preload={manualPlayback ? "auto" : "metadata"}
             onPlay={() => setPlaying(true)}
-            onPause={() => setPlaying(false)}
-            onEnded={() => {
-              if (manualPlayback) setManuallyPaused(true);
-            }}
+            onPause={handlePause}
+            onEnded={handleEnded}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
           />
         ) : (
@@ -214,9 +258,9 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
                 type="button"
                 onClick={togglePlay}
                 aria-label={`Play ${tile.title}`}
-                className="pointer-events-auto absolute inset-0 flex items-center justify-center bg-black/35 transition hover:bg-black/45"
+                className="pointer-events-auto absolute inset-0 flex items-center justify-center"
               >
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-black shadow-lg">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-black shadow-[0_4px_24px_rgba(0,0,0,0.55)] ring-2 ring-black/40 transition group-hover:scale-105">
                   <Play className="h-6 w-6 translate-x-0.5" />
                 </span>
               </button>
