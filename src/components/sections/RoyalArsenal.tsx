@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  BookOpen,
   Crown,
   Dumbbell,
   CalendarDays,
@@ -9,11 +10,12 @@ import {
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
-  BUNDLE,
-  COACHING,
   COUNSEL_AI,
   GYM_NUTRITION_PLAN,
-  TRANSFORMATION_3MO,
+  INNER_CIRCLE,
+  SEVEN_PROTOCOLS,
+  THE_EMPIRE,
+  THE_PLAYBOOK,
 } from "@/lib/site";
 import { resolvePaymentLink } from "@/lib/products";
 
@@ -34,32 +36,57 @@ const formatPrice = (priceUsd: number) =>
   priceUsd > 0 ? `$${priceUsd}` : "Pricing soon";
 
 export function RoyalArsenal() {
-  const bundleHref =
-    resolvePaymentLink(BUNDLE.paymentLinkEnvKey) ?? "/products#bundle";
+  const playbookHref =
+    resolvePaymentLink(THE_PLAYBOOK.paymentLinkEnvKey) ??
+    "/products#the-playbook";
+  const protocolsHref =
+    resolvePaymentLink(SEVEN_PROTOCOLS.paymentLinkEnvKey) ??
+    "/products#seven-protocols";
   const gymHref =
     resolvePaymentLink(GYM_NUTRITION_PLAN.paymentLinkEnvKey) ??
     "/products#built-different";
-  const transformHref =
-    resolvePaymentLink(TRANSFORMATION_3MO.paymentLinkEnvKey) ??
-    "/products#transformation-3-month";
-  const coachingHref =
-    resolvePaymentLink("STRIPE_PAYMENT_LINK_MONTHLY_COACHING") ??
-    "/products#monthly-coaching";
+  const empireHref =
+    resolvePaymentLink(THE_EMPIRE.paymentLinkEnvKey) ?? "/products#the-empire";
+  const innerCircleHref =
+    resolvePaymentLink(INNER_CIRCLE.paymentLinkEnvKey) ??
+    "/products#inner-circle";
   const counselHref =
     resolvePaymentLink(COUNSEL_AI.paymentLinkEnvKey) ?? "/products#counsel";
 
   const items: Item[] = [
     {
-      badge: "Bundle",
+      badge: "Starter",
       badgeTone: "gold",
       icon: Crown,
-      title: BUNDLE.title,
-      description: BUNDLE.description,
-      price: `$${BUNDLE.priceUsd}`,
-      priceNote: `$${BUNDLE.originalPriceUsd} value. ${BUNDLE.saveLabel}.`,
-      href: bundleHref,
-      cta: "Get the playbook",
+      title: THE_PLAYBOOK.title,
+      description: THE_PLAYBOOK.description,
+      price: `$${THE_PLAYBOOK.priceUsd}`,
+      priceNote: `Value $${THE_PLAYBOOK.originalPriceUsd}+ · ${THE_PLAYBOOK.saveLabel}`,
+      href: playbookHref,
+      cta: "Get The Playbook",
       featured: true,
+    },
+    {
+      badge: "Entry",
+      badgeTone: "gold",
+      icon: BookOpen,
+      title: SEVEN_PROTOCOLS.title,
+      description: SEVEN_PROTOCOLS.description,
+      price: `$${SEVEN_PROTOCOLS.priceBundleUsd}`,
+      priceNote: `$${SEVEN_PROTOCOLS.priceEachUsd} each · all 7 ebooks`,
+      href: protocolsHref,
+      cta: "Get all 7",
+    },
+    {
+      badge: "Coaching",
+      badgeTone: "ruby",
+      icon: MessageSquare,
+      title: INNER_CIRCLE.title,
+      description: INNER_CIRCLE.description,
+      price: `$${INNER_CIRCLE.priceUsd}`,
+      priceNote: `${INNER_CIRCLE.cadence} · cancel anytime`,
+      href: innerCircleHref,
+      cta: "Join Inner Circle",
     },
     {
       badge: "Program",
@@ -84,26 +111,15 @@ export function RoyalArsenal() {
       cta: "Try Counsel",
     },
     {
-      badge: "Program",
-      badgeTone: "ruby",
+      badge: "Done with you",
+      badgeTone: "gold",
       icon: CalendarDays,
-      title: TRANSFORMATION_3MO.title,
-      description: TRANSFORMATION_3MO.description,
-      price: formatPrice(TRANSFORMATION_3MO.priceUsd),
-      priceNote: TRANSFORMATION_3MO.cadence,
-      href: transformHref,
+      title: THE_EMPIRE.title,
+      description: THE_EMPIRE.description,
+      price: formatPrice(THE_EMPIRE.priceUsd),
+      priceNote: `${THE_EMPIRE.cadence} · ${THE_EMPIRE.scarcity}`,
+      href: empireHref,
       cta: "Apply",
-    },
-    {
-      badge: "1-on-1",
-      badgeTone: "ruby",
-      icon: MessageSquare,
-      title: COACHING.title,
-      description: COACHING.description,
-      price: `$${COACHING.priceUsd}`,
-      priceNote: COACHING.cadence,
-      href: coachingHref,
-      cta: "Start coaching",
     },
   ];
 
@@ -115,7 +131,7 @@ export function RoyalArsenal() {
             eyebrow="Products"
             titleTop="The full"
             titleHighlight="product suite."
-            subtitle="Bundles, Built Different, and coaching. Individual ebooks live on the full product list."
+            subtitle="The Playbook, 7 Protocols, Built Different, Kings Counsel AI, The Inner Circle, and The Empire — see the full list for every ebook."
           />
         </Reveal>
 
@@ -172,7 +188,7 @@ function ProductCard({ item }: { item: Item }) {
         </span>
         {item.featured ? (
           <span className="rounded-full bg-gold px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-black shimmer-gold">
-            Best Value
+            Best starter value
           </span>
         ) : null}
       </div>

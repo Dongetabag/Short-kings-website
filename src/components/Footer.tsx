@@ -28,8 +28,8 @@ export function Footer() {
 
           <div className="flex flex-col gap-3 text-sm">
             <p className="eyebrow">Products</p>
-            <Link href="/products#bundle" className="text-white/65 hover:text-white">
-              The Complete Playbook
+            <Link href="/products#the-playbook" className="text-white/65 hover:text-white">
+              The Playbook
             </Link>
             <Link href="/products#ebooks" className="text-white/65 hover:text-white">
               Dating Ebooks
@@ -37,8 +37,8 @@ export function Footer() {
             <Link href="/products#counsel" className="text-white/65 hover:text-white">
               King&apos;s Counsel AI
             </Link>
-            <Link href="/products#monthly-coaching" className="text-white/65 hover:text-white">
-              1-on-1 Coaching
+            <Link href="/products#inner-circle" className="text-white/65 hover:text-white">
+              The Inner Circle
             </Link>
           </div>
 

@@ -105,12 +105,12 @@ export const GYM_PROGRAM: Product = {
 
 export const COACHING_PRODUCTS: Product[] = [
   {
-    id: "monthly-coaching",
+    id: "inner-circle",
     kind: "coaching",
-    title: "Monthly Coaching",
-    tagline: "Your coach in your corner.",
+    title: "The Inner Circle",
+    tagline: "Month to month. Cancel anytime.",
     description:
-      "4 tailored calls a month. Every session built around where you are actually at. Plus unlimited WhatsApp access between calls.",
+      "4 coaching calls a month, unlimited WhatsApp, personalized game plan, and all 7 ebooks free on signup.",
     priceUsd: 150,
     cadence: "/month",
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_MONTHLY_COACHING",

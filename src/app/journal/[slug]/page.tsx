@@ -62,7 +62,7 @@ export default async function JournalPostPage({
           The Full Library goes deeper on every theme above.
         </p>
         <Link
-          href="/products#bundle"
+          href="/products#the-playbook"
           className="mt-5 inline-flex h-11 items-center gap-2 rounded-md bg-gold px-5 font-semibold text-black hover:bg-goldLight"
         >
           See the bundle

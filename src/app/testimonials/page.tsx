@@ -111,7 +111,7 @@ export default function TestimonialsPage() {
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
-                href="/products#bundle"
+                href="/products#the-playbook"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
               >
                 <Crown className="h-4 w-4" /> Get the bundle

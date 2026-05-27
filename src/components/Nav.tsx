@@ -60,7 +60,7 @@ export function Nav() {
             </Link>
           ))}
           <Link
-            href="/products#bundle"
+            href="/products#the-playbook"
             className="ml-3 inline-flex h-10 items-center gap-2 rounded-md bg-gold px-4 text-sm font-semibold text-black transition hover:bg-goldLight hover:shadow-[0_0_30px_rgba(212,175,55,0.35)]"
           >
             <Crown className="h-4 w-4" />
@@ -92,7 +92,7 @@ export function Nav() {
               </Link>
             ))}
             <Link
-              href="/products#bundle"
+              href="/products#the-playbook"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-gold font-semibold text-black"
             >

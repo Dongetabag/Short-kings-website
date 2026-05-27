@@ -49,73 +49,118 @@ export const ADMIN_NAV = [
   { label: "KPIs", href: "/admin/kpis" },
 ] as const;
 
-export const BUNDLE = {
-  id: "complete-playbook",
-  title: "The Complete Playbook",
-  eyebrow: "Bundle",
+/** Entry offer — all seven ebooks. */
+export const SEVEN_PROTOCOLS = {
+  id: "seven-protocols",
+  title: "The 7 Protocols",
+  eyebrow: "7 ebooks",
   description:
-    "All 7 ebooks plus Built Different plus one 30 min coaching call to map out your personal game plan.",
+    "Approach Like a King, She Replied Now What, First Date Blueprint, Unshakeable, Presence Code, Attraction Conversation, Swipe Right on Yourself.",
+  priceEachUsd: 12,
+  priceBundleUsd: 65,
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_EBOOK_BUNDLE",
+} as const;
+
+export const THE_PLAYBOOK = {
+  id: "the-playbook",
+  title: "The Playbook",
+  eyebrow: "Starter commitment",
+  description:
+    "The complete self-paced system plus 2 coaching calls. Execute independently — the calls show you what working with Axel feels like.",
   priceUsd: 185,
-  originalPriceUsd: 299,
-  saveLabel: "Save $114",
+  originalPriceUsd: 620,
+  saveLabel: "Save $435+",
   includes: [
-    "All 7 ebooks ($84 value)",
-    "Built Different program ($65 value)",
-    "1 coaching call ($150 value)",
-    "Instant digital delivery",
+    "All 7 ebooks",
+    "2 coaching calls (30 min each)",
+    "Dating app audit",
+    "Short Kings Style Guide",
+    "King's Counsel AI — 1 month free",
+    "30-day challenge tracker",
+    "Weekly progress form",
   ],
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUNDLE",
 } as const;
 
+/** @deprecated use THE_PLAYBOOK */
+export const BUNDLE = THE_PLAYBOOK;
+
 export const COUNSEL_AI = {
   id: "counsel-ai",
-  title: "King's Counsel AI",
-  eyebrow: "Always-on advisor",
+  title: "Kings Counsel AI",
+  eyebrow: "Always-on AI",
   description:
-    "Trained on the Short Kings system. Ask it anything: texts, profiles, first-date plans, mindset reframes. Lives in your portal.",
+    "Trained on the Short Kings system. Ask anything — texts, profiles, dates, mindset reframes. When it gets specific enough it points you to Axel.",
   priceUsd: 15,
   cadence: "/month",
   trialDays: 7,
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COUNSEL",
 } as const;
 
-export const TRANSFORMATION_3MO = {
-  id: "transformation-3-month",
-  title: "3 Month Transformation",
-  eyebrow: "Program",
+export const INNER_CIRCLE = {
+  id: "inner-circle",
+  title: "The Inner Circle",
+  eyebrow: "1-on-1 coaching",
   description:
-    "Every product plus 12 coaching calls over 3 months. Your results, your timeline, your game built from the ground up.",
-  priceUsd: 997,
-  cadence: "3 months",
+    "No long-term commitment. Cancel anytime. Axel in your corner every month with consistent calls, WhatsApp, and a game plan that evolves as you grow.",
+  priceUsd: 150,
+  cadence: "/month",
+  originalPriceUsd: 580,
   includes: [
-    "All 7 ebooks",
-    "Built Different program",
-    "12 coaching calls weekly",
-    "WhatsApp access included",
+    "All 7 ebooks — free on signup",
+    "4 coaching calls a month",
+    "Unlimited WhatsApp access",
+    "Personalized monthly game plan",
+    "Dating app audit",
+    "Accountability check-ins (MWF)",
+    "Kings Counsel AI included",
+    "Short Kings Style Guide",
+    "30-day challenge tracker",
+  ],
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_MONTHLY_COACHING",
+} as const;
+
+/** @deprecated use INNER_CIRCLE */
+export const COACHING = INNER_CIRCLE;
+
+export const THE_EMPIRE = {
+  id: "the-empire",
+  title: "The Empire",
+  eyebrow: "Done with you",
+  description:
+    "Same 3 months. Completely different level of access. Axel is in your phone reviewing texts, debriefing every date — your personal dating director.",
+  priceUsd: 997,
+  cadence: "3 months (~$332/mo)",
+  originalPriceUsd: 2400,
+  scarcity: "Limited to 5 clients",
+  includes: [
+    "Everything in The Inner Circle",
+    "Built Different gym program",
+    "Weekly calls — every week for 3 months",
+    "Axel reviews real convos on WhatsApp",
+    "Active profile monitoring",
+    "Direct number — call or text anytime",
+    "Personal weekly check-in from Axel",
+    "Conversation starter vault + date ideas",
+    "Body language & style breakdown",
+    "Relationship roadmap",
   ],
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_TRANSFORMATION_3MO",
 } as const;
 
-export const COACHING = {
-  id: "monthly-coaching",
-  title: "Monthly Coaching",
-  eyebrow: "1-on-1",
-  description:
-    "4 tailored calls a month. Every session built around where you are actually at. Plus unlimited WhatsApp access between calls.",
-  priceUsd: 150,
-  cadence: "/month",
-} as const;
+/** @deprecated use THE_EMPIRE */
+export const TRANSFORMATION_3MO = THE_EMPIRE;
 
 export const GYM_NUTRITION_PLAN = {
   id: "built-different",
   title: "Built Different",
-  eyebrow: "Gym & Nutrition",
+  eyebrow: "Gym & nutrition",
   description:
-    "A fully structured gym and nutrition program on Trainerize. Built to maximize your physique as a shorter guy.",
+    "Fully structured gym and nutrition on Trainerize. Built for shorter guys — proportions, density, and the exact macros to maximize your physique.",
   priceUsd: 65,
   cadence: "one time",
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_BUILT_DIFFERENT",
 } as const;
 
-/** @deprecated use TRANSFORMATION_3MO */
-export const COACHING_3_MONTH = TRANSFORMATION_3MO;
+/** @deprecated use THE_EMPIRE */
+export const COACHING_3_MONTH = THE_EMPIRE;
