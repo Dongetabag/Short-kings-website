@@ -41,15 +41,16 @@ export const LIFESTYLE_TILES: MediaTile[] = [
 ];
 
 /** Pillars that use tap-to-play reels (thumbnail preview, one at a time). */
-export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = ["dating", "lifestyle"];
+export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = ["dating", "lifestyle", "gym"];
 
+/** Axel-approved gym pillar — 6 tiles in board order (ELE-1068). Slot 2 is a still image. */
 export const GYM_TILES: MediaTile[] = [
-  { src: "/media/gym/gym-slot-1.mp4", type: "video", title: "Gym I", subtitle: "Axel reel — slot 1" },
-  { src: "/media/gym/gym-slot-2.mp4", type: "video", title: "Gym II", subtitle: "Axel reel — slot 2" },
-  { src: "/media/gym/gym-slot-3.jpeg", type: "image", title: "Gym III", subtitle: "Axel photo — slot 3" },
-  { src: "/media/gym/gym-slot-4.mp4", type: "video", title: "Gym IV", subtitle: "Axel reel — slot 4" },
-  { src: "/media/gym/gym-slot-5.jpeg", type: "image", title: "Gym V", subtitle: "Axel photo — slot 5" },
-  { src: "/media/gym/gym-slot-6.mp4", type: "video", title: "Gym VI", subtitle: "Axel reel — slot 6" },
+  { src: "/media/gym/client-result.mp4", type: "video", title: "client result" },
+  { src: "/media/gym/image.jpeg", type: "image", title: "image" },
+  { src: "/media/gym/gym-transformation.mp4", type: "video", title: "gym transformation" },
+  { src: "/media/gym/foods-for-fat-loss.mp4", type: "video", title: "foods for fat loss" },
+  { src: "/media/gym/back-day.mp4", type: "video", title: "back day" },
+  { src: "/media/gym/bible-foods.mp4", type: "video", title: "bible foods" },
 ];
 
 export const THRONE_TILES: MediaTile[] = [

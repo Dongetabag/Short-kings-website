@@ -86,6 +86,7 @@ export default function Home() {
           maxTiles={HOME_TILE_CAP}
           fullPageHref={PILLARS.gym.href}
           fullPageLabel={PILLARS.gym.ctaLabel}
+          manualPlayback={MANUAL_PLAYBACK_PILLARS.includes("gym")}
         />
       </FloatingSectionFrame>
 
