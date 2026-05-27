@@ -16,7 +16,8 @@ import {
   PILLARS,
 } from "@/lib/media-pillars";
 
-const HOME_TILE_CAP = 6;
+/** Homepage shows first three tiles per pillar; full sets live on pillar pages. */
+const HOME_TILE_CAP = 3;
 
 export default function Home() {
   return (

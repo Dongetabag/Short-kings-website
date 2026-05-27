@@ -50,9 +50,9 @@ export const MANUAL_PLAYBACK_PILLARS: PillarSlug[] = [
 
 /** Axel-approved gym pillar — 6 tiles in board order (ELE-1068). Slot 2 is a still image. */
 export const GYM_TILES: MediaTile[] = [
-  { src: "/media/gym/client-result.mp4", type: "video", title: "client result" },
-  { src: "/media/gym/image.jpeg", type: "image", title: "image" },
   { src: "/media/gym/gym-transformation.mp4", type: "video", title: "gym transformation" },
+  { src: "/media/gym/image.jpeg", type: "image", title: "Fitness results" },
+  { src: "/media/gym/client-result.mp4", type: "video", title: "client result" },
   { src: "/media/gym/foods-for-fat-loss.mp4", type: "video", title: "foods for fat loss" },
   { src: "/media/gym/back-day.mp4", type: "video", title: "back day" },
   { src: "/media/gym/bible-foods.mp4", type: "video", title: "bible foods" },
@@ -60,12 +60,12 @@ export const GYM_TILES: MediaTile[] = [
 
 /** Axel-approved style/fashion pillar — 6 tiles in board order (ELE-1068). Slots 2 & 4 are stills. */
 export const THRONE_TILES: MediaTile[] = [
-  { src: "/media/throne-room/clothes-to-stay-away-from.mp4", type: "video", title: "clothes to stay away from" },
+  { src: "/media/throne-room/best-shirts.mp4", type: "video", title: "best shirts" },
   { src: "/media/throne-room/professional-photo.jpeg", type: "image", title: "Professional Photo" },
   { src: "/media/throne-room/fashion-tips.mp4", type: "video", title: "Fashion tips" },
   { src: "/media/throne-room/lifestyle-picture.jpeg", type: "image", title: "lifestyle picture" },
   { src: "/media/throne-room/sneakers-for-short-kings.mp4", type: "video", title: "sneakers for short kings" },
-  { src: "/media/throne-room/best-shirts.mp4", type: "video", title: "best shirts" },
+  { src: "/media/throne-room/clothes-to-stay-away-from.mp4", type: "video", title: "clothes to stay away from" },
 ];
 
 export const PILLARS: Record<PillarSlug, PillarMeta> = {
