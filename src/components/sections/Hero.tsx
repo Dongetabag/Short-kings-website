@@ -55,9 +55,9 @@ export function Hero() {
               Short Kings Empire
             </span>
 
-            <h1 className="mt-8 font-display text-[3.25rem] font-bold leading-[0.95] text-white sm:text-7xl lg:text-8xl">
-              <span className="block gold-gradient">Dating isn&apos;t</span>
-              <span className="block">random.</span>
+            <h1 className="mt-8 font-display text-[3.5rem] font-semibold leading-[0.95] text-white sm:text-7xl lg:text-[5.5rem]">
+              <span className="block gold-gradient italic">Dating isn&apos;t</span>
+              <span className="block not-italic">random.</span>
             </h1>
 
             <p className="mt-6 max-w-lg text-lg font-medium leading-relaxed text-white/75 sm:text-xl">

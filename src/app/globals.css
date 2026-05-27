@@ -85,10 +85,48 @@ body {
 
 .font-royal,
 .font-display {
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Headline gradient accents */
+.gold-gradient,
+.text-gradient-gold {
+  background: var(--gradient-crown);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-ruby {
+  background: linear-gradient(135deg, #fecaca 0%, #ef4444 45%, #991b1b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #bfdbfe 0%, #3b82f6 50%, #1e3a8a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-platinum {
+  background: linear-gradient(135deg, #fafafa 0%, #a3a3a3 50%, #525252 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Shared CTAs */
@@ -133,16 +171,6 @@ body {
 .btn-outline:hover {
   background: rgba(220, 38, 38, 0.12);
   border-color: var(--ske-ruby);
-}
-
-/* Gold-gradient headline accent */
-.gold-gradient {
-  background: var(--gradient-crown);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
 }
 
 /* Scroll reveal */
@@ -294,6 +322,59 @@ body {
 
 .funnel-flow > .section-band + .section-band {
   margin-top: 0;
+}
+
+/* Pillar section color worlds (homepage + pillar pages) */
+.pillar-section {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.pillar-dating {
+  background: linear-gradient(
+    180deg,
+    rgba(127, 29, 29, 0.35) 0%,
+    rgba(0, 0, 0, 0.95) 55%,
+    #000 100%
+  );
+  border-top-color: rgba(220, 38, 38, 0.45);
+}
+.pillar-lifestyle {
+  background: linear-gradient(
+    180deg,
+    rgba(120, 90, 20, 0.28) 0%,
+    rgba(0, 0, 0, 0.92) 55%,
+    #000 100%
+  );
+  border-top-color: rgba(212, 175, 55, 0.35);
+}
+.pillar-gym {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 58, 138, 0.35) 0%,
+    rgba(0, 0, 0, 0.95) 55%,
+    #000 100%
+  );
+  border-top-color: rgba(59, 130, 246, 0.4);
+}
+.pillar-style {
+  background: linear-gradient(
+    180deg,
+    #0a0a0a 0%,
+    #000 40%,
+    #000 100%
+  );
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.pillar-style::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(255, 255, 255, 0.04),
+    transparent 55%
+  );
 }
 
 ::-webkit-scrollbar {

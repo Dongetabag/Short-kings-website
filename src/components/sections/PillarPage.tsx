@@ -6,6 +6,8 @@ import { MediaGrid } from "@/components/sections/MediaGrid";
 import type { PillarMeta } from "@/lib/media-pillars";
 import type { MediaTile } from "@/components/sections/MediaGrid";
 import { MANUAL_PLAYBACK_PILLARS, PILLAR_LIST } from "@/lib/media-pillars";
+import { PILLAR_SLUG_THEME, PILLAR_THEME } from "@/lib/pillar-themes";
+import { cn } from "@/lib/cn";
 
 type Props = {
   pillar: PillarMeta;
@@ -16,20 +18,23 @@ export function PillarPage({ pillar, tiles }: Props) {
   const others = PILLAR_LIST.filter((p) => p.slug !== pillar.slug);
   const reels = tiles.filter((t) => t.type === "video").length;
   const stills = tiles.filter((t) => t.type === "image").length;
+  const themeKey = PILLAR_SLUG_THEME[pillar.slug];
+  const theme = themeKey ? PILLAR_THEME[themeKey] : null;
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.16),transparent_60%)]"
-        />
+      <section
+        className={cn(
+          "relative overflow-hidden border-b",
+          theme?.sectionClass ?? "border-white/10"
+        )}
+      >
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <Reveal>
-            <p className="eyebrow">{pillar.pageEyebrow}</p>
-            <h1 className="mt-3 font-royal text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
-              <span className="block">{pillar.pageTitleTop}</span>
-              <span className="block gold-gradient drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]">
+            <p className={cn("eyebrow", theme?.eyebrowClass)}>{pillar.pageEyebrow}</p>
+            <h1 className="mt-3 font-display text-5xl font-semibold leading-[1] text-white sm:text-7xl">
+              <span className="block not-italic font-medium">{pillar.pageTitleTop}</span>
+              <span className={cn("block italic", theme?.highlightClass ?? "gold-gradient")}>
                 {pillar.pageTitleHighlight}
               </span>
             </h1>
@@ -62,6 +67,7 @@ export function PillarPage({ pillar, tiles }: Props) {
       </section>
 
       <MediaGrid
+        theme={themeKey}
         id={pillar.slug}
         eyebrow={`${pillar.pageEyebrow} · The Reels`}
         titleTop="Watch"
@@ -72,7 +78,6 @@ export function PillarPage({ pillar, tiles }: Props) {
             : "Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
         }
         tiles={tiles}
-        variant={pillar.variant}
         manualPlayback={MANUAL_PLAYBACK_PILLARS.includes(pillar.slug)}
       />
 
@@ -97,7 +102,7 @@ export function PillarPage({ pillar, tiles }: Props) {
                   <p className="font-royal text-3xl font-black text-gold/30">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 font-royal text-xl font-bold text-white">
+                  <h3 className="mt-2 font-display text-2xl font-medium text-white">
                     {c.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-white/65">

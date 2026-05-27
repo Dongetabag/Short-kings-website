@@ -7,7 +7,8 @@ type Props = {
   titleSuffix?: string;
   subtitle?: string;
   align?: "left" | "center";
-  accent?: "gold" | "red";
+  eyebrowClassName?: string;
+  highlightClassName?: string;
   className?: string;
 };
 
@@ -18,7 +19,8 @@ export function SectionHeader({
   titleSuffix,
   subtitle,
   align = "left",
-  accent = "gold",
+  eyebrowClassName,
+  highlightClassName = "gold-gradient",
   className,
 }: Props) {
   return (
@@ -30,16 +32,16 @@ export function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <p className={cn("eyebrow", accent === "red" && "eyebrow-red")}>
-          {eyebrow}
-        </p>
+        <p className={cn("eyebrow", eyebrowClassName)}>{eyebrow}</p>
       ) : null}
       <div className={cn(align === "center" && "flex flex-col items-center")}>
-        <h2 className="font-display text-[2.5rem] font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-          <span className="block">{titleTop}</span>
-          <span className="block gold-gradient">{titleHighlight}</span>
+        <h2 className="font-display text-[2.75rem] font-semibold italic leading-[1.05] text-white sm:text-5xl lg:text-[3.5rem]">
+          <span className="block not-italic font-medium">{titleTop}</span>
+          <span className={cn("block", highlightClassName)}>{titleHighlight}</span>
           {titleSuffix ? (
-            <span className="block text-white">{titleSuffix}</span>
+            <span className="block not-italic font-medium text-white/90">
+              {titleSuffix}
+            </span>
           ) : null}
         </h2>
         <div className="section-divider" aria-hidden />

@@ -5,6 +5,12 @@ import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from "r
 import { ArrowRight, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import {
+  PILLAR_THEME,
+  type PillarTheme,
+  type PillarThemeConfig,
+} from "@/lib/pillar-themes";
+import { cn } from "@/lib/cn";
 
 export type MediaTile = {
   src: string;
@@ -32,6 +38,8 @@ type Props = {
   manualPlayback?: boolean;
   /** Tighter vertical rhythm when stacked on the homepage funnel. */
   compact?: boolean;
+  /** Section color world: dating (red), lifestyle (gold), gym (blue), style (black). */
+  theme?: PillarTheme;
 };
 
 export function MediaGrid({
@@ -47,10 +55,12 @@ export function MediaGrid({
   maxTiles,
   manualPlayback = false,
   compact = false,
+  theme,
 }: Props) {
   const visibleTiles = maxTiles ? tiles.slice(0, maxTiles) : tiles;
   const hasMore = maxTiles && tiles.length > maxTiles;
   const gridRef = useRef<HTMLDivElement | null>(null);
+  const themeConfig = theme ? PILLAR_THEME[theme] : null;
 
   const pauseOtherVideos = useCallback((current: HTMLVideoElement) => {
     gridRef.current?.querySelectorAll("video").forEach((v) => {
@@ -63,15 +73,14 @@ export function MediaGrid({
   return (
     <section
       id={id}
-      className={
-        compact
-          ? "border-t border-white/[0.06] py-14"
-          : variant === "throne"
-            ? "border-t border-ruby/20 py-24"
-            : "py-24"
-      }
+      className={cn(
+        themeConfig?.sectionClass,
+        compact ? "py-14" : "py-20 sm:py-24",
+        !themeConfig && compact && "border-t border-white/[0.06]",
+        !themeConfig && !compact && "py-24"
+      )}
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="relative mx-auto max-w-6xl px-4">
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
@@ -79,11 +88,17 @@ export function MediaGrid({
               titleTop={titleTop}
               titleHighlight={titleHighlight}
               subtitle={subtitle}
+              eyebrowClassName={themeConfig?.eyebrowClass}
+              highlightClassName={themeConfig?.highlightClass}
             />
             {fullPageHref ? (
               <Link
                 href={fullPageHref}
-                className="group inline-flex items-center gap-2 self-start rounded-md border border-gold/40 bg-white/[0.04] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:border-gold hover:bg-white/[0.08] sm:self-end"
+                className={cn(
+                  "group inline-flex items-center gap-2 self-start rounded-sm border px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] transition sm:self-end",
+                  themeConfig?.linkClass ??
+                    "border-gold/40 bg-white/[0.04] text-white hover:border-gold hover:bg-white/[0.08]"
+                )}
               >
                 {fullPageLabel ?? "See more"}
                 <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
@@ -99,6 +114,7 @@ export function MediaGrid({
                 tile={tile}
                 manualPlayback={manualPlayback}
                 onPlayStart={pauseOtherVideos}
+                themeConfig={themeConfig}
               />
             </Reveal>
           ))}
@@ -108,7 +124,11 @@ export function MediaGrid({
           <div className="mt-10 flex justify-center">
             <Link
               href={fullPageHref}
-              className="group inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold text-black transition hover:bg-goldLight hover:shadow-[0_0_30px_rgba(212,175,55,0.35)]"
+              className={cn(
+                "group inline-flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide transition",
+                themeConfig?.ctaClass ??
+                  "bg-gold text-black hover:bg-goldLight hover:shadow-[0_0_30px_rgba(212,175,55,0.35)]"
+              )}
             >
               See all {tiles.length} reels
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -124,6 +144,7 @@ type TileProps = {
   tile: MediaTile;
   manualPlayback: boolean;
   onPlayStart: (video: HTMLVideoElement) => void;
+  themeConfig: PillarThemeConfig | null;
 };
 
 /** Seek to the first decodable frame so paused reels show a thumbnail, not black. */
@@ -153,7 +174,7 @@ function captureFramePoster(video: HTMLVideoElement): string | null {
   }
 }
 
-function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
+function Tile({ tile, manualPlayback, onPlayStart, themeConfig }: TileProps) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
@@ -268,7 +289,11 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
   return (
     <article
       ref={wrapperRef}
-      className="group relative overflow-hidden rounded-xl border border-white/10 bg-zinc-900 transition hover:-translate-y-1 hover:border-gold/40"
+      className={cn(
+        "group relative overflow-hidden rounded-sm border bg-black/80 transition hover:-translate-y-1",
+        themeConfig?.tileBorderClass ?? "border-white/10",
+        themeConfig?.tileHoverBorderClass ?? "hover:border-gold/40"
+      )}
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
         {tile.type === "video" ? (
@@ -310,7 +335,7 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <p className="font-royal text-sm font-bold uppercase tracking-[0.12em] text-white drop-shadow">
+          <p className="font-display text-lg font-medium italic text-white drop-shadow">
             {tile.title}
           </p>
           {tile.subtitle ? (
@@ -327,7 +352,12 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
                 aria-label={`Play ${tile.title}`}
                 className="pointer-events-auto absolute inset-0 flex items-center justify-center"
               >
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-black shadow-[0_4px_24px_rgba(0,0,0,0.55)] ring-2 ring-black/40 transition group-hover:scale-105">
+                <span
+                  className={cn(
+                    "inline-flex h-14 w-14 items-center justify-center rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.55)] ring-2 transition group-hover:scale-105",
+                    themeConfig?.playButtonClass ?? "bg-gold text-black ring-black/40"
+                  )}
+                >
                   <Play className="h-6 w-6 translate-x-0.5" />
                 </span>
               </button>
@@ -344,7 +374,10 @@ function Tile({ tile, manualPlayback, onPlayStart }: TileProps) {
                   togglePlay();
                 }}
                 aria-label={playing ? "Pause" : "Play"}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gold text-black"
+                className={cn(
+                  "inline-flex h-9 w-9 items-center justify-center rounded-full",
+                  themeConfig?.playButtonClass ?? "bg-gold text-black"
+                )}
               >
                 {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
               </button>
