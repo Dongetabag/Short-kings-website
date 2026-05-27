@@ -20,63 +20,41 @@ export type PillarMeta = {
   chapters: { title: string; body: string }[];
 };
 
+/** Axel-approved order: 6 reels per homepage pillar (slots 1–2 kept on dating). */
 export const DATING_TILES: MediaTile[] = [
   { src: "/media/dating/rizz-breakdown.mp4", type: "video", title: "Rizz Breakdown", subtitle: "The first 9 seconds of any approach" },
   { src: "/media/dating/dating-funnel.mp4", type: "video", title: "The Dating Funnel", subtitle: "Match, date, second date, repeat" },
   { src: "/media/dating/attraction-secrets.mp4", type: "video", title: "Attraction Secrets", subtitle: "What women actually filter for" },
   { src: "/media/dating/pedestal.mp4", type: "video", title: "Off the Pedestal", subtitle: "The frame reset that flips the script" },
   { src: "/media/dating/be-unpredictable.mp4", type: "video", title: "Be Unpredictable", subtitle: "Why pattern interruption wins" },
-  { src: "/media/dating/alex-dating-1.jpg", type: "image", title: "Live Date Footage", subtitle: "Alex on a Tuesday" },
-  { src: "/media/dating/alex-dating-2.jpg", type: "image", title: "Mid Conversation", subtitle: "Voice low, posture loose" },
-  { src: "/media/dating/dating-moment-1.jpg", type: "image", title: "First Drink", subtitle: "Setting the tempo" },
-  { src: "/media/dating/dating-moment-2.jpg", type: "image", title: "The Hand Off", subtitle: "Walking her to the next venue" },
-  { src: "/media/dating/dating-moment-3.jpg", type: "image", title: "After Hours", subtitle: "Closing the loop on a lead" },
-  { src: "/media/dating/dating-moment-4.jpg", type: "image", title: "Read the Room", subtitle: "When to escalate, when to fade" },
+  { src: "/media/dating/dating-slot-6.mp4", type: "video", title: "Dating Reel VI", subtitle: "Axel reel — slot 6" },
 ];
 
 export const LIFESTYLE_TILES: MediaTile[] = [
-  { src: "/media/lifestyle/inspire.mp4", type: "video", title: "Inspire", subtitle: "The mindset reps that hold" },
-  { src: "/media/lifestyle/god-first.mp4", type: "video", title: "God First", subtitle: "Identity before strategy" },
-  { src: "/media/lifestyle/take-risks.mp4", type: "video", title: "Take Risks", subtitle: "How to size the bet" },
-  { src: "/media/lifestyle/mentorship.mp4", type: "video", title: "Mentorship", subtitle: "Find one. Become one." },
-  { src: "/media/lifestyle/insecure-men.mp4", type: "video", title: "Insecure Men", subtitle: "Spot it. Strip it. Walk on." },
-  { src: "/media/lifestyle/weird-signs.mp4", type: "video", title: "Strange Signals", subtitle: "Reading rooms most men miss" },
-  { src: "/media/lifestyle/alex-portrait-1.jpg", type: "image", title: "Alex", subtitle: "Looking forward" },
-  { src: "/media/lifestyle/alex-portrait-2.jpg", type: "image", title: "Alex", subtitle: "Off the clock" },
-  { src: "/media/lifestyle/alex-portrait-3.jpg", type: "image", title: "Alex", subtitle: "On the move" },
-  { src: "/media/lifestyle/alex-lifestyle-1.jpg", type: "image", title: "Daily Frame", subtitle: "Off-duty, on-frame" },
-  { src: "/media/lifestyle/alex-lifestyle-2.jpg", type: "image", title: "Off Duty", subtitle: "Tee, jacket, cup of coffee" },
-  { src: "/media/lifestyle/axel-lifestyle-1.jpg", type: "image", title: "Axel", subtitle: "Daily uniform" },
-  { src: "/media/lifestyle/axel-lifestyle-2.jpg", type: "image", title: "Axel", subtitle: "Travel mode" },
-  { src: "/media/lifestyle/lifestyle-1.jpg", type: "image", title: "The Daily", subtitle: "Frame I" },
-  { src: "/media/lifestyle/lifestyle-2.jpg", type: "image", title: "The Daily", subtitle: "Frame II" },
-  { src: "/media/lifestyle/lifestyle-3.jpg", type: "image", title: "The Daily", subtitle: "Frame III" },
-  { src: "/media/lifestyle/lifestyle-4.jpg", type: "image", title: "The Daily", subtitle: "Frame IV" },
-  { src: "/media/lifestyle/lifestyle-5.jpg", type: "image", title: "The Daily", subtitle: "Frame V" },
+  { src: "/media/lifestyle/lifestyle-slot-1.mp4", type: "video", title: "Lifestyle I", subtitle: "Axel reel — slot 1" },
+  { src: "/media/lifestyle/lifestyle-slot-2.mp4", type: "video", title: "Lifestyle II", subtitle: "Axel reel — slot 2" },
+  { src: "/media/lifestyle/lifestyle-slot-3.mp4", type: "video", title: "Lifestyle III", subtitle: "Axel reel — slot 3" },
+  { src: "/media/lifestyle/lifestyle-slot-4.mp4", type: "video", title: "Lifestyle IV", subtitle: "Axel reel — slot 4" },
+  { src: "/media/lifestyle/lifestyle-slot-5.mp4", type: "video", title: "Lifestyle V", subtitle: "Axel reel — slot 5" },
+  { src: "/media/lifestyle/lifestyle-slot-6.mp4", type: "video", title: "Lifestyle VI", subtitle: "Axel reel — slot 6" },
 ];
 
 export const GYM_TILES: MediaTile[] = [
-  { src: "/media/gym/biceps-workout.mp4", type: "video", title: "Arms Day", subtitle: "Volume + control" },
-  { src: "/media/gym/nutrition.mp4", type: "video", title: "Nutrition Decoded", subtitle: "Macros for your frame" },
-  { src: "/media/gym/gym-1.jpg", type: "image", title: "Pull Day", subtitle: "Back width, posture, presence" },
-  { src: "/media/gym/gym-2.jpg", type: "image", title: "Push Day", subtitle: "Chest, shoulders, triceps" },
-  { src: "/media/gym/gym-3.jpg", type: "image", title: "Legs", subtitle: "The day you don't skip" },
-  { src: "/media/gym/gym-4.jpg", type: "image", title: "Conditioning", subtitle: "Wind, posture, recovery" },
-  { src: "/media/gym/gym-5.jpg", type: "image", title: "Form Check", subtitle: "Mirror reps, slow tempo" },
-  { src: "/media/gym/gym-6.jpg", type: "image", title: "Rest, Recover, Repeat", subtitle: "Discipline outlasts motivation" },
+  { src: "/media/gym/gym-slot-1.mp4", type: "video", title: "Gym I", subtitle: "Axel reel — slot 1" },
+  { src: "/media/gym/gym-slot-2.mp4", type: "video", title: "Gym II", subtitle: "Axel reel — slot 2" },
+  { src: "/media/gym/gym-slot-3.jpeg", type: "image", title: "Gym III", subtitle: "Axel photo — slot 3" },
+  { src: "/media/gym/gym-slot-4.mp4", type: "video", title: "Gym IV", subtitle: "Axel reel — slot 4" },
+  { src: "/media/gym/gym-slot-5.jpeg", type: "image", title: "Gym V", subtitle: "Axel photo — slot 5" },
+  { src: "/media/gym/gym-slot-6.mp4", type: "video", title: "Gym VI", subtitle: "Axel reel — slot 6" },
 ];
 
 export const THRONE_TILES: MediaTile[] = [
-  { src: "/media/throne-room/fashion-tips.mp4", type: "video", title: "Fit Engineering", subtitle: "Inseam, shoulder, drape" },
-  { src: "/media/throne-room/style-clip-1.mp4", type: "video", title: "Street Luxury", subtitle: "The casual uniform" },
-  { src: "/media/throne-room/hero-video.mp4", type: "video", title: "The Standard", subtitle: "The default look" },
-  { src: "/media/throne-room/axel-style-1.jpg", type: "image", title: "Axel · Look 01", subtitle: "Tailored, monochrome, confident" },
-  { src: "/media/throne-room/alex-style-1.jpg", type: "image", title: "Alex · Look 02", subtitle: "Layered, textured, lived-in" },
-  { src: "/media/throne-room/axel-style-2.jpg", type: "image", title: "Axel · Look 03", subtitle: "Sharp lines, soft palette" },
-  { src: "/media/throne-room/style-1.jpg", type: "image", title: "Off-Duty", subtitle: "Casual silhouette" },
-  { src: "/media/throne-room/style-2.jpg", type: "image", title: "Daytime", subtitle: "Linen, cotton, light" },
-  { src: "/media/throne-room/style-3.jpg", type: "image", title: "Evening", subtitle: "Dark, sharp, deliberate" },
-  { src: "/media/throne-room/portrait-1.jpg", type: "image", title: "Portrait", subtitle: "Head up. Eyes forward." },
+  { src: "/media/throne-room/style-slot-1.mp4", type: "video", title: "Style I", subtitle: "Axel reel — slot 1" },
+  { src: "/media/throne-room/style-slot-2.mp4", type: "video", title: "Style II", subtitle: "Axel reel — slot 2" },
+  { src: "/media/throne-room/style-slot-3.jpeg", type: "image", title: "Style III", subtitle: "Axel photo — slot 3" },
+  { src: "/media/throne-room/style-slot-4.mp4", type: "video", title: "Style IV", subtitle: "Axel reel — slot 4" },
+  { src: "/media/throne-room/style-slot-5.jpeg", type: "image", title: "Style V", subtitle: "Axel photo — slot 5" },
+  { src: "/media/throne-room/style-slot-6.mp4", type: "video", title: "Style VI", subtitle: "Axel reel — slot 6" },
 ];
 
 export const PILLARS: Record<PillarSlug, PillarMeta> = {

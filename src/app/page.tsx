@@ -15,7 +15,7 @@ import {
   PILLARS,
 } from "@/lib/media-pillars";
 
-const HOME_TILE_CAP = 4;
+const HOME_TILE_CAP = 6;
 
 export default function Home() {
   return (
