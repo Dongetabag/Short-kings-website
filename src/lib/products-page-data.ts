@@ -70,7 +70,7 @@ export const EMPIRE_INCLUDES = [
   "Direct number — call or text anytime",
   "Body language and style breakdown",
   "Relationship roadmap",
-  "Built Different gym program included as a bonus",
+  "Built Different gym program included — delivered via the Trainerize app after signup",
 ] as const;
 
 export const COACHING_INCLUDES = [
