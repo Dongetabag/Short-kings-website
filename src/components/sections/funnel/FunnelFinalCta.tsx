@@ -11,10 +11,10 @@ export function FunnelFinalCta() {
       />
       <div className="relative mx-auto max-w-3xl px-4 text-center">
         <Reveal>
-          <p className="text-lg font-medium leading-relaxed text-white/80 sm:text-xl">
-            You have read the story, the proof, and the offer. If you are still
-            here, you already know you are tired of sitting on the sidelines.
-            Book the call and let us build your next move together.
+          <p className="text-xl font-semibold leading-relaxed text-white/85 sm:text-2xl">
+            You have read the proof. You know the gap is real. The only question
+            left is whether you keep carrying it alone or you let Axel build the
+            plan with you.
           </p>
           <Link
             href={AXEL_CALENDLY}

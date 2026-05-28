@@ -33,8 +33,8 @@ export function FunnelManBehind() {
             <Reveal>
               <p className="eyebrow">The man behind the system</p>
               <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[2.75rem]">
-                I was 18, never been with a woman, invisible to every girl I wanted
-                {" "}&mdash; and I thought it was because of my height.
+                I was 18, never been with a woman, invisible to every girl I wanted,
+                and I thought it was because of my height.
               </h2>
             </Reveal>
 
