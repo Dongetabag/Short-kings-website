@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { TypeformPopupButton } from "@/components/typeform/TypeformPopupButton";
 import { AXEL_CALENDLY } from "@/lib/home-funnel";
 import { THE_EMPIRE, THE_PLAYBOOK } from "@/lib/site";
+
+const EMPIRE_TYPEFORM_ID = "GVVKVMWI";
 
 const OFFERS = [
   {
@@ -79,15 +82,12 @@ export function FunnelOffer() {
                     {offer.description}
                   </p>
                   {isTypeform ? (
-                    <button
-                      type="button"
-                      data-tf-popup="GVVKVMWI"
-                      data-tf-opacity="100"
-                      data-tf-button-hide="true"
+                    <TypeformPopupButton
+                      formId={EMPIRE_TYPEFORM_ID}
                       className={`mt-6 ${ctaClass}`}
                     >
                       {offer.cta}
-                    </button>
+                    </TypeformPopupButton>
                   ) : href ? (
                     <Link
                       href={href}

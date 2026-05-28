@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { TypeformPopupButton } from "@/components/typeform/TypeformPopupButton";
 import {
   DATING_FUNNEL_INTRO,
   DATING_FUNNEL_QUESTIONS,
@@ -10,6 +11,8 @@ import {
   type DatingFunnelAnswers,
   type DatingFunnelRecommendationId,
 } from "@/lib/dating-funnel";
+
+const EMPIRE_TYPEFORM_ID = "GVVKVMWI";
 
 type Step = "intro" | "quiz" | "email" | "result";
 
@@ -259,15 +262,12 @@ export function DatingFunnelFlow({ paymentLinks }: Props) {
             come back via the same email — we will resend your offer.
           </p>
           {recommendation.typeform ? (
-            <button
-              type="button"
-              data-tf-popup="GVVKVMWI"
-              data-tf-opacity="100"
-              data-tf-button-hide="true"
+            <TypeformPopupButton
+              formId={EMPIRE_TYPEFORM_ID}
               className="btn-primary mt-8 w-full"
             >
               {recommendation.cta}
-            </button>
+            </TypeformPopupButton>
           ) : (
             <Link href={checkoutHref} className="btn-primary mt-8 block w-full text-center">
               {recommendation.cta}
