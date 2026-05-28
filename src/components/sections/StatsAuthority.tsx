@@ -31,7 +31,7 @@ const STATS = [
 
 export function StatsAuthority() {
   return (
-    <section className="border-y border-white/10 bg-white/[0.015] py-20">
+    <section className="py-20">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeader

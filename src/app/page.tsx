@@ -1,115 +1,48 @@
-import { Hero } from "@/components/sections/Hero";
-import { StatsAuthority } from "@/components/sections/StatsAuthority";
-import { Challenge } from "@/components/sections/Challenge";
-import { RoyalArsenal } from "@/components/sections/RoyalArsenal";
-import { CounselPreview } from "@/components/sections/CounselPreview";
-import { MediaGrid } from "@/components/sections/MediaGrid";
-import { RoyalCourt } from "@/components/sections/RoyalCourt";
-import { FinalCta } from "@/components/sections/FinalCta";
-import { FloatingSectionFrame } from "@/components/ui/FloatingSectionFrame";
-import {
-  DATING_TILES,
-  LIFESTYLE_TILES,
-  GYM_TILES,
-  THRONE_TILES,
-  PILLARS,
-} from "@/lib/media-pillars";
-
-/**
- * Funnel order (attention → third-party proof → pain → product preview →
- * social proof → offer → differentiation → close). Mirrors Eleven Views pacing.
- *
- * Each pillar shows 4 tiles on the homepage and links to its full Realm page.
- */
-const HOME_TILE_CAP = 4;
+import Script from "next/script";
+import { FunnelHero } from "@/components/sections/funnel/FunnelHero";
+import { FunnelResearchPillars } from "@/components/sections/funnel/FunnelResearchPillars";
+import { FunnelSocialProof } from "@/components/sections/funnel/FunnelSocialProof";
+import { FunnelManBehind } from "@/components/sections/funnel/FunnelManBehind";
+import { FunnelOffer } from "@/components/sections/funnel/FunnelOffer";
+import { FunnelCounsel } from "@/components/sections/funnel/FunnelCounsel";
+import { FunnelFaq } from "@/components/sections/funnel/FunnelFaq";
+import { FunnelFinalCta } from "@/components/sections/funnel/FunnelFinalCta";
+import { SectionBand } from "@/components/ui/SectionBand";
 
 export default function Home() {
   return (
     <>
-      <FloatingSectionFrame preset="hero">
-        <Hero />
-      </FloatingSectionFrame>
+      <Script
+        src="https://embed.typeform.com/next/embed.js"
+        strategy="afterInteractive"
+      />
+      <div className="funnel-flow">
+      <SectionBand variant="hero">
+        <FunnelHero />
+      </SectionBand>
 
-      <FloatingSectionFrame preset="stats">
-        <StatsAuthority />
-      </FloatingSectionFrame>
+      <FunnelResearchPillars />
 
-      <FloatingSectionFrame preset="pain">
-        <Challenge />
-      </FloatingSectionFrame>
+      <SectionBand variant="default">
+        <FunnelSocialProof />
+      </SectionBand>
 
-      <FloatingSectionFrame preset="media">
-        <MediaGrid
-          id="dating"
-          eyebrow={PILLARS.dating.homeEyebrow}
-          titleTop={PILLARS.dating.homeTitleTop}
-          titleHighlight={PILLARS.dating.homeTitleHighlight}
-          subtitle={PILLARS.dating.homeSubtitle}
-          tiles={DATING_TILES}
-          maxTiles={HOME_TILE_CAP}
-          fullPageHref={PILLARS.dating.href}
-          fullPageLabel={PILLARS.dating.ctaLabel}
-        />
-      </FloatingSectionFrame>
+      <FunnelManBehind />
 
-      <FloatingSectionFrame preset="media">
-        <MediaGrid
-          id="lifestyle"
-          eyebrow={PILLARS.lifestyle.homeEyebrow}
-          titleTop={PILLARS.lifestyle.homeTitleTop}
-          titleHighlight={PILLARS.lifestyle.homeTitleHighlight}
-          subtitle={PILLARS.lifestyle.homeSubtitle}
-          tiles={LIFESTYLE_TILES}
-          maxTiles={HOME_TILE_CAP}
-          fullPageHref={PILLARS.lifestyle.href}
-          fullPageLabel={PILLARS.lifestyle.ctaLabel}
-        />
-      </FloatingSectionFrame>
+      <SectionBand variant="gold">
+        <FunnelOffer />
+      </SectionBand>
 
-      <FloatingSectionFrame preset="media">
-        <MediaGrid
-          id="gym"
-          eyebrow={PILLARS.gym.homeEyebrow}
-          titleTop={PILLARS.gym.homeTitleTop}
-          titleHighlight={PILLARS.gym.homeTitleHighlight}
-          subtitle={PILLARS.gym.homeSubtitle}
-          tiles={GYM_TILES}
-          maxTiles={HOME_TILE_CAP}
-          fullPageHref={PILLARS.gym.href}
-          fullPageLabel={PILLARS.gym.ctaLabel}
-        />
-      </FloatingSectionFrame>
+      <FunnelCounsel />
 
-      <FloatingSectionFrame preset="media">
-        <MediaGrid
-          id="throne-room"
-          eyebrow={PILLARS["throne-room"].homeEyebrow}
-          titleTop={PILLARS["throne-room"].homeTitleTop}
-          titleHighlight={PILLARS["throne-room"].homeTitleHighlight}
-          subtitle={PILLARS["throne-room"].homeSubtitle}
-          tiles={THRONE_TILES}
-          maxTiles={HOME_TILE_CAP}
-          fullPageHref={PILLARS["throne-room"].href}
-          fullPageLabel={PILLARS["throne-room"].ctaLabel}
-          variant={PILLARS["throne-room"].variant}
-        />
-      </FloatingSectionFrame>
+      <SectionBand variant="alt">
+        <FunnelFaq />
+      </SectionBand>
 
-      <FloatingSectionFrame preset="proof">
-        <RoyalCourt />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="offer">
-        <RoyalArsenal />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="counsel">
-        <CounselPreview />
-      </FloatingSectionFrame>
-
-      <FloatingSectionFrame preset="close">
-        <FinalCta />
-      </FloatingSectionFrame>
+      <SectionBand variant="red">
+        <FunnelFinalCta />
+      </SectionBand>
+    </div>
     </>
   );
 }

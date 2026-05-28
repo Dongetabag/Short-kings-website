@@ -7,10 +7,10 @@ export default function CounselPage() {
   return (
     <div className="mx-auto max-w-4xl">
       <SectionHeader
-        eyebrow="Royal Advisor, On Call"
-        titleTop="The King's"
-        titleHighlight="Counsel"
-        subtitle="Trained on the Empire's frameworks. Ask it anything. Texts. Profiles. First-date plans. Mindset reframes."
+        eyebrow="Always-on advisor"
+        titleTop="King's"
+        titleHighlight="Counsel."
+        subtitle="Trained on the Short Kings system. Ask it anything. Texts. Profiles. First-date plans. Mindset reframes."
       />
       <div className="mt-10">
         <CounselChat />

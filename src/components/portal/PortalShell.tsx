@@ -50,7 +50,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
                   SHORT KINGS
                 </span>
                 <span className="block text-[9px] font-semibold tracking-[0.32em] text-gold">
-                  MEMBER VAULT
+                  MEMBER PORTAL
                 </span>
               </span>
             </Link>
@@ -58,7 +58,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
 
           <nav className="flex flex-col gap-1 p-4">
             <p className="px-3 pb-3 pt-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">
-              The Throne Room
+              Portal
             </p>
             {PORTAL_NAV.map((item) => {
               const active =
@@ -89,7 +89,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
               rel="noopener noreferrer"
               className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-gold px-3 text-xs font-semibold uppercase tracking-[0.18em] text-black hover:bg-goldLight"
             >
-              <Crown className="h-3 w-3" /> Book Royal Counsel
+              <Crown className="h-3 w-3" /> Book coaching
             </a>
             <Link
               href="/api/auth/signout"

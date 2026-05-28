@@ -3,97 +3,100 @@ export type Testimonial = {
   name: string;
   height: string;
   city: string;
-  /** Empire title we award. */
   title: string;
-  /** Days since the buyer joined the Empire. */
   daysIn: number;
-  product: "Empire Bundle" | "Counsel AI" | "Royal Counsel";
+  product: string;
   quote: string;
-  /** Single-letter monogram for the gradient avatar. Real photos land later. */
   initial: string;
-  /** When real headshots are uploaded, set this to /media/testimonials/<id>.jpg */
   avatar?: string;
-  /** Optional context image used as proof B-roll on the testimonial page. */
   proofImage?: string;
   rating: 5 | 4;
 };
 
+/** Member before/after snapshots shown in the reviews proof strip. */
+export const MEMBER_SNAPSHOTS = [
+  "/media/testimonials/member-1.png",
+  "/media/testimonials/member-2.png",
+  "/media/testimonials/member-3.png",
+  "/media/testimonials/member-4.png",
+] as const;
+
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "marcus-t",
-    name: "Sir Marcus T.",
+    name: "Marcus T.",
     height: "5'6",
-    city: "Los Angeles, CA",
-    title: "Knight of the Approach",
-    daysIn: 92,
-    product: "Empire Bundle",
+    city: "Dallas, TX",
+    title: "Hinge optimization",
+    daysIn: 21,
+    product: "Swipe Right on Yourself",
     quote:
-      "Three dates in week one with women I would have called out of my league. The Approach Blueprint did not change my height. It changed the first ten seconds.",
+      "My Hinge was embarrassing before this. Wrong photos, no bio, opening with hey. Axel rebuilt the whole thing. Within two weeks I had more matches than the previous six months combined.",
     initial: "M",
     rating: 5,
   },
   {
     id: "james-r",
-    name: "Lord James R.",
+    name: "James R.",
     height: "5'5",
-    city: "Austin, TX",
-    title: "Lord of the Frame",
-    daysIn: 184,
-    product: "Empire Bundle",
+    city: "Atlanta, GA",
+    title: "1-on-1 coaching",
+    daysIn: 67,
+    product: "1-on-1 Coaching",
     quote:
-      "Six months in, my profile gets four times the matches and the conversations actually go somewhere. Unshakeable was the chapter that flipped the switch.",
+      "I messaged Axel on a Thursday night panicking about a first date the next day. He walked me through the whole thing. Venue, how to open, when to go for the second date close. She texted me first the next morning.",
     initial: "J",
     rating: 5,
   },
   {
     id: "david-k",
-    name: "Baron David K.",
+    name: "David K.",
     height: "5'7",
     city: "Chicago, IL",
-    title: "Baron of the Counsel",
-    daysIn: 41,
-    product: "Royal Counsel",
+    title: "Approach work",
+    daysIn: 44,
+    product: "Approach Like a King",
     quote:
-      "I asked the Counsel for a text reply at 11pm on a Saturday. Got a frame, a question, and a plan. Tuesday I was on a date. The AI is the unfair advantage.",
+      "I used to freeze up the second I saw a girl I wanted to talk to. This ebook killed that completely. The opener structure is so simple that you stop overthinking and just go. Three approaches my first week out.",
     initial: "D",
     rating: 5,
   },
   {
     id: "ryan-s",
-    name: "Sir Ryan S.",
-    height: "5'8",
+    name: "Ryan S.",
+    height: "5'6",
     city: "Brooklyn, NY",
-    title: "Knight of the Frame",
-    daysIn: 67,
-    product: "Counsel AI",
+    title: "Mindset reset",
+    daysIn: 51,
+    product: "Unshakeable",
     quote:
-      "I ran the Counsel for a month before I bought the bundle. The AI alone reframed three situations I was about to fumble. Then I got the books and the rest of the system clicked.",
+      "I kept getting in my head about my height before dates. Unshakeable is the only thing that actually fixed that. Not by ignoring it but by completely reframing what it means. I stopped performing and started just being myself.",
     initial: "R",
     rating: 5,
   },
   {
     id: "tony-l",
-    name: "Sir Tony L.",
+    name: "Tony L.",
     height: "5'4",
     city: "Miami, FL",
-    title: "Knight of the Throne Room",
-    daysIn: 121,
-    product: "Empire Bundle",
+    title: "Texting game",
+    daysIn: 38,
+    product: "She Replied, Now What",
     quote:
-      "Style Guide alone earned the bundle back in a week. Tailoring my existing closet to the inseam math added two visual inches and zero dollars.",
+      "I was getting matches but never getting to the date. I would just run out of things to say or wait too long and she would ghost. This ebook gave me a clear system. My date rate went from almost zero to multiple a month.",
     initial: "T",
     rating: 5,
   },
   {
     id: "alex-b",
-    name: "Sir Alex B.",
+    name: "Alex B.",
     height: "5'6",
-    city: "Seattle, WA",
-    title: "Knight of the Empire",
-    daysIn: 58,
-    product: "Empire Bundle",
+    city: "Phoenix, AZ",
+    title: "Full system",
+    daysIn: 91,
+    product: "3 Month Transformation",
     quote:
-      "The frame work hit different than every PUA channel I had seen. Less acting, more identity. I stopped feeling like I was performing on dates.",
+      "Three months ago I had not been on a date in over a year. Axel fixed my Hinge, my approach, my texting, and my frame all at the same time. I am now seeing two women consistently and none of it feels forced.",
     initial: "A",
     rating: 5,
   },

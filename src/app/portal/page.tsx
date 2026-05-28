@@ -17,7 +17,7 @@ import { CATALOG } from "@/lib/portal-catalog";
 
 export default function PortalDashboard() {
   // v1: assume bundle entitlement until auth wires real data
-  const userName = "Sir Alex";
+  const userName = "Alex";
   const spotlight = portalSpotlightVideos(6);
 
   // "Continue where you left off": items with progress strictly between 0 and 100.
@@ -43,19 +43,19 @@ export default function PortalDashboard() {
   return (
     <div className="mx-auto max-w-6xl">
       <header>
-        <p className="eyebrow">Welcome, King</p>
+        <p className="eyebrow">Welcome back</p>
         <h1 className="mt-2 font-royal text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
           <span className="block">Welcome back,</span>
           <span className="block gold-gradient">{userName}.</span>
         </h1>
         <p className="mt-3 text-sm text-white/60">
-          Your throne room is open. Pick up where you left off.
+          Your portal is open. Pick up where you left off.
         </p>
       </header>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat icon={TrendingUp} label="Empire progress" value={`${overallProgress}%`} sub={`${completed}/${totalItems} complete`} highlight />
-        <Stat icon={BookOpen} label="Playbooks unlocked" value={`${EBOOKS.length}`} sub="bundle owner" />
+        <Stat icon={TrendingUp} label="Progress" value={`${overallProgress}%`} sub={`${completed}/${totalItems} complete`} highlight />
+        <Stat icon={BookOpen} label="Ebooks unlocked" value={`${EBOOKS.length}`} sub="bundle owner" />
         <Stat icon={Dumbbell} label="Fitness programs" value={`${FITNESS_PROGRAMS.length}`} sub="full library" />
         <Stat icon={Sparkles} label="Counsel sessions" value="0" sub="trial active" />
       </div>
@@ -74,7 +74,7 @@ export default function PortalDashboard() {
               href="/portal/library"
               className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-gold hover:gap-3"
             >
-              All in the Vault <ArrowRight className="h-3.5 w-3.5" />
+              All in the Library <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </header>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -89,16 +89,16 @@ export default function PortalDashboard() {
       <section className="mt-12 grid gap-5 lg:grid-cols-2">
         <ActionCard
           icon={Sparkles}
-          title="Open the Counsel"
-          body="Ask the AI a real question. Texts, dates, mindset, style. The Counsel is open."
-          cta="Enter the chat"
+          title="Open Counsel"
+          body="Ask the AI a real question. Texts, dates, mindset, style."
+          cta="Open the chat"
           href="/portal/counsel"
         />
         <ActionCard
           icon={Calendar}
-          title="Book a Royal Counsel"
+          title="Book 1-on-1 coaching"
           body="45 minutes. Direct access. You leave with a written game plan."
-          cta="Request audience"
+          cta="Book a call"
           href={SITE.coaching.calendly}
           external
         />
@@ -108,9 +108,9 @@ export default function PortalDashboard() {
       {recommended.length > 0 ? (
         <section className="mt-14">
           <header>
-            <p className="eyebrow">Start a New Doctrine</p>
+            <p className="eyebrow">Start a new pillar</p>
             <p className="mt-1 text-sm text-white/55">
-              The Empire surfaces the next move. Pick the Realm that fits the week.
+              The system surfaces the next move. Pick the pillar that fits the week.
             </p>
           </header>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -129,11 +129,11 @@ export default function PortalDashboard() {
           <div>
             <Crown className="h-6 w-6 text-gold" />
             <h2 className="mt-3 font-royal text-2xl font-bold text-white">
-              The Empire grows on Wednesdays.
+              New drops every Wednesday.
             </h2>
             <p className="mt-2 text-sm leading-6 text-white/65">
-              New Journal posts and Counsel drops every Wednesday. The doctrine
-              compounds. So does your edge.
+              New Journal posts and Counsel updates land every Wednesday. The
+              system compounds. So does your edge.
             </p>
           </div>
           <Link

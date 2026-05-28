@@ -35,10 +35,10 @@ export function Challenge() {
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeader
-            eyebrow="The Royal Challenge"
-            titleTop="Society's Height Bias"
-            titleHighlight="Ends at Our Gates."
-            subtitle="94% of men under 5'9 say height has cost them at least one relationship. We refuse to call that fate. Here are the four walls you climb."
+            eyebrow="What's actually in the way"
+            titleTop="Height bias is real."
+            titleHighlight="It's not your ceiling."
+            subtitle="94% of men under 5'9 say height has cost them at least one connection. That's a real input, not a verdict. Here are the four walls and the system that gets you over each one."
           />
         </Reveal>
 
@@ -52,12 +52,12 @@ export function Challenge() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {CHALLENGES.map((c, i) => (
             <Reveal key={c.n} stagger={(i + 1) as 1 | 2 | 3 | 4}>
-              <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-stoneDeep/60 p-7 transition hover:-translate-y-1 hover:border-gold/40">
+              <article className="group relative h-full overflow-hidden rounded-sm border border-white/10 bg-panel p-7 transition hover:-translate-y-1 hover:border-ruby/40">
                 <span className="font-royal text-[120px] leading-none text-gold/10 absolute -top-4 -right-2">
                   {c.n}
                 </span>
                 <c.icon className="h-7 w-7 text-gold" />
-                <h3 className="mt-4 font-royal text-xl font-bold uppercase tracking-tight text-white">
+                <h3 className="mt-4 font-display text-xl font-semibold text-white">
                   {c.title}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-white/65">{c.body}</p>

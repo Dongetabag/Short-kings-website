@@ -1,12 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TESTIMONIALS } from "@/lib/testimonials";
+import { TESTIMONIALS, MEMBER_SNAPSHOTS } from "@/lib/testimonials";
 
 export function RoyalCourt() {
-  // Show 3 on the homepage. The full list lives at /testimonials.
-  const featured = TESTIMONIALS.slice(0, 3);
+  const featured = TESTIMONIALS;
 
   return (
     <section id="testimonials" className="py-24">
@@ -14,18 +14,40 @@ export function RoyalCourt() {
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
-              eyebrow="The Royal Court"
-              titleTop="Testimonies from"
-              titleHighlight="Crowned Kings"
-              subtitle="Real men. Real heights. Real outcomes. The Empire's voice is the voice of the Court."
+              eyebrow="Reviews"
+              titleTop="Real men."
+              titleHighlight="Real results."
+              subtitle="What members are saying after running the system. Names, heights, and outcomes preserved."
             />
             <Link
               href="/testimonials"
               className="group inline-flex items-center gap-2 self-start rounded-md border border-gold/40 bg-white/[0.04] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:border-gold hover:bg-white/[0.08] sm:self-end"
             >
-              Read every testimony
+              Read every review
               <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
             </Link>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-10">
+            <p className="eyebrow text-center">Snapshots from members</p>
+            <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+              {MEMBER_SNAPSHOTS.map((src, i) => (
+                <div
+                  key={src}
+                  className="relative overflow-hidden rounded-lg border border-white/10 bg-black aspect-[4/3]"
+                >
+                  <Image
+                    src={src}
+                    alt={`Member transformation ${i + 1}`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
 
@@ -42,6 +64,10 @@ export function RoyalCourt() {
                   ))}
                 </div>
 
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gold/80">
+                  {t.product}
+                </p>
+
                 <p className="mt-4 text-sm leading-7 text-white/80">{t.quote}</p>
 
                 <footer className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
@@ -55,6 +81,9 @@ export function RoyalCourt() {
                     <p className="text-xs text-white/50">
                       {t.height} · {t.city}
                     </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/40">
+                      {t.title} · {t.daysIn} days in
+                    </p>
                   </div>
                 </footer>
               </article>
@@ -63,7 +92,7 @@ export function RoyalCourt() {
         </div>
 
         <p className="mt-8 text-center text-[10px] uppercase tracking-[0.22em] text-white/30">
-          Names and outcomes preserved. Headshots replace the gradient ring as Kings opt in.
+          Real member before-and-after snapshots from the Short Kings system.
         </p>
       </div>
     </section>

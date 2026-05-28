@@ -6,7 +6,12 @@ export const runtime = "nodejs";
 const Schema = z.object({
   email: z.string().email(),
   name: z.string().optional(),
-  source: z.enum(["fitness-magnet", "calendly-inquiry", "newsletter"]),
+  source: z.enum([
+    "fitness-magnet",
+    "calendly-inquiry",
+    "newsletter",
+    "dating-funnel",
+  ]),
   message: z.string().max(2000).optional(),
 });
 

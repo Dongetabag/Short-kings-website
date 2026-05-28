@@ -15,8 +15,8 @@ export default function JournalPage() {
       <Reveal>
         <SectionHeader
           eyebrow="The Journal"
-          titleTop="Field Notes from"
-          titleHighlight="The Empire"
+          titleTop="Field notes for"
+          titleHighlight="short kings."
           subtitle="Tactical writing. Real situations. Real moves. No filler."
         />
       </Reveal>

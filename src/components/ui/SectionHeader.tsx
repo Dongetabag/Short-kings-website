@@ -7,16 +7,12 @@ type Props = {
   titleSuffix?: string;
   subtitle?: string;
   align?: "left" | "center";
+  accent?: "gold" | "red";
+  eyebrowClassName?: string;
+  highlightClassName?: string;
   className?: string;
 };
 
-/**
- * The canonical Short Kings section header:
- *   eyebrow (gold, tracked, uppercase)
- *   H2 line 1 (white)
- *   H2 line 2 in gold-gradient
- *   optional subtitle
- */
 export function SectionHeader({
   eyebrow,
   titleTop,
@@ -24,26 +20,44 @@ export function SectionHeader({
   titleSuffix,
   subtitle,
   align = "left",
+  accent = "gold",
+  eyebrowClassName,
+  highlightClassName = "gold-gradient",
   className,
 }: Props) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-3",
+        "flex flex-col gap-4",
         align === "center" && "items-center text-center",
         className
       )}
     >
-      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2 className="font-royal text-3xl font-black uppercase tracking-[-0.02em] text-white sm:text-5xl leading-[1.05]">
-        <span className="block">{titleTop}</span>
-        <span className="block gold-gradient">{titleHighlight}</span>
-        {titleSuffix ? <span className="block">{titleSuffix}</span> : null}
-      </h2>
+      {eyebrow ? (
+        <p
+          className={cn(
+            "eyebrow",
+            accent === "red" && !eyebrowClassName && "eyebrow-red",
+            eyebrowClassName
+          )}
+        >
+          {eyebrow}
+        </p>
+      ) : null}
+      <div className={cn(align === "center" && "flex flex-col items-center")}>
+        <h2 className="font-display text-[2.5rem] font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+          <span className="block">{titleTop}</span>
+          <span className={cn("block", highlightClassName)}>{titleHighlight}</span>
+          {titleSuffix ? (
+            <span className="block text-white">{titleSuffix}</span>
+          ) : null}
+        </h2>
+        <div className="section-divider" aria-hidden />
+      </div>
       {subtitle ? (
         <p
           className={cn(
-            "max-w-2xl text-base leading-7 text-white/65 sm:text-lg",
+            "max-w-2xl text-[1.05rem] leading-relaxed text-white/60",
             align === "center" && "mx-auto"
           )}
         >

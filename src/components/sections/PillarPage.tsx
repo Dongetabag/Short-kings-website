@@ -5,7 +5,9 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MediaGrid } from "@/components/sections/MediaGrid";
 import type { PillarMeta } from "@/lib/media-pillars";
 import type { MediaTile } from "@/components/sections/MediaGrid";
-import { PILLAR_LIST } from "@/lib/media-pillars";
+import { MANUAL_PLAYBACK_PILLARS, PILLAR_LIST } from "@/lib/media-pillars";
+import { PILLAR_SLUG_THEME, PILLAR_THEME } from "@/lib/pillar-themes";
+import { cn } from "@/lib/cn";
 
 type Props = {
   pillar: PillarMeta;
@@ -15,21 +17,29 @@ type Props = {
 export function PillarPage({ pillar, tiles }: Props) {
   const others = PILLAR_LIST.filter((p) => p.slug !== pillar.slug);
   const reels = tiles.filter((t) => t.type === "video").length;
-  const stills = tiles.filter((t) => t.type === "image").length;
+  const themeKey = PILLAR_SLUG_THEME[pillar.slug];
+  const theme = themeKey ? PILLAR_THEME[themeKey] : null;
+  const isDating = pillar.slug === "dating";
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.16),transparent_60%)]"
-        />
+      <section
+        className={cn(
+          "relative overflow-hidden border-b",
+          theme?.sectionClass ?? "border-white/10"
+        )}
+      >
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <Reveal>
-            <p className="eyebrow">{pillar.pageEyebrow}</p>
-            <h1 className="mt-3 font-royal text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
+            <p className={cn("eyebrow", theme?.eyebrowClass)}>{pillar.pageEyebrow}</p>
+            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
               <span className="block">{pillar.pageTitleTop}</span>
-              <span className="block gold-gradient drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]">
+              <span
+                className={cn(
+                  "block drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]",
+                  theme?.highlightClass ?? "gold-gradient"
+                )}
+              >
                 {pillar.pageTitleHighlight}
               </span>
             </h1>
@@ -39,22 +49,24 @@ export function PillarPage({ pillar, tiles }: Props) {
             <div className="mt-8 flex flex-wrap items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/45">
               <span>{reels} reels</span>
               <span className="h-3 w-px bg-white/15" />
-              <span>{stills} portraits</span>
-              <span className="h-3 w-px bg-white/15" />
               <span>Updated weekly</span>
             </div>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/products#bundle"
+                href={isDating ? "/dating/start" : "/products#the-playbook"}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-6 font-semibold text-black hover:bg-goldLight"
               >
-                <Crown className="h-4 w-4" /> Take the Full Doctrine
+                <Crown className="h-4 w-4" />{" "}
+                {isDating ? "Take the assessment" : "Get the full system"}
               </Link>
               <Link
-                href="/portal/counsel"
+                href={isDating ? "https://calendly.com/shortkingsempire/30min" : "/portal/counsel"}
+                {...(isDating
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white hover:bg-white/[0.08]"
               >
-                <Sparkles className="h-4 w-4" /> Ask the Counsel
+                <Sparkles className="h-4 w-4" /> {isDating ? "Book a call with Axel" : "Ask Counsel"}
               </Link>
             </div>
           </Reveal>
@@ -62,22 +74,27 @@ export function PillarPage({ pillar, tiles }: Props) {
       </section>
 
       <MediaGrid
+        theme={themeKey}
         id={pillar.slug}
         eyebrow={`${pillar.pageEyebrow} · The Reels`}
         titleTop="Watch"
-        titleHighlight="The Doctrine"
-        subtitle="Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
+        titleHighlight="the lessons."
+        subtitle={
+          MANUAL_PLAYBACK_PILLARS.includes(pillar.slug)
+            ? "Press play on any reel. Only one plays at a time — no autoplay."
+            : "Every clip is a lesson. Tap to unmute. Browse end to end or jump by chapter."
+        }
         tiles={tiles}
-        variant={pillar.variant}
+        manualPlayback={MANUAL_PLAYBACK_PILLARS.includes(pillar.slug)}
       />
 
       <section className="border-y border-white/10 bg-white/[0.015] py-24">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <SectionHeader
-              eyebrow="Doctrine"
+              eyebrow="Lessons"
               titleTop="Inside"
-              titleHighlight="The Realm"
+              titleHighlight={isDating ? "the system." : "this pillar."}
               subtitle="The chapters of this pillar, distilled. Read the principle. Train the rep."
             />
           </Reveal>
@@ -92,7 +109,7 @@ export function PillarPage({ pillar, tiles }: Props) {
                   <p className="font-royal text-3xl font-black text-gold/30">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 font-royal text-xl font-bold text-white">
+                  <h3 className="mt-2 font-display text-xl font-bold text-white">
                     {c.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-white/65">
@@ -109,10 +126,10 @@ export function PillarPage({ pillar, tiles }: Props) {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <SectionHeader
-              eyebrow="Cross the Empire"
-              titleTop="The Other"
-              titleHighlight="Realms"
-              subtitle="The pillars are connected. One Realm strengthens the next."
+              eyebrow="Cross-train"
+              titleTop="The other"
+              titleHighlight="pillars."
+              subtitle="The four pillars are connected. One reinforces the next."
             />
           </Reveal>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -123,7 +140,7 @@ export function PillarPage({ pillar, tiles }: Props) {
                   className="group relative block h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40 p-7 transition hover:-translate-y-1 hover:border-gold/40"
                 >
                   <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
-                  <p className="eyebrow">{p.pageEyebrow}</p>
+                  <p className="eyebrow">{isDating ? p.navLabel : p.pageEyebrow}</p>
                   <p className="mt-3 font-royal text-2xl font-black uppercase leading-tight text-white">
                     {p.pageTitleTop} <span className="gold-gradient">{p.pageTitleHighlight}</span>
                   </p>

@@ -6,11 +6,19 @@ type Props = {
   item: CatalogItem;
   /** When the user does not own this entitlement, the card locks. */
   locked?: boolean;
+  lockedActionLabel?: string;
+  lockedPrompt?: { text: string; href: string };
 };
 
-export function CourseCard({ item, locked = false }: Props) {
+export function CourseCard({
+  item,
+  locked = false,
+  lockedActionLabel,
+  lockedPrompt,
+}: Props) {
   const Icon = item.icon;
   const isExternal = /^https?:\/\//.test(item.href);
+  const opensNewTab = isExternal || item.href.endsWith(".pdf");
   const Wrapper = locked
     ? ({ children }: { children: React.ReactNode }) => (
         <div className="group relative block h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40 opacity-70">
@@ -18,7 +26,7 @@ export function CourseCard({ item, locked = false }: Props) {
         </div>
       )
     : ({ children }: { children: React.ReactNode }) =>
-        isExternal ? (
+        opensNewTab ? (
           <a
             href={item.href}
             target="_blank"
@@ -35,6 +43,17 @@ export function CourseCard({ item, locked = false }: Props) {
             {children}
           </Link>
         );
+
+  const defaultAction = locked
+    ? "Claim Access"
+    : item.progress >= 100
+      ? "Revisit"
+      : item.progress > 0
+        ? "Continue"
+        : "Begin";
+  const actionLabel = locked
+    ? lockedActionLabel ?? item.actionLabel ?? defaultAction
+    : item.actionLabel ?? defaultAction;
 
   return (
     <Wrapper>
@@ -96,10 +115,24 @@ export function CourseCard({ item, locked = false }: Props) {
           </div>
         ) : null}
 
-        <p className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold transition group-hover:gap-3">
-          {locked ? "Claim Access" : item.progress >= 100 ? "Revisit" : item.progress > 0 ? "Continue" : "Begin"}
+        <p
+          className={`mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] ${
+            locked ? "text-white/35" : "text-gold transition group-hover:gap-3"
+          }`}
+        >
+          {actionLabel}
           <ArrowRight className="h-3.5 w-3.5" />
         </p>
+        {locked && lockedPrompt ? (
+          <p className="mt-2 text-[11px] text-white/55">
+            <a
+              href={lockedPrompt.href}
+              className="text-white/70 underline underline-offset-2 hover:text-gold"
+            >
+              {lockedPrompt.text}
+            </a>
+          </p>
+        ) : null}
       </div>
     </Wrapper>
   );
