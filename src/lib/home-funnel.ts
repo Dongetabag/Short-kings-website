@@ -60,7 +60,7 @@ export const HOME_FUNNEL_TESTIMONIALS = [
     photo: "/media/testimonials/member-1.png",
     name: "Marcus T.",
     location: "5'6 · Dallas, TX",
-    resultLabel: "Hinge optimization · 21 days in",
+    resultLabel: "First win: 21 days",
     quote:
       "My Hinge was embarrassing before this. Wrong photos, no bio, opening with hey. Axel rebuilt the whole thing. Within two weeks I had more matches than the previous six months combined.",
   },
@@ -69,7 +69,7 @@ export const HOME_FUNNEL_TESTIMONIALS = [
     photo: "/media/testimonials/member-2.png",
     name: "James R.",
     location: "5'5 · Atlanta, GA",
-    resultLabel: "1-on-1 coaching · 67 days in",
+    resultLabel: "First win: 14 days",
     quote:
       "I messaged Axel on a Thursday night panicking about a first date the next day. He walked me through the whole thing. Venue, how to open, when to go for the second date close. She texted me first the next morning.",
   },
@@ -78,7 +78,7 @@ export const HOME_FUNNEL_TESTIMONIALS = [
     photo: "/media/testimonials/member-3.png",
     name: "Kevin M.",
     location: "5'8 · Puerto Rico",
-    resultLabel: "Full system · 91 days in",
+    resultLabel: "First win: 60 days",
     quote:
       "Three months ago I had not been on a date in over a year. Axel fixed my Hinge, my approach, my texting, and my frame all at the same time. I am now seeing two women consistently and none of it feels forced.",
   },
