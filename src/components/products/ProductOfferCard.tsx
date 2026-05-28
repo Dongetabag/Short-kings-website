@@ -7,6 +7,8 @@ type ProductOfferCardProps = {
   name: string;
   forLine: string;
   description: string;
+  /** Muted delivery detail shown between description and price. */
+  deliveryNote?: string;
   includes?: readonly string[];
   price: string;
   priceNote?: string;
@@ -23,6 +25,7 @@ export function ProductOfferCard({
   name,
   forLine,
   description,
+  deliveryNote,
   includes,
   price,
   priceNote,
@@ -56,6 +59,9 @@ export function ProductOfferCard({
         {forLine}
       </p>
       <p className="mt-3 flex-1 text-sm leading-7 text-white/65">{description}</p>
+      {deliveryNote ? (
+        <p className="mt-3 text-xs leading-relaxed text-white/45">{deliveryNote}</p>
+      ) : null}
       {includes && includes.length > 0 ? (
         <ul className="mt-4 space-y-2">
           {includes.map((item) => (

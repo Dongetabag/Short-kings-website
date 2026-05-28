@@ -62,7 +62,6 @@ function TierSection({
 export function ProductsPageView() {
   const protocolsHref = resolvePaymentLink(SEVEN_PROTOCOLS.paymentLinkEnvKey);
   const playbookHref = resolvePaymentLink(THE_PLAYBOOK.paymentLinkEnvKey);
-  const gymHref = resolvePaymentLink(GYM_NUTRITION_PLAN.paymentLinkEnvKey);
   const counselHref = "/portal/counsel";
 
   const ebooksById = Object.fromEntries(EBOOKS.map((e) => [e.id, e]));
@@ -159,10 +158,11 @@ export function ProductsPageView() {
                 tag="Short man physique system"
                 name="Built Different"
                 forLine="For the man who wants to build the body that changes how the room reads him."
-                description="A gym and nutrition protocol built specifically for shorter men. Whether you want to lose weight and build muscle or focus purely on building muscle, this is the exact program built for your frame."
+                description="A gym and nutrition protocol built specifically for shorter men. Whether you want to lose weight and build muscle or focus purely on building muscle this is the exact program built for your frame. Delivered entirely through the Trainerize app. After purchase you will receive an email invite to access your program directly on Trainerize."
+                deliveryNote="Delivered via the Trainerize app. Invite sent to your email after purchase."
                 price={`$${GYM_NUTRITION_PLAN.priceUsd} one time`}
                 cta="Get Built Different"
-                href={gymHref ?? undefined}
+                href="https://www.trainerize.me/profile/skefitness/Axel.Cruz/"
                 external
               />
             </TierSection>
