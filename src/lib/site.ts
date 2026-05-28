@@ -24,9 +24,6 @@ export const NAV_LINKS = [
   { label: "Products", href: "/products" },
   { label: "Reviews", href: "/testimonials" },
   { label: "Dating", href: "/dating" },
-  { label: "Gym", href: "/gym" },
-  { label: "Lifestyle", href: "/lifestyle" },
-  { label: "Style", href: "/throne-room" },
   { label: "King's Counsel", href: "/portal/counsel" },
 ] as const;
 

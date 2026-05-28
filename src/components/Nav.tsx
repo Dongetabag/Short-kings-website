@@ -66,7 +66,7 @@ export function Nav() {
             className="ml-3 inline-flex h-10 items-center gap-2 rounded-sm bg-gold px-4 text-sm font-semibold uppercase tracking-wide text-black transition hover:bg-goldLight"
           >
             <Calendar className="h-4 w-4" />
-            1-on-1 coaching
+            Book a Call
           </Link>
         </nav>
 
@@ -100,7 +100,7 @@ export function Nav() {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-gold font-semibold text-black"
             >
-              <Calendar className="h-4 w-4" /> 1-on-1 coaching
+              <Calendar className="h-4 w-4" /> Book a Call
             </Link>
           </nav>
         </div>
