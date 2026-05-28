@@ -1,8 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Crown, Quote, Sparkles, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TESTIMONIALS, MEMBER_SNAPSHOTS, type Testimonial } from "@/lib/testimonials";
 
 export const metadata = {
   title: "Reviews",
@@ -10,18 +8,73 @@ export const metadata = {
     "Real reviews from members. Real heights, real cities, real outcomes.",
 };
 
-const PROOF_IMAGES = [...MEMBER_SNAPSHOTS];
+const PHOTO_CARDS = [
+  {
+    id: "marcus-t",
+    photo: "/media/testimonials/member-1.png",
+    productTag: "1-on-1 Coaching",
+    quote:
+      "My Hinge was embarrassing before this. Wrong photos, no bio, opening with hey. Axel rebuilt the whole thing. Within two weeks I had more matches than the previous six months combined.",
+    name: "Marcus T.",
+    detail: "5'6 · Dallas, TX",
+    firstWin: "First win: 21 days",
+  },
+  {
+    id: "james-r",
+    photo: "/media/testimonials/member-2.png",
+    productTag: "1-on-1 Coaching",
+    quote:
+      "I messaged Axel on a Thursday night panicking about a first date the next day. He walked me through the whole thing. Venue, how to open, when to go for the second date close. She texted me first the next morning.",
+    name: "James R.",
+    detail: "5'5 · Atlanta, GA",
+    firstWin: "First win: 14 days",
+  },
+  {
+    id: "kevin-m",
+    photo: "/media/testimonials/member-3.png",
+    productTag: "3 Month Transformation",
+    quote:
+      "Three months ago I had not been on a date in over a year. Axel fixed my Hinge, my approach, my texting, and my frame all at the same time. I am now seeing two women consistently and none of it feels forced.",
+    name: "Kevin M.",
+    detail: "5'8 · Puerto Rico",
+    firstWin: "First win: 60 days",
+  },
+  {
+    id: "rafael-g",
+    photo: "/media/testimonials/member-4.png",
+    productTag: "3 Month Transformation",
+    quote:
+      "I was getting matches but never getting to the date. I would just run out of things to say or wait too long and she would ghost. This ebook gave me a clear system. My date rate went from almost zero to multiple a month.",
+    name: "Rafael G.",
+    detail: "5'5 · San Antonio, TX",
+    firstWin: "First win: 38 days",
+  },
+] as const;
+
+const NO_PHOTO_CARDS = [
+  {
+    id: "david-k",
+    productTag: "Approach Like a King",
+    quote:
+      "I used to freeze up the second I saw a girl I wanted to talk to. This ebook killed that completely. The opener structure is so simple that you stop overthinking and just go. Three approaches my first week out.",
+    name: "David K.",
+    detail: "5'7 · Chicago, IL",
+    firstWin: "First win: 30 days",
+  },
+  {
+    id: "ryan-s",
+    productTag: "The Playbook",
+    quote:
+      "There is so much advice online for guys like me and none of it felt built for someone my height. I did not know where to start or what to trust. The Playbook put everything in one place and gave me a system I could actually follow. My Hinge matches got better, my confidence stopped feeling forced, and for the first time I was just being myself on dates instead of performing. That shift changed everything.",
+    name: "Ryan S.",
+    detail: "5'6 · Brooklyn, NY",
+    firstWin: "First win: 45 days",
+  },
+] as const;
 
 export default function TestimonialsPage() {
-  const total = TESTIMONIALS.length;
-  const fives = TESTIMONIALS.filter((t) => t.rating === 5).length;
-  const avgDays = Math.round(
-    TESTIMONIALS.reduce((acc, t) => acc + t.daysIn, 0) / total
-  );
-
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/10">
         <div
           aria-hidden
@@ -31,96 +84,95 @@ export default function TestimonialsPage() {
           <Reveal>
             <p className="eyebrow">Reviews</p>
             <h1 className="mt-3 font-royal text-5xl font-black uppercase leading-[0.95] tracking-[-0.02em] text-white sm:text-7xl">
-              <span className="block">Real men.</span>
-              <span className="block gold-gradient drop-shadow-[0_0_24px_rgba(212,175,55,0.25)]">
-                Real results.
-              </span>
+              Short men. Real wins. No exceptions.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-              Real men. Real heights. Real outcomes. Every voice here has run
-              the system end to end. No actors, no stock smiles, no AI faces.
+              Real heights. Real cities. Real outcomes. Every man here ran the
+              system and sent back the proof.
             </p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              <Stat label="Reviews on file" value={total.toString()} />
-              <Stat label="Five-star reviews" value={`${fives} / ${total}`} />
-              <Stat label="Average days to first win" value={`${avgDays} days`} />
+            <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
+              <Stat label="Reviews on file" value="6" />
+              <Stat label="Five star reviews" value="6/6" />
+              <Stat label="Fastest first win" value="14 days" />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Proof strip */}
-      <section className="border-b border-white/10 bg-black/40 py-10">
+      <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="eyebrow text-center">Snapshots from members</p>
-          <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {PROOF_IMAGES.map((src, i) => (
-              <div
-                key={src}
-                className="overflow-hidden rounded-lg border border-white/10 bg-black aspect-[4/3]"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt={`Member transformation ${i + 1}`}
-                  className="h-full w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em] text-white/30">
-            Real member before-and-after snapshots from the Short Kings system.
-          </p>
-        </div>
-      </section>
-
-      {/* Testimony grid */}
-      <section className="py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Every review"
-              titleTop="In their"
-              titleHighlight="own words."
-              subtitle="Filtering by product is coming when the list doubles in size. For now, every review, every product, in order of join date."
-            />
-          </Reveal>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.id} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
-                <Card t={t} />
+          <div className="grid gap-5 md:grid-cols-2">
+            {PHOTO_CARDS.map((card, i) => (
+              <Reveal key={card.id} stagger={(((i % 4) + 1) as 1 | 2 | 3 | 4)}>
+                <article className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40">
+                  <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
+                  <div className="relative aspect-[16/10] w-full bg-black">
+                    <Image
+                      src={card.photo}
+                      alt={card.name}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <span className="rounded-full border border-gold/30 bg-gold/[0.08] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-gold">
+                      {card.productTag}
+                    </span>
+                    <p className="mt-4 text-sm leading-7 text-white/80">{card.quote}</p>
+                    <footer className="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-5">
+                      <div className="leading-tight">
+                        <p className="font-royal text-sm font-bold text-white">{card.name}</p>
+                        <p className="text-xs text-white/50">{card.detail}</p>
+                      </div>
+                      <span className="rounded-full border border-gold/30 bg-gold/[0.08] px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-gold">
+                        {card.firstWin}
+                      </span>
+                    </footer>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden border-t border-gold/15 bg-gradient-to-b from-obsidian via-stoneDeep to-obsidian py-24">
-        <div className="relative mx-auto max-w-3xl px-4 text-center">
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            {NO_PHOTO_CARDS.map((card, i) => (
+              <Reveal key={card.id} stagger={(((i % 2) + 1) as 1 | 2)}>
+                <article className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40 p-6">
+                  <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
+                  <span className="rounded-full border border-gold/30 bg-gold/[0.08] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-gold">
+                    {card.productTag}
+                  </span>
+                  <p className="mt-4 text-sm leading-7 text-white/80">{card.quote}</p>
+                  <footer className="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-5">
+                    <div className="leading-tight">
+                      <p className="font-royal text-sm font-bold text-white">{card.name}</p>
+                      <p className="text-xs text-white/50">{card.detail}</p>
+                    </div>
+                    <span className="rounded-full border border-gold/30 bg-gold/[0.08] px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-gold">
+                      {card.firstWin}
+                    </span>
+                  </footer>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
           <Reveal>
-            <Crown className="mx-auto h-10 w-10 text-gold" />
-            <h2 className="mt-4 font-royal text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
-              <span className="block">Add your name</span>
-              <span className="block gold-gradient">to the list.</span>
-            </h2>
-            <p className="mt-5 text-base leading-7 text-white/65">
-              Run the system. Send us the win. We&apos;ll feature you.
-            </p>
-            <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-10 rounded-xl border border-gold/25 bg-stone/40 p-7 text-center sm:p-9">
+              <h2 className="font-royal text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
+                Add your name to the list.
+              </h2>
+              <p className="mt-5 text-base leading-7 text-white/65">
+                Run the system. Send us the win. We will feature you.
+              </p>
               <Link
-                href="/products#the-playbook"
+                href="https://calendly.com/shortkingsempire/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"
               >
-                <Crown className="h-4 w-4" /> Get the bundle
-              </Link>
-              <Link
-                href="/portal/counsel"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-7 font-semibold text-white hover:bg-white/[0.08]"
-              >
-                <Sparkles className="h-4 w-4" /> Try Counsel
+                Apply for 1-on-1 coaching
               </Link>
             </div>
           </Reveal>
@@ -132,50 +184,12 @@ export default function TestimonialsPage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-stone/40 p-5">
+    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-stone/40 p-3 sm:p-5">
       <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
-      <p className="font-royal text-3xl font-black text-white">{value}</p>
-      <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/45">
+      <p className="font-royal text-2xl font-black text-white sm:text-3xl">{value}</p>
+      <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-white/45 sm:text-xs sm:tracking-[0.18em]">
         {label}
       </p>
     </div>
-  );
-}
-
-function Card({ t }: { t: Testimonial }) {
-  return (
-    <article className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40 p-7">
-      <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
-
-      <div className="flex items-center justify-between">
-        <Quote className="h-6 w-6 text-gold/60" />
-        <span className="rounded-full border border-gold/30 bg-gold/[0.08] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-gold">
-          {t.product}
-        </span>
-      </div>
-
-      <div className="mt-3 flex items-center gap-1 text-gold">
-        {Array.from({ length: t.rating }).map((_, idx) => (
-          <Star key={idx} className="h-3.5 w-3.5 fill-gold" />
-        ))}
-      </div>
-
-      <p className="mt-4 text-sm leading-7 text-white/80">{t.quote}</p>
-
-      <footer className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
-        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-gold to-goldDark font-royal text-lg font-black text-black ring-1 ring-gold/40">
-          {t.initial}
-        </div>
-        <div className="leading-tight">
-          <p className="font-royal text-sm font-bold text-white">{t.name}</p>
-          <p className="text-xs text-white/50">
-            {t.height} · {t.city}
-          </p>
-          <p className="mt-0.5 text-[10px] uppercase tracking-[0.18em] text-gold/70">
-            {t.title} · {t.daysIn} days in
-          </p>
-        </div>
-      </footer>
-    </article>
   );
 }
