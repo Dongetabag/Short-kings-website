@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
-import { AXEL_CALENDLY } from "@/lib/home-funnel";
-
 export function FunnelHero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
@@ -61,13 +59,8 @@ export function FunnelHero() {
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href={AXEL_CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Book a call with Axel
+              <Link href="/dating/start" className="btn-primary">
+                Take the 2-min assessment
               </Link>
               <Link href="#offer" className="btn-outline">
                 See the system

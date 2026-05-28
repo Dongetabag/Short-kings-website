@@ -29,7 +29,7 @@ export type Order = {
 export type Lead = {
   id: string;
   email: string;
-  source: "fitness-magnet" | "calendly-inquiry" | "newsletter";
+  source: "fitness-magnet" | "calendly-inquiry" | "newsletter" | "dating-funnel";
   receivedAt: string;
   notes?: string;
 };
