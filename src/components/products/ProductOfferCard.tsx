@@ -1,5 +1,8 @@
 import { Check } from "lucide-react";
 import Link from "next/link";
+import { TypeformPopupButton } from "@/components/typeform/TypeformPopupButton";
+
+const EMPIRE_TYPEFORM_ID = "GVVKVMWI";
 
 type ProductOfferCardProps = {
   id?: string;
@@ -81,15 +84,12 @@ export function ProductOfferCard({
           <p className="mt-1 text-xs leading-relaxed text-white/50">{priceNote}</p>
         ) : null}
         {typeform ? (
-          <button
-            type="button"
-            data-tf-popup="GVVKVMWI"
-            data-tf-opacity="100"
-            data-tf-button-hide="true"
+          <TypeformPopupButton
+            formId={EMPIRE_TYPEFORM_ID}
             className={`mt-4 ${ctaClass}`}
           >
             {cta}
-          </button>
+          </TypeformPopupButton>
         ) : href ? (
           <Link
             href={href}
