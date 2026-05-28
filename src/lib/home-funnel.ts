@@ -2,11 +2,56 @@ export const AXEL_CALENDLY = "https://calendly.com/shortkingsempire/30min";
 
 export const AXEL_PORTRAIT = "/media/gallery/Axel-27.JPG";
 
-export const CREDIBILITY_STATS = [
-  { value: "500+", label: "women approached over 5 years" },
-  { value: "100+", label: "women approached in my first year" },
-  { value: "5 years", label: "building and testing the system" },
-  { value: "Hundreds", label: "dates, books, and reps" },
+export const RESEARCH_STATS = [
+  {
+    id: "confidence",
+    display: "percent" as const,
+    end: 82,
+    label: "of women say confidence outranks height",
+    source: "Bumble Annual Dating Trends Report, 2024",
+  },
+  {
+    id: "matches",
+    display: "multiplier" as const,
+    end: 3,
+    label: "more matches when frame and presence read high status",
+    source: "Hinge data study, 2023",
+  },
+  {
+    id: "partners",
+    display: "percent" as const,
+    end: 67,
+    label: "of long-term partners are within two inches of each other",
+    source: "Pew Research",
+  },
+  {
+    id: "predictors",
+    display: "static" as const,
+    staticValue: "Top 5",
+    label:
+      "predictors of attraction are voice, eye contact, posture, humor, and frame",
+    source: "Journal of Personality and Social Psychology",
+  },
+] as const;
+
+export const FUNNEL_PILLARS = [
+  {
+    name: "Beat the Algorithm",
+    description: "The app was built against you. Here is how you build around it.",
+  },
+  {
+    name: "Rebuild the Frame",
+    description: "A thousand small hits brought you here. One system brings you back.",
+  },
+  {
+    name: "Engineer Your Look",
+    description: "Style for shorter men is a science. Here is the spec sheet.",
+  },
+  {
+    name: "Command the Room",
+    description:
+      "Entry posture, voice tempo, the first ten seconds. That is where it is won.",
+  },
 ] as const;
 
 export const HOME_FUNNEL_TESTIMONIALS = [
@@ -29,10 +74,10 @@ export const HOME_FUNNEL_TESTIMONIALS = [
       "I messaged Axel on a Thursday night panicking about a first date the next day. He walked me through the whole thing. Venue, how to open, when to go for the second date close. She texted me first the next morning.",
   },
   {
-    id: "alex-b",
+    id: "kevin-m",
     photo: "/media/testimonials/member-3.png",
-    name: "Alex B.",
-    location: "5'6 · Phoenix, AZ",
+    name: "Kevin M.",
+    location: "5'8 · Puerto Rico",
     resultLabel: "Full system · 91 days in",
     quote:
       "Three months ago I had not been on a date in over a year. Axel fixed my Hinge, my approach, my texting, and my frame all at the same time. I am now seeing two women consistently and none of it feels forced.",

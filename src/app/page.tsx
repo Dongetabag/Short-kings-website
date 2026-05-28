@@ -1,5 +1,5 @@
 import { FunnelHero } from "@/components/sections/funnel/FunnelHero";
-import { FunnelCredibilityBar } from "@/components/sections/funnel/FunnelCredibilityBar";
+import { FunnelResearchPillars } from "@/components/sections/funnel/FunnelResearchPillars";
 import { FunnelSocialProof } from "@/components/sections/funnel/FunnelSocialProof";
 import { FunnelManBehind } from "@/components/sections/funnel/FunnelManBehind";
 import { FunnelOffer } from "@/components/sections/funnel/FunnelOffer";
@@ -15,7 +15,7 @@ export default function Home() {
         <FunnelHero />
       </SectionBand>
 
-      <FunnelCredibilityBar />
+      <FunnelResearchPillars />
 
       <SectionBand variant="default">
         <FunnelSocialProof />

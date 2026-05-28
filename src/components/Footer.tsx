@@ -62,6 +62,20 @@ export function Footer() {
             >
               Contact
             </a>
+            <div className="mt-2 flex items-center gap-3">
+              {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/10 bg-white/[0.03] text-white/75 transition hover:border-gold/40 hover:bg-gold/10 hover:text-gold"
+                >
+                  <Icon className="h-5 w-5" aria-hidden />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -69,24 +83,6 @@ export function Footer() {
           <p className="text-center text-xs text-white/40 sm:text-left">
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
-        </div>
-
-        <div className="mt-6 border-t border-white/10 pt-6">
-          <p className="eyebrow mb-4 text-center sm:mb-5 sm:text-left">Follow</p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:border-gold/40 hover:bg-gold/10 hover:text-gold sm:justify-center"
-              >
-                <Icon className="h-4 w-4 shrink-0" aria-hidden />
-                {label}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

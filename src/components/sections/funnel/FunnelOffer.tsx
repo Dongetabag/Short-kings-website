@@ -33,8 +33,7 @@ const OFFERS = [
     primary: false,
   },
   {
-    title: "The Empire",
-    subtitle: "3 Month Transformation",
+    title: "The Empire — 3 Month Transformation",
     description:
       "The full done-with-you experience. Three months of coaching, accountability, and system implementation side by side with Axel.",
     price: `$${THE_EMPIRE.priceUsd}`,
@@ -72,11 +71,6 @@ export function FunnelOffer() {
                   <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">
                     {offer.title}
                   </h3>
-                  {"subtitle" in offer && offer.subtitle ? (
-                    <p className="mt-1 text-sm uppercase tracking-[0.14em] text-white/50">
-                      {offer.subtitle}
-                    </p>
-                  ) : null}
                   <p className="mt-2 font-display text-2xl font-bold text-gold sm:text-3xl">
                     {offer.price}
                   </p>
@@ -97,6 +91,14 @@ export function FunnelOffer() {
             );
           })}
         </div>
+
+        <Reveal>
+          <div className="mt-8 flex justify-center sm:mt-10">
+            <Link href="/products" className="btn-outline">
+              See full products
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

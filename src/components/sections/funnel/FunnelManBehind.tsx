@@ -33,8 +33,8 @@ export function FunnelManBehind() {
             <Reveal>
               <p className="eyebrow">The man behind the system</p>
               <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[2.75rem]">
-                I was 18, never been with a woman, invisible to every girl I wanted,
-                and I thought it was because of my height.
+                I was 18, never been with a woman, invisible to every girl I wanted
+                {" "}&mdash; and I thought it was because of my height.
               </h2>
             </Reveal>
 
@@ -82,11 +82,13 @@ export function FunnelManBehind() {
                   gym because I needed to feel like a different man in my own body.
                   I studied style specifically for shorter frames: the right cuts,
                   the right colors, the silhouettes that add presence without an
-                  inch. I read every book on female psychology I could find. I cold
-                  approached women until it stopped being terrifying. I approached
-                  over 100 women in my first year in the dating scene. I went on
-                  date after date, failed constantly, and learned faster. I spent
-                  five years studying relationship psychology and slowly, rep by
+                  inch. I read every book on female psychology I could find. Then I
+                  did something that scared me every single time. I started
+                  approaching women cold. In my first year alone I approached over
+                  100 women. Not because I was confident. Because I refused to stay
+                  where I was. Over five years I approached over 500 women, went on
+                  hundreds of dates, read dozens of books, and spent that entire
+                  time studying relationship psychology at university. Slowly, rep by
                   rep, I became the man I used to watch from across the room.
                 </p>
               </div>
