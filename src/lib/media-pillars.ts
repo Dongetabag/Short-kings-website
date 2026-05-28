@@ -73,11 +73,11 @@ export const PILLARS: Record<PillarSlug, PillarMeta> = {
     slug: "dating",
     href: "/dating",
     navLabel: "Dating",
-    pageEyebrow: "Pillar I · Dating",
-    pageTitleTop: "Dating,",
-    pageTitleHighlight: "made systematic.",
+    pageEyebrow: "Dating",
+    pageTitleTop: "Short men don't get dating advice.",
+    pageTitleHighlight: "They get generic advice that doesn't fit.",
     pageSubtitle:
-      "Approach. Text. Plan. Lead. Close. Five chapters, dozens of clips, every situation a short man actually runs into.",
+      "Approach. Text. Plan. Lead. Close. Five chapters, every situation a short man actually runs into.",
     homeEyebrow: "Pillar I · Dating",
     homeTitleTop: "Dating,",
     homeTitleHighlight: "made systematic.",
@@ -96,6 +96,14 @@ export const PILLARS: Record<PillarSlug, PillarMeta> = {
       {
         title: "First Date Architecture",
         body: "Plan the venue, lead the tempo, exit on the right note. The structure that consistently produces second dates and the lines that close the loop.",
+      },
+      {
+        title: "Frame and Presence",
+        body: "How you carry yourself before you say a word. Posture, voice tempo, and the energy that makes her notice you first.",
+      },
+      {
+        title: "The Close",
+        body: "How to end the date, ask for the next one, and keep momentum without looking desperate.",
       },
     ],
   },

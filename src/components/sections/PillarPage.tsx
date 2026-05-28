@@ -17,9 +17,9 @@ type Props = {
 export function PillarPage({ pillar, tiles }: Props) {
   const others = PILLAR_LIST.filter((p) => p.slug !== pillar.slug);
   const reels = tiles.filter((t) => t.type === "video").length;
-  const stills = tiles.filter((t) => t.type === "image").length;
   const themeKey = PILLAR_SLUG_THEME[pillar.slug];
   const theme = themeKey ? PILLAR_THEME[themeKey] : null;
+  const isDating = pillar.slug === "dating";
 
   return (
     <>
@@ -49,22 +49,23 @@ export function PillarPage({ pillar, tiles }: Props) {
             <div className="mt-8 flex flex-wrap items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/45">
               <span>{reels} reels</span>
               <span className="h-3 w-px bg-white/15" />
-              <span>{stills} portraits</span>
-              <span className="h-3 w-px bg-white/15" />
               <span>Updated weekly</span>
             </div>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/products#the-playbook"
+                href={isDating ? "/products" : "/products#the-playbook"}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-6 font-semibold text-black hover:bg-goldLight"
               >
-                <Crown className="h-4 w-4" /> Get the full system
+                <Crown className="h-4 w-4" /> {isDating ? "See the system" : "Get the full system"}
               </Link>
               <Link
-                href="/portal/counsel"
+                href={isDating ? "https://calendly.com/shortkingsempire/30min" : "/portal/counsel"}
+                {...(isDating
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white hover:bg-white/[0.08]"
               >
-                <Sparkles className="h-4 w-4" /> Ask Counsel
+                <Sparkles className="h-4 w-4" /> {isDating ? "Book a call with Axel" : "Ask Counsel"}
               </Link>
             </div>
           </Reveal>
@@ -92,7 +93,7 @@ export function PillarPage({ pillar, tiles }: Props) {
             <SectionHeader
               eyebrow="Lessons"
               titleTop="Inside"
-              titleHighlight="this pillar."
+              titleHighlight={isDating ? "the system." : "this pillar."}
               subtitle="The chapters of this pillar, distilled. Read the principle. Train the rep."
             />
           </Reveal>
@@ -138,7 +139,7 @@ export function PillarPage({ pillar, tiles }: Props) {
                   className="group relative block h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40 p-7 transition hover:-translate-y-1 hover:border-gold/40"
                 >
                   <div className="absolute inset-x-0 top-0 h-px crown-hairline" />
-                  <p className="eyebrow">{p.pageEyebrow}</p>
+                  <p className="eyebrow">{isDating ? p.navLabel : p.pageEyebrow}</p>
                   <p className="mt-3 font-royal text-2xl font-black uppercase leading-tight text-white">
                     {p.pageTitleTop} <span className="gold-gradient">{p.pageTitleHighlight}</span>
                   </p>
