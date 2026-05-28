@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 const TYPEFORM_SCRIPT_SRC = "https://embed.typeform.com/next/embed.js";
 
@@ -16,34 +16,14 @@ declare global {
   }
 }
 
-function ensureTypeformScript(): Promise<void> {
-  if (typeof window === "undefined") return Promise.resolve();
-  if (window.tf?.createPopup) return Promise.resolve();
-  const existing = document.querySelector<HTMLScriptElement>(
-    `script[src="${TYPEFORM_SCRIPT_SRC}"]`
-  );
-  if (existing) {
-    if (existing.dataset.tfLoaded === "true") return Promise.resolve();
-    return new Promise<void>((resolve) => {
-      existing.addEventListener("load", () => resolve(), { once: true });
-      existing.addEventListener("error", () => resolve(), { once: true });
-    });
-  }
-  return new Promise<void>((resolve) => {
-    const s = document.createElement("script");
-    s.src = TYPEFORM_SCRIPT_SRC;
-    s.async = true;
-    s.addEventListener(
-      "load",
-      () => {
-        s.dataset.tfLoaded = "true";
-        resolve();
-      },
-      { once: true }
-    );
-    s.addEventListener("error", () => resolve(), { once: true });
-    document.head.appendChild(s);
-  });
+function ensureTypeformScript(): void {
+  if (typeof window === "undefined") return;
+  if (window.tf?.createPopup) return;
+  if (document.querySelector(`script[src="${TYPEFORM_SCRIPT_SRC}"]`)) return;
+  const s = document.createElement("script");
+  s.src = TYPEFORM_SCRIPT_SRC;
+  s.async = true;
+  document.head.appendChild(s);
 }
 
 type TypeformPopupButtonProps = {
@@ -58,34 +38,36 @@ export function TypeformPopupButton({
   children,
 }: TypeformPopupButtonProps) {
   useEffect(() => {
-    void ensureTypeformScript();
+    ensureTypeformScript();
   }, []);
 
-  const onClick = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>) => {
+  // Render as a real link to the Typeform URL so the apply path is
+  // never dead — if JS fails, popup blockers fire, or embed.js never
+  // loaded, the browser still navigates to the form. When embed.js is
+  // ready by click time, we synchronously open the popup overlay
+  // instead and preventDefault. Synchronous == keeps the user gesture
+  // intact so the popup isn't blocked.
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    const create = window.tf?.createPopup;
+    if (!create) return;
+    try {
+      create(formId, { opacity: 100 }).open();
       e.preventDefault();
-      await ensureTypeformScript();
-      const create = window.tf?.createPopup;
-      if (create) {
-        try {
-          create(formId, { opacity: 100 }).open();
-          return;
-        } catch {
-          // fall through to redirect
-        }
-      }
-      window.open(
-        `https://form.typeform.com/to/${formId}`,
-        "_blank",
-        "noopener,noreferrer"
-      );
-    },
-    [formId]
-  );
+    } catch {
+      // let the link navigate as a fallback
+    }
+  };
 
   return (
-    <button type="button" onClick={onClick} className={className}>
+    <a
+      href={`https://form.typeform.com/to/${formId}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      className={className}
+    >
       {children}
-    </button>
+    </a>
   );
 }
