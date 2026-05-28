@@ -24,6 +24,8 @@ export type CatalogItem = {
   cover?: string;
   /** "8 lessons", "Self-paced", etc. */
   meta: string[];
+  /** Override default CTA label (Begin / Continue / Revisit). */
+  actionLabel?: string;
   /** Out of 100. v1: a stable mock. Phase 2 reads from DB. */
   progress: number;
   entitlement:
@@ -92,6 +94,7 @@ export const CATALOG: CatalogSection[] = [
       cover: undefined,
       meta: ["PDF", `~${28 + idx * 6} pages`, "Instant download"],
       progress: idx === 0 ? 100 : idx === 1 ? 45 : 0,
+      actionLabel: "Read",
       entitlement: "bundle",
     })),
   },

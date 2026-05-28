@@ -28,6 +28,10 @@ export const EBOOKS: Product[] = [
       "The exact texting framework to build momentum fast. What to say, when to say it, and how to get her off the app.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SHE_REPLIED",
+    file: {
+      href: "/products/ebooks/she-replied-now-what.pdf",
+      filename: "she-replied-now-what.pdf",
+    },
   },
   {
     id: "first-date-blueprint",
@@ -38,6 +42,10 @@ export const EBOOKS: Product[] = [
       "Venue selection, conversation structure, and the exact exit lines that make her want to see you again.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_FIRST_DATE",
+    file: {
+      href: "/products/ebooks/first-date-blueprint.pdf",
+      filename: "first-date-blueprint.pdf",
+    },
   },
   {
     id: "unshakeable",
@@ -48,6 +56,10 @@ export const EBOOKS: Product[] = [
       "The mindset reps that make rejection feel like weather. Frame, abundance, and the daily habits that keep you grounded.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_UNSHAKEABLE",
+    file: {
+      href: "/products/ebooks/unshakeable.pdf",
+      filename: "unshakeable.pdf",
+    },
   },
   {
     id: "presence-code",
@@ -58,6 +70,10 @@ export const EBOOKS: Product[] = [
       "Body language, vocal tonality, and eye contact habits that communicate status before you say a word.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_PRESENCE",
+    file: {
+      href: "/products/ebooks/presence-code.pdf",
+      filename: "presence-code.pdf",
+    },
   },
   {
     id: "approach-like-a-king",
@@ -68,6 +84,10 @@ export const EBOOKS: Product[] = [
       "The opener framework to go from nervous to natural. Bars, gyms, daytime, and everywhere in between.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_APPROACH",
+    file: {
+      href: "/products/ebooks/approach-like-a-king.pdf",
+      filename: "approach-like-a-king.pdf",
+    },
   },
   {
     id: "attraction-conversation",
@@ -78,6 +98,10 @@ export const EBOOKS: Product[] = [
       "Storytelling, pacing, and push-pull techniques that make you the most interesting person she has talked to.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_CONVERSATION",
+    file: {
+      href: "/products/ebooks/attraction-conversation.pdf",
+      filename: "attraction-conversation.pdf",
+    },
   },
   {
     id: "swipe-right-on-yourself",
@@ -88,6 +112,10 @@ export const EBOOKS: Product[] = [
       "Photos, bio, and opening lines that work. Built for shorter guys who want to stop getting ghosted before the first message.",
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SWIPE_RIGHT",
+    file: {
+      href: "/products/ebooks/swipe-right-on-yourself.pdf",
+      filename: "swipe-right-on-yourself.pdf",
+    },
   },
 ];
 

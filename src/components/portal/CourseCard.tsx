@@ -11,6 +11,7 @@ type Props = {
 export function CourseCard({ item, locked = false }: Props) {
   const Icon = item.icon;
   const isExternal = /^https?:\/\//.test(item.href);
+  const opensNewTab = isExternal || item.href.endsWith(".pdf");
   const Wrapper = locked
     ? ({ children }: { children: React.ReactNode }) => (
         <div className="group relative block h-full overflow-hidden rounded-xl border border-white/10 bg-stone/40 opacity-70">
@@ -18,7 +19,7 @@ export function CourseCard({ item, locked = false }: Props) {
         </div>
       )
     : ({ children }: { children: React.ReactNode }) =>
-        isExternal ? (
+        opensNewTab ? (
           <a
             href={item.href}
             target="_blank"
@@ -35,6 +36,15 @@ export function CourseCard({ item, locked = false }: Props) {
             {children}
           </Link>
         );
+
+  const defaultAction = locked
+    ? "Claim Access"
+    : item.progress >= 100
+      ? "Revisit"
+      : item.progress > 0
+        ? "Continue"
+        : "Begin";
+  const actionLabel = item.actionLabel ?? defaultAction;
 
   return (
     <Wrapper>
@@ -97,7 +107,7 @@ export function CourseCard({ item, locked = false }: Props) {
         ) : null}
 
         <p className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold transition group-hover:gap-3">
-          {locked ? "Claim Access" : item.progress >= 100 ? "Revisit" : item.progress > 0 ? "Continue" : "Begin"}
+          {actionLabel}
           <ArrowRight className="h-3.5 w-3.5" />
         </p>
       </div>
