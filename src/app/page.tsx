@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { FunnelHero } from "@/components/sections/funnel/FunnelHero";
 import { FunnelResearchPillars } from "@/components/sections/funnel/FunnelResearchPillars";
 import { FunnelSocialProof } from "@/components/sections/funnel/FunnelSocialProof";
@@ -10,7 +11,12 @@ import { SectionBand } from "@/components/ui/SectionBand";
 
 export default function Home() {
   return (
-    <div className="funnel-flow">
+    <>
+      <Script
+        src="https://embed.typeform.com/next/embed.js"
+        strategy="afterInteractive"
+      />
+      <div className="funnel-flow">
       <SectionBand variant="hero">
         <FunnelHero />
       </SectionBand>
@@ -37,5 +43,6 @@ export default function Home() {
         <FunnelFinalCta />
       </SectionBand>
     </div>
+    </>
   );
 }

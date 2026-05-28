@@ -38,8 +38,7 @@ const OFFERS = [
       "The full done-with-you experience. Three months of coaching, accountability, and system implementation side by side with Axel.",
     price: `$${THE_EMPIRE.priceUsd}`,
     cta: "Apply for Empire",
-    href: AXEL_CALENDLY,
-    external: true,
+    typeform: true,
     primary: false,
   },
 ] as const;
@@ -50,8 +49,10 @@ export function FunnelOffer() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-5 sm:grid-cols-2">
           {OFFERS.map((offer, i) => {
-            const href = offer.href;
+            const href = "href" in offer ? offer.href : undefined;
             const isExternal = "external" in offer && offer.external;
+            const isTypeform = "typeform" in offer && offer.typeform;
+            const ctaClass = offer.primary ? "btn-primary" : "btn-outline";
 
             return (
               <Reveal key={offer.title} stagger={(i + 1) as 1 | 2 | 3 | 4}>
@@ -77,15 +78,27 @@ export function FunnelOffer() {
                   <p className="mt-4 flex-1 text-sm leading-7 text-white/65 sm:text-base">
                     {offer.description}
                   </p>
-                  <Link
-                    href={href}
-                    {...(isExternal
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    className={`mt-6 ${offer.primary ? "btn-primary" : "btn-outline"}`}
-                  >
-                    {offer.cta}
-                  </Link>
+                  {isTypeform ? (
+                    <button
+                      type="button"
+                      data-tf-popup="GVVKVMWI"
+                      data-tf-opacity="100"
+                      data-tf-button-hide="true"
+                      className={`mt-6 ${ctaClass}`}
+                    >
+                      {offer.cta}
+                    </button>
+                  ) : href ? (
+                    <Link
+                      href={href}
+                      {...(isExternal
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className={`mt-6 ${ctaClass}`}
+                    >
+                      {offer.cta}
+                    </Link>
+                  ) : null}
                 </article>
               </Reveal>
             );
