@@ -1,19 +1,22 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CourseCard } from "@/components/portal/CourseCard";
 import { CATALOG } from "@/lib/portal-catalog";
+import { getSessionUser } from "@/lib/auth";
 
 export const metadata = { title: "Library" };
 
-// v1 stub: assume the user owns the bundle, counsel-ai trial, and fitness library.
-// Phase 2 reads real entitlements from NextAuth + Neon.
-const OWNED_ENTITLEMENTS = new Set([
-  "bundle",
-  "counsel-ai",
-  "fitness-library",
-  "free",
-]);
+const EBOOK_ENTITLEMENTS = ["protocols", "playbook", "coaching", "empire"];
+const FITNESS_ENTITLEMENTS = ["built-different", "empire"];
+const COUNSEL_ENTITLEMENTS = ["kings-counsel", "playbook", "coaching", "empire"];
 
-export default function LibraryPage() {
+function hasAnyEntitlement(userEntitlements: Set<string>, required: string[]): boolean {
+  return required.some((ent) => userEntitlements.has(ent));
+}
+
+export default async function LibraryPage() {
+  const sessionUser = await getSessionUser();
+  const userEntitlements = new Set(sessionUser?.entitlements ?? []);
+
   return (
     <div className="mx-auto max-w-6xl">
       <SectionHeader
@@ -39,11 +42,52 @@ export default function LibraryPage() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {section.items.map((item) => (
+              (() => {
+                const isEbookSection = section.slug === "playbooks";
+                const isFitnessSection = section.slug === "fitness";
+                const isCounselAi = section.slug === "counsel" && item.id === "counsel-ai";
+
+                const locked = isEbookSection
+                  ? !hasAnyEntitlement(userEntitlements, EBOOK_ENTITLEMENTS)
+                  : isFitnessSection
+                    ? !hasAnyEntitlement(userEntitlements, FITNESS_ENTITLEMENTS)
+                    : isCounselAi
+                      ? !hasAnyEntitlement(userEntitlements, COUNSEL_ENTITLEMENTS)
+                      : false;
+
+                const lockedActionLabel = isEbookSection
+                  ? "Read"
+                  : isFitnessSection
+                    ? "Begin"
+                    : undefined;
+
+                const lockedPrompt = isEbookSection
+                  ? {
+                      text: "Unlock with The 7 Protocols",
+                      href: "https://short-kings-website.vercel.app/products#seven-protocols",
+                    }
+                  : isFitnessSection
+                    ? {
+                        text: "Unlock with Built Different",
+                        href: "https://short-kings-website.vercel.app/products",
+                      }
+                    : isCounselAi
+                      ? {
+                          text: "Start your free 7-day trial",
+                          href: "https://short-kings-website.vercel.app/products#counsel",
+                        }
+                      : undefined;
+
+                return (
               <CourseCard
                 key={item.id}
                 item={item}
-                locked={!OWNED_ENTITLEMENTS.has(item.entitlement)}
+                locked={locked}
+                lockedActionLabel={lockedActionLabel}
+                lockedPrompt={lockedPrompt}
               />
+                );
+              })()
             ))}
           </div>
         </section>

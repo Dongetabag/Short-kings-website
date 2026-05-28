@@ -29,7 +29,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SHE_REPLIED",
     file: {
-      href: "/products/ebooks/she-replied-now-what.pdf",
+      href: "/api/download/she-replied-now-what.pdf",
       filename: "she-replied-now-what.pdf",
     },
   },
@@ -43,7 +43,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_FIRST_DATE",
     file: {
-      href: "/products/ebooks/first-date-blueprint.pdf",
+      href: "/api/download/first-date-blueprint.pdf",
       filename: "first-date-blueprint.pdf",
     },
   },
@@ -57,7 +57,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_UNSHAKEABLE",
     file: {
-      href: "/products/ebooks/unshakeable.pdf",
+      href: "/api/download/unshakeable.pdf",
       filename: "unshakeable.pdf",
     },
   },
@@ -71,7 +71,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_PRESENCE",
     file: {
-      href: "/products/ebooks/presence-code.pdf",
+      href: "/api/download/presence-code.pdf",
       filename: "presence-code.pdf",
     },
   },
@@ -85,7 +85,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_APPROACH",
     file: {
-      href: "/products/ebooks/approach-like-a-king.pdf",
+      href: "/api/download/approach-like-a-king.pdf",
       filename: "approach-like-a-king.pdf",
     },
   },
@@ -99,7 +99,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_CONVERSATION",
     file: {
-      href: "/products/ebooks/attraction-conversation.pdf",
+      href: "/api/download/attraction-conversation.pdf",
       filename: "attraction-conversation.pdf",
     },
   },
@@ -113,7 +113,7 @@ export const EBOOKS: Product[] = [
     priceUsd: 12,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SWIPE_RIGHT",
     file: {
-      href: "/products/ebooks/swipe-right-on-yourself.pdf",
+      href: "/api/download/swipe-right-on-yourself.pdf",
       filename: "swipe-right-on-yourself.pdf",
     },
   },
@@ -154,7 +154,7 @@ export const FITNESS_PROGRAMS: Product[] = [
     description: "Three days a week. Compound lifts. Progress logged on paper.",
     priceUsd: 0,
     file: {
-      href: "/products/fitness/SKE%20Fitness%203%20day%20program.pdf",
+      href: "/api/download/SKE-fitness-3-day-program.pdf",
       filename: "SKE Fitness 3 day program.pdf",
     },
   },
@@ -166,7 +166,7 @@ export const FITNESS_PROGRAMS: Product[] = [
     description: "Four-day split. Pull, push, legs, athletic.",
     priceUsd: 0,
     file: {
-      href: "/products/fitness/SKE%20Fitness%20program%202.pdf",
+      href: "/api/download/SKE-fitness-program-2.pdf",
       filename: "SKE Fitness program 2.pdf",
     },
   },
@@ -178,7 +178,7 @@ export const FITNESS_PROGRAMS: Product[] = [
     description: "Hypertrophy block. Six weeks. High volume, controlled tempo.",
     priceUsd: 0,
     file: {
-      href: "/products/fitness/SKE%20Fitness%20program%203.pdf",
+      href: "/api/download/SKE-fitness-program-3.pdf",
       filename: "SKE Fitness program 3.pdf",
     },
   },
@@ -190,7 +190,7 @@ export const FITNESS_PROGRAMS: Product[] = [
     description: "Five-day push pull legs upper lower. Strength + conditioning.",
     priceUsd: 0,
     file: {
-      href: "/products/fitness/SKE%20Fitness%20program%204.pdf",
+      href: "/api/download/SKE-fitness-program-4.pdf",
       filename: "SKE Fitness program 4.pdf",
     },
   },
@@ -202,7 +202,7 @@ export const FITNESS_PROGRAMS: Product[] = [
     description: "Maintenance + aesthetics. The program you keep running.",
     priceUsd: 0,
     file: {
-      href: "/products/fitness/SKE%20Fitness%20program%205.pdf",
+      href: "/api/download/SKE-fitness-program-5.pdf",
       filename: "SKE Fitness program 5.pdf",
     },
   },
