@@ -6,7 +6,6 @@ import { getSessionUser } from "@/lib/auth";
 export const metadata = { title: "Library" };
 
 const EBOOK_ENTITLEMENTS = ["protocols", "playbook", "coaching", "empire"];
-const FITNESS_ENTITLEMENTS = ["built-different", "empire"];
 const COUNSEL_ENTITLEMENTS = ["kings-counsel", "playbook", "coaching", "empire"];
 
 function hasAnyEntitlement(userEntitlements: Set<string>, required: string[]): boolean {
@@ -44,39 +43,27 @@ export default async function LibraryPage() {
             {section.items.map((item) => (
               (() => {
                 const isEbookSection = section.slug === "playbooks";
-                const isFitnessSection = section.slug === "fitness";
                 const isCounselAi = section.slug === "counsel" && item.id === "counsel-ai";
 
                 const locked = isEbookSection
                   ? !hasAnyEntitlement(userEntitlements, EBOOK_ENTITLEMENTS)
-                  : isFitnessSection
-                    ? !hasAnyEntitlement(userEntitlements, FITNESS_ENTITLEMENTS)
-                    : isCounselAi
-                      ? !hasAnyEntitlement(userEntitlements, COUNSEL_ENTITLEMENTS)
-                      : false;
+                  : isCounselAi
+                    ? !hasAnyEntitlement(userEntitlements, COUNSEL_ENTITLEMENTS)
+                    : false;
 
-                const lockedActionLabel = isEbookSection
-                  ? "Read"
-                  : isFitnessSection
-                    ? "Begin"
-                    : undefined;
+                const lockedActionLabel = isEbookSection ? "Read" : undefined;
 
                 const lockedPrompt = isEbookSection
                   ? {
                       text: "Unlock with The 7 Protocols",
                       href: "https://short-kings-website.vercel.app/products#seven-protocols",
                     }
-                  : isFitnessSection
+                  : isCounselAi
                     ? {
-                        text: "Unlock with Built Different",
-                        href: "https://short-kings-website.vercel.app/products",
+                        text: "Start your free 7-day trial",
+                        href: "https://short-kings-website.vercel.app/products#counsel",
                       }
-                    : isCounselAi
-                      ? {
-                          text: "Start your free 7-day trial",
-                          href: "https://short-kings-website.vercel.app/products#counsel",
-                        }
-                      : undefined;
+                    : undefined;
 
                 return (
               <CourseCard

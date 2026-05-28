@@ -3,13 +3,12 @@ import {
   BookOpen,
   Crown,
   Dumbbell,
-  Flame,
   Heart,
   Shirt,
   Sparkles,
   Sword,
 } from "lucide-react";
-import { EBOOKS, FITNESS_PROGRAMS } from "@/lib/products";
+import { EBOOKS } from "@/lib/products";
 import { PILLARS } from "@/lib/media-pillars";
 
 export type CatalogItem = {
@@ -131,23 +130,5 @@ export const CATALOG: CatalogSection[] = [
         entitlement: "coaching",
       },
     ],
-  },
-  {
-    slug: "fitness",
-    title: "Fitness Library",
-    blurb:
-      "Five free programs from the SKE library. Pick a split and run it for six weeks.",
-    items: FITNESS_PROGRAMS.map((p, idx) => ({
-      id: p.id,
-      title: p.title,
-      subtitle: p.tagline,
-      type: "fitness",
-      icon: Flame,
-      href: p.file?.href ?? "/portal/library",
-      cover: ["/media/gym/gym-1.jpg", "/media/gym/gym-2.jpg", "/media/gym/gym-3.jpg", "/media/gym/gym-4.jpg", "/media/gym/gym-5.jpg"][idx],
-      meta: ["PDF", "6-week block", "Free with bundle"],
-      progress: idx === 0 ? 100 : 0,
-      entitlement: "fitness-library",
-    })),
   },
 ];
