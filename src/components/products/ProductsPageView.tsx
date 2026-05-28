@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Script from "next/script";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductOfferCard } from "@/components/products/ProductOfferCard";
@@ -71,8 +70,6 @@ export function ProductsPageView() {
 
   return (
     <>
-      <Script src="https://embed.typeform.com/next/embed.js" strategy="lazyOnload" />
-
       <div className="mx-auto max-w-6xl px-4 py-10 sm:py-16">
         <Reveal>
           <div className="text-center sm:text-left">
