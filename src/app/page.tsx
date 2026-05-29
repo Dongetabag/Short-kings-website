@@ -4,7 +4,6 @@ import { FunnelResearchPillars } from "@/components/sections/funnel/FunnelResear
 import { FunnelSocialProof } from "@/components/sections/funnel/FunnelSocialProof";
 import { FunnelManBehind } from "@/components/sections/funnel/FunnelManBehind";
 import { FunnelOffer } from "@/components/sections/funnel/FunnelOffer";
-import { FunnelCounsel } from "@/components/sections/funnel/FunnelCounsel";
 import { FunnelFaq } from "@/components/sections/funnel/FunnelFaq";
 import { FunnelFinalCta } from "@/components/sections/funnel/FunnelFinalCta";
 import { SectionBand } from "@/components/ui/SectionBand";
@@ -32,8 +31,6 @@ export default function Home() {
       <SectionBand variant="gold">
         <FunnelOffer />
       </SectionBand>
-
-      <FunnelCounsel />
 
       <SectionBand variant="alt">
         <FunnelFaq />

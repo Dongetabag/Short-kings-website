@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductOfferCard } from "@/components/products/ProductOfferCard";
 import {
@@ -14,7 +13,6 @@ import {
 } from "@/lib/products-page-data";
 import { EBOOKS, resolvePaymentLink } from "@/lib/products";
 import {
-  COUNSEL_AI,
   GYM_NUTRITION_PLAN,
   INNER_CIRCLE,
   SEVEN_PROTOCOLS,
@@ -61,7 +59,6 @@ function TierSection({
 export function ProductsPageView() {
   const protocolsHref = resolvePaymentLink(SEVEN_PROTOCOLS.paymentLinkEnvKey);
   const playbookHref = resolvePaymentLink(THE_PLAYBOOK.paymentLinkEnvKey);
-  const counselHref = "/portal/counsel";
 
   const ebooksById = Object.fromEntries(EBOOKS.map((e) => [e.id, e]));
   const orderedEbooks = EBOOK_DISPLAY_ORDER.map((id) => ebooksById[id]).filter(
@@ -116,16 +113,6 @@ export function ProductsPageView() {
                 cta="Get all 7"
                 href={protocolsHref ?? undefined}
                 external
-              />
-              <ProductOfferCard
-                id="counsel"
-                tag="Always-on AI"
-                name="Kings Counsel AI"
-                forLine="For the man who wants 24/7 guidance at zero commitment."
-                description="Trained on the Short Kings system. Ask anything about texts, profiles, dates, or mindset. When things get specific enough it points you directly to Axel. First 7 days free."
-                price={`$${COUNSEL_AI.priceUsd} per month · cancel anytime`}
-                cta="Start free trial"
-                href={counselHref}
               />
             </TierSection>
           </Reveal>
@@ -251,14 +238,6 @@ export function ProductsPageView() {
             </div>
           </section>
 
-          <div className="text-center">
-            <Link
-              href="/portal"
-              className="inline-flex min-h-11 items-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-7 text-sm font-semibold text-white hover:bg-white/[0.08]"
-            >
-              Already a member? Open the portal
-            </Link>
-          </div>
         </div>
       </div>
     </>

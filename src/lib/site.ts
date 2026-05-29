@@ -24,15 +24,6 @@ export const NAV_LINKS = [
   { label: "Products", href: "/products" },
   { label: "Reviews", href: "/testimonials" },
   { label: "Dating", href: "/dating" },
-  { label: "King's Counsel", href: "/portal/counsel" },
-] as const;
-
-export const PORTAL_NAV = [
-  { label: "Dashboard", href: "/portal" },
-  { label: "Library", href: "/portal/library" },
-  { label: "King's Counsel", href: "/portal/counsel" },
-  { label: "Calendar", href: "/portal/calendar" },
-  { label: "Account", href: "/portal/account" },
 ] as const;
 
 export const ADMIN_NAV = [
@@ -72,7 +63,6 @@ export const THE_PLAYBOOK = {
     "2 coaching calls (30 min each)",
     "Dating app audit",
     "Short Kings Style Guide",
-    "King's Counsel AI — 1 month free",
     "30-day challenge tracker",
     "Weekly progress form",
   ],
@@ -81,18 +71,6 @@ export const THE_PLAYBOOK = {
 
 /** @deprecated use THE_PLAYBOOK */
 export const BUNDLE = THE_PLAYBOOK;
-
-export const COUNSEL_AI = {
-  id: "counsel-ai",
-  title: "Kings Counsel AI",
-  eyebrow: "Always-on AI",
-  description:
-    "Trained on the Short Kings system. Ask anything — texts, profiles, dates, mindset reframes. When it gets specific enough it points you to Axel.",
-  priceUsd: 15,
-  cadence: "/month",
-  trialDays: 7,
-  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_COUNSEL",
-} as const;
 
 export const INNER_CIRCLE = {
   id: "inner-circle",
@@ -110,7 +88,6 @@ export const INNER_CIRCLE = {
     "Personalized monthly game plan",
     "Dating app audit",
     "Accountability check-ins (MWF)",
-    "Kings Counsel AI included",
     "Short Kings Style Guide",
     "30-day challenge tracker",
   ],

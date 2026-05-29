@@ -60,13 +60,12 @@ export function PillarPage({ pillar, tiles }: Props) {
                 {isDating ? "Take the assessment" : "Get the full system"}
               </Link>
               <Link
-                href={isDating ? "https://calendly.com/shortkingsempire/30min" : "/portal/counsel"}
-                {...(isDating
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+                href="https://calendly.com/shortkingsempire/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white hover:bg-white/[0.08]"
               >
-                <Sparkles className="h-4 w-4" /> {isDating ? "Book a call with Axel" : "Ask Counsel"}
+                <Sparkles className="h-4 w-4" /> Book a call with Axel
               </Link>
             </div>
           </Reveal>

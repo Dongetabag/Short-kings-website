@@ -40,9 +40,6 @@ export function Footer() {
             <Link href="/products#ebooks" className="text-white/65 hover:text-white">
               Dating Ebooks
             </Link>
-            <Link href="/products#counsel" className="text-white/65 hover:text-white">
-              King&apos;s Counsel AI
-            </Link>
             <Link href="/products#inner-circle" className="text-white/65 hover:text-white">
               The Inner Circle
             </Link>
@@ -61,9 +58,6 @@ export function Footer() {
             </Link>
             <Link href="/gallery" className="text-white/65 hover:text-white">
               Gallery
-            </Link>
-            <Link href="/portal" className="text-white/65 hover:text-white">
-              Member Portal
             </Link>
             <a
               href={`mailto:${SITE.email}`}
