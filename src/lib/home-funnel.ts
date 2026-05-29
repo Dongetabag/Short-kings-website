@@ -80,7 +80,7 @@ export const HOME_FUNNEL_TESTIMONIALS = [
     location: "5'8 · Puerto Rico",
     resultLabel: "First win: 60 days",
     quote:
-      "Three months ago I had not been on a date in over a year. Axel fixed my Hinge, my approach, my texting, and my frame all at the same time. I am now seeing two women consistently and none of it feels forced.",
+      "I came into the Empire program wanting to fix my dating life but the gym program hit first. I lost 12 pounds in six weeks and that physical change did something to me mentally that I did not expect. Once my body changed my confidence shifted. Then the dating framework gave me the frame to back it up. The way I carry myself now, the way I walk into a room, the way women respond to me. None of it looks like the man I was three months ago.",
   },
 ] as const;
 
