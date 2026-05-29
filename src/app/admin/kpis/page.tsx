@@ -23,10 +23,9 @@ export default async function KpisPage() {
         <Stat icon={MousePointerClick} label="Hero CTA clicks" value={k.heroCtaClicks30d.toLocaleString()} sub={`${heroCtr}% CTR`} />
         <Stat icon={ShoppingCart} label="Products views" value={k.productsViews30d.toLocaleString()} />
         <Stat icon={Crown} label="Bundle conversions" value={k.bundleConversions30d} sub={`${productConvRate}% rate`} />
-        <Stat icon={TrendingUp} label="Counsel subs" value={k.counselSubs} />
         <Stat icon={Calendar} label="Coaching sessions 30d" value={k.coachingSessions30d} />
         <Stat icon={Crown} label="Revenue 30d" value={`$${k.revenue30dUsd.toLocaleString()}`} highlight />
-        <Stat icon={TrendingUp} label="ARPU 30d" value={`$${(k.revenue30dUsd / Math.max(1, k.bundleConversions30d + k.counselSubs)).toFixed(0)}`} />
+        <Stat icon={TrendingUp} label="ARPU 30d" value={`$${(k.revenue30dUsd / Math.max(1, k.bundleConversions30d)).toFixed(0)}`} />
       </div>
 
       <p className="mt-6 text-[11px] uppercase tracking-[0.22em] text-white/30">

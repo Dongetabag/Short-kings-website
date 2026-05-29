@@ -32,7 +32,6 @@ export const ADMIN_NAV = [
   { label: "Members", href: "/admin/members" },
   { label: "Orders", href: "/admin/orders" },
   { label: "Content", href: "/admin/content" },
-  { label: "Counsel Logs", href: "/admin/counsel" },
   { label: "Leads", href: "/admin/leads" },
   { label: "KPIs", href: "/admin/kpis" },
 ] as const;

@@ -48,23 +48,15 @@ const SECTIONS = [
   {
     name: "Products (offer)",
     route: "/#products",
-    job: "First hard merchandising: bundle as hero card, then singles, Counsel AI, then high-ticket Calendly.",
+    job: "First hard merchandising: bundle as hero card, then singles, then high-ticket Calendly.",
     copyNotes:
       "Price anchors, scarcity language avoided (per brand). Stripe links resolve when env vars are set.",
     assets: "Pricing cards only",
   },
   {
-    name: "King's Counsel preview",
-    route: "/#ai-agent",
-    job: "Differentiate with AI advisor after the offer lands. Shows ongoing support, raises LTV mentally.",
-    copyNotes:
-      "Chat demo is illustrative. Portal routes to live chat.",
-    assets: "UI mock only",
-  },
-  {
     name: "Final CTA",
     route: "/ (footer zone)",
-    job: "Binary choice: get the bundle or try Counsel. No new information, only commitment.",
+    job: "Binary choice: get the bundle or book a call. No new information, only commitment.",
     copyNotes: "Crown icon, gold gradient headline, two buttons max.",
     assets: "Crown mask / Lucide",
   },
