@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Crown, Menu, X, ShieldCheck } from "lucide-react";
+import { Menu, X, ShieldCheck } from "lucide-react";
 import { ADMIN_NAV } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -56,13 +56,6 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
                 </Link>
               );
             })}
-            <div className="my-4 h-px bg-white/10" />
-            <Link
-              href="/portal"
-              className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm text-white/55 hover:text-white"
-            >
-              <Crown className="h-4 w-4" /> View as member
-            </Link>
           </nav>
         </aside>
 

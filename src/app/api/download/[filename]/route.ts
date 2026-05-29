@@ -104,16 +104,9 @@ export async function GET(
 
   const session = (await auth()) as SessionShape | null;
   if (!session?.user) {
-    const redirectTo = "/portal/counsel?message=You%20need%20an%20account%20to%20access%20this%20content.";
     return NextResponse.json(
-      {
-        message: "You need an account to access this content.",
-        redirectTo,
-      },
-      {
-        status: 401,
-        headers: { Location: redirectTo },
-      },
+      { message: "You need an account to access this content." },
+      { status: 401 },
     );
   }
 

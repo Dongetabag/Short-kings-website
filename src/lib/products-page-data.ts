@@ -58,7 +58,6 @@ export const PLAYBOOK_INCLUDES = [
   "2 coaching calls (30 min each)",
   "Dating app audit",
   "Short Kings Style Guide",
-  "Kings Counsel AI — 1 month free",
   "30-day challenge tracker",
 ] as const;
 
@@ -79,5 +78,4 @@ export const COACHING_INCLUDES = [
   "Personalized monthly game plan",
   "Dating app audit",
   "All 7 ebooks free on signup",
-  "Kings Counsel AI included",
 ] as const;

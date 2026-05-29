@@ -11,28 +11,14 @@ export async function middleware(request: NextRequest) {
 
   if (pathname.startsWith("/api/download/") && !isAuthenticated) {
     return NextResponse.json(
-      {
-        message: ACCOUNT_MESSAGE,
-        redirectTo: "/portal/counsel",
-      },
+      { message: ACCOUNT_MESSAGE },
       { status: 401 },
     );
-  }
-
-  if (pathname.startsWith("/portal/") && !isAuthenticated) {
-    // Prevent redirect loops while still sending users to the account entrypoint.
-    if (pathname === "/portal/counsel") {
-      return NextResponse.next();
-    }
-
-    const redirectUrl = new URL("/portal/counsel", request.url);
-    redirectUrl.searchParams.set("message", ACCOUNT_MESSAGE);
-    return NextResponse.redirect(redirectUrl);
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/portal/:path*", "/api/download/:path*"],
+  matcher: ["/api/download/:path*"],
 };
