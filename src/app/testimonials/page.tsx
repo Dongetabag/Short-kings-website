@@ -34,7 +34,7 @@ const PHOTO_CARDS = [
     photo: "/media/testimonials/member-3.png",
     productTag: "3 Month Transformation",
     quote:
-      "Three months ago I had not been on a date in over a year. Axel fixed my Hinge, my approach, my texting, and my frame all at the same time. I am now seeing two women consistently and none of it feels forced.",
+      "I came into the Empire program wanting to fix my dating life but the gym program hit first. I lost 12 pounds in six weeks and that physical change did something to me mentally that I did not expect. Once my body changed my confidence shifted. Then the dating framework gave me the frame to back it up. The way I carry myself now, the way I walk into a room, the way women respond to me. None of it looks like the man I was three months ago.",
     name: "Kevin M.",
     detail: "5'8 · Puerto Rico",
     firstWin: "First win: 60 days",
@@ -44,7 +44,7 @@ const PHOTO_CARDS = [
     photo: "/media/testimonials/member-4.png",
     productTag: "3 Month Transformation",
     quote:
-      "I was getting matches but never getting to the date. I would just run out of things to say or wait too long and she would ghost. This ebook gave me a clear system. My date rate went from almost zero to multiple a month.",
+      "My biggest issue was never really dating. It was how I saw myself. I had been carrying extra weight for years and it was quietly destroying my confidence before I even opened my mouth. The nutrition and gym program changed that. I lost the weight, rebuilt my body, and for the first time started feeling like I deserved to be in the room. Two months into the program I met someone. We have been together ever since. I genuinely did not think that was possible for me before this.",
     name: "Rafael G.",
     detail: "5'5 · San Antonio, TX",
     firstWin: "First win: 38 days",
