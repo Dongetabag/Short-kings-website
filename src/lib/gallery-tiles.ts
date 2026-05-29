@@ -84,25 +84,3 @@ export function buildExtendedGalleryTiles(): GalleryTile[] {
   return out;
 }
 
-const PREFERRED_SPOTLIGHT = [
-  "/media/dating/rizz-breakdown.mp4",
-  "/media/dating/dating-funnel.mp4",
-  "/media/lifestyle/inspire.mp4",
-  "/media/gym/biceps-workout.mp4",
-  "/media/throne-room/fashion-tips.mp4",
-  "/media/hero-video.mp4",
-];
-
-/** Curated portal strip: preferred reels, then other videos from catalog order. */
-export function portalSpotlightVideos(limit = 6): string[] {
-  const catalogVideos = catalog.urls.filter((u) => isVideoUrl(u));
-  const ordered: string[] = [];
-  for (const p of PREFERRED_SPOTLIGHT) {
-    if (catalogVideos.includes(p) && !ordered.includes(p)) ordered.push(p);
-  }
-  for (const u of catalogVideos) {
-    if (ordered.length >= limit) break;
-    if (!ordered.includes(u)) ordered.push(u);
-  }
-  return ordered.slice(0, limit);
-}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Users, ShoppingCart, MessageSquare, BarChart3, ArrowRight, Clapperboard } from "lucide-react";
+import { Users, ShoppingCart, BarChart3, ArrowRight, Clapperboard } from "lucide-react";
 import { listMembers, listOrders, getKpis } from "@/lib/admin-data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import catalog from "@/lib/media-catalog.json";
@@ -21,14 +21,13 @@ export default async function AdminOverview() {
         eyebrow="Admin"
         titleTop="The site,"
         titleHighlight="at a glance."
-        subtitle="Members, orders, content, and the AI Counsel. All the levers in one console."
+        subtitle="Members, orders, content, and leads. All the levers in one console."
       />
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat icon={Users} label="Members" value={members.length} sub="entitled" />
         <Stat icon={ShoppingCart} label="Orders 30d" value={orders.length} sub="incl. refunded" />
         <Stat icon={BarChart3} label="Revenue 30d" value={`$${kpis.revenue30dUsd.toLocaleString()}`} sub="all sources" />
-        <Stat icon={MessageSquare} label="Counsel subs" value={kpis.counselSubs} sub="active" />
         <Stat icon={Clapperboard} label="Media indexed" value={catalog.count} sub="public/media" />
       </div>
 
@@ -69,7 +68,6 @@ export default async function AdminOverview() {
           <ul className="mt-3 space-y-2 text-sm text-white/65">
             <li>· <Link href="/admin/content" className="hover:text-white">Upload an ebook or video</Link></li>
             <li>· <Link href="/admin/leads" className="hover:text-white">Export today&apos;s leads</Link></li>
-            <li>· <Link href="/admin/counsel" className="hover:text-white">Audit the Counsel</Link></li>
           </ul>
         </Card>
       </div>

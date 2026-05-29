@@ -11,7 +11,7 @@ export const runtime = "nodejs";
  *
  * Phase 2 lights this up to:
  *   - Create a member record on `checkout.session.completed`
- *   - Grant `bundle` / `counsel-ai` entitlements
+ *   - Grant `bundle` / `coaching` entitlements
  *   - Send the welcome magic-link email via Resend
  */
 export async function POST(req: Request) {

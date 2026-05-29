@@ -34,15 +34,6 @@ export type Lead = {
   notes?: string;
 };
 
-export type CounselLog = {
-  id: string;
-  email: string;
-  startedAt: string;
-  messages: number;
-  lastMessage: string;
-  flagged: boolean;
-};
-
 export async function listMembers(): Promise<Member[]> {
   return [
     {
@@ -65,7 +56,7 @@ export async function listMembers(): Promise<Member[]> {
       joinedAt: "2026-01-09",
       lastActive: "2026-04-29",
       ltv: 105,
-      entitlements: ["bundle", "counsel-ai"],
+      entitlements: ["bundle"],
     },
     {
       id: "m_003",
@@ -76,7 +67,7 @@ export async function listMembers(): Promise<Member[]> {
       joinedAt: "2026-03-22",
       lastActive: "2026-05-03",
       ltv: 195,
-      entitlements: ["bundle", "counsel-ai", "coaching"],
+      entitlements: ["bundle", "coaching"],
     },
   ];
 }
@@ -84,7 +75,6 @@ export async function listMembers(): Promise<Member[]> {
 export async function listOrders(): Promise<Order[]> {
   return [
     { id: "o_104", email: "david@example.com", product: "1-on-1 Coaching", amount: 150, status: "paid", date: "2026-05-01" },
-    { id: "o_103", email: "james@example.com", product: "Counsel AI subscription", amount: 15, status: "paid", date: "2026-04-29" },
     { id: "o_102", email: "marcus@example.com", product: "The Full Library", amount: 60, status: "paid", date: "2026-02-14" },
     { id: "o_101", email: "ryan@example.com", product: "The Approach Blueprint", amount: 20, status: "refunded", date: "2026-02-09" },
   ];
@@ -109,34 +99,12 @@ export async function listLeads(): Promise<Lead[]> {
   ];
 }
 
-export async function listCounselLogs(): Promise<CounselLog[]> {
-  return [
-    {
-      id: "c_001",
-      email: "james@example.com",
-      startedAt: "2026-05-02",
-      messages: 18,
-      lastMessage: "Reframe drafted. Offer to extend the conversation in 48 hours.",
-      flagged: false,
-    },
-    {
-      id: "c_002",
-      email: "david@example.com",
-      startedAt: "2026-05-01",
-      messages: 7,
-      lastMessage: "Bicep workout plan, with progression notes.",
-      flagged: false,
-    },
-  ];
-}
-
 export async function getKpis() {
   return {
     visitors30d: 12480,
     heroCtaClicks30d: 1872,
     productsViews30d: 3104,
     bundleConversions30d: 64,
-    counselSubs: 31,
     coachingSessions30d: 9,
     revenue30dUsd: 6240,
   };
