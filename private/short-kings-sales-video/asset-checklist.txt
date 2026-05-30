@@ -1,0 +1,38 @@
+public/media/lifestyle/insecure-men.mp4
+public/media/gallery/most insecure men copy.mp4
+public/media/gallery/lack of attraction copy.mp4
+public/media/dating/hinge.mp4
+public/media/lifestyle/why-profiles-fail.mp4
+public/media/gallery/dating funnel vid(1) copy.mp4
+public/media/gallery/unpredictable copy.mp4
+public/media/lifestyle/lifestyle-3.jpg
+public/media/lifestyle/lifestyle-7.jpg
+public/media/lifestyle/mentorship.mp4
+public/media/gallery/mentorship darian copy.mp4
+public/media/lifestyle/inspire.mp4
+public/media/lifestyle/axel-lifestyle-1.jpg
+public/media/lifestyle/axel-lifestyle-2.jpg
+public/media/gallery/Axel-27.JPG
+public/media/throne-room/portrait-1.jpg
+public/media/dating/hinge-prompts.mp4
+public/media/dating/attraction-secrets.mp4
+public/media/lifestyle/take-risks.mp4
+public/media/gallery/fashon tips copy.mp4
+public/media/throne-room/style-clip-1.mp4
+public/media/throne-room/best-shirts.mp4
+public/media/gallery/rizz breakdown copy.mp4
+public/media/dating/dating-vs-sales.mp4
+public/media/gallery/pedestal copy.mp4
+public/media/testimonials/member-1.png
+public/media/testimonials/member-2.png
+public/media/testimonials/member-3.png
+public/media/testimonials/member-4.png
+public/media/testimonials/testimonial-1.jpg
+public/media/testimonials/testimonial-2.jpg
+public/media/testimonials/testimonial-3.jpg
+public/media/testimonials/testimonial-4.jpg
+public/media/testimonials/success-1.jpg
+public/media/lifestyle/god-first.mp4
+public/media/gallery/Inspire copy.mp4
+public/media/lifestyle/transformation.mp4
+public/media/throne-room/hero-video.mp4
