@@ -11,7 +11,7 @@ import {
   PLAYBOOK_INCLUDES,
   PROTOCOLS_INCLUDES,
 } from "@/lib/products-page-data";
-import { EBOOKS, resolvePaymentLink } from "@/lib/products";
+import { EBOOKS } from "@/lib/products";
 import {
   GYM_NUTRITION_PLAN,
   INNER_CIRCLE,
@@ -56,9 +56,23 @@ function TierSection({
   );
 }
 
-export function ProductsPageView() {
-  const protocolsHref = resolvePaymentLink(SEVEN_PROTOCOLS.paymentLinkEnvKey);
-  const playbookHref = resolvePaymentLink(THE_PLAYBOOK.paymentLinkEnvKey);
+type Props = {
+  /**
+   * Resolved Stripe payment-link URLs, keyed by their STRIPE_PAYMENT_LINK_*
+   * env var name. Resolved server-side in src/app/products/page.tsx because
+   * non-NEXT_PUBLIC_ env vars are not inlined into client bundles.
+   */
+  paymentLinks: Record<string, string | null>;
+};
+
+export function ProductsPageView({ paymentLinks }: Props) {
+  const resolve = (key: string | undefined): string | null => {
+    if (!key) return null;
+    return paymentLinks[key] ?? null;
+  };
+
+  const protocolsHref = resolve(SEVEN_PROTOCOLS.paymentLinkEnvKey);
+  const playbookHref = resolve(THE_PLAYBOOK.paymentLinkEnvKey);
 
   const ebooksById = Object.fromEntries(EBOOKS.map((e) => [e.id, e]));
   const orderedEbooks = EBOOK_DISPLAY_ORDER.map((id) => ebooksById[id]).filter(
@@ -198,7 +212,7 @@ export function ProductsPageView() {
             </Reveal>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {orderedEbooks.map((book, i) => {
-                const href = resolvePaymentLink(book.paymentLinkEnvKey);
+                const href = resolve(book.paymentLinkEnvKey);
                 const copy = EBOOK_PAGE_COPY[book.id as keyof typeof EBOOK_PAGE_COPY];
                 return (
                   <Reveal
