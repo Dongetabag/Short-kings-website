@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ConversionPopup } from "@/components/ConversionPopup";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata = {
@@ -178,6 +179,7 @@ export default function TestimonialsPage() {
           </Reveal>
         </div>
       </section>
+      <ConversionPopup />
     </>
   );
 }

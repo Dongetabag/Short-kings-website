@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { ConversionPopup } from "@/components/ConversionPopup";
 import { FunnelHero } from "@/components/sections/funnel/FunnelHero";
 import { FunnelResearchPillars } from "@/components/sections/funnel/FunnelResearchPillars";
 import { FunnelSocialProof } from "@/components/sections/funnel/FunnelSocialProof";
@@ -40,6 +41,7 @@ export default function Home() {
         <FunnelFinalCta />
       </SectionBand>
     </div>
+      <ConversionPopup />
     </>
   );
 }
