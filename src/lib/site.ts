@@ -36,15 +36,18 @@ export const ADMIN_NAV = [
   { label: "KPIs", href: "/admin/kpis" },
 ] as const;
 
-/** Entry offer — all seven ebooks. */
+/**
+ * Entry offer — all eight ebooks. The `id`/anchor stays "seven-protocols" so
+ * existing #seven-protocols links keep working; only the display copy changed.
+ */
 export const SEVEN_PROTOCOLS = {
   id: "seven-protocols",
-  title: "The 7 Protocols",
-  eyebrow: "7 ebooks",
+  title: "The 8 Protocols",
+  eyebrow: "8 ebooks",
   description:
-    "Approach Like a King, She Replied Now What, First Date Blueprint, Unshakeable, Presence Code, Attraction Conversation, Swipe Right on Yourself.",
-  priceEachUsd: 12,
-  priceBundleUsd: 65,
+    "The Text That Lands, The Standing Man, What She's Actually Thinking, Dating Decoded, The Inner Game, The Swipe, Dress Tall, Short King.",
+  priceEachUsd: 15,
+  priceBundleUsd: 100,
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_EBOOK_BUNDLE",
 } as const;
 
@@ -58,7 +61,7 @@ export const THE_PLAYBOOK = {
   originalPriceUsd: 620,
   saveLabel: "Save $435+",
   includes: [
-    "All 7 ebooks",
+    "All 8 ebooks",
     "2 coaching calls (30 min each)",
     "Dating app audit",
     "Short Kings Style Guide",
@@ -81,7 +84,7 @@ export const INNER_CIRCLE = {
   cadence: "/month",
   originalPriceUsd: 580,
   includes: [
-    "All 7 ebooks — free on signup",
+    "All 8 ebooks — free on signup",
     "4 coaching calls a month",
     "Unlimited WhatsApp access",
     "Personalized monthly game plan",

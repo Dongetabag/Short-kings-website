@@ -18,15 +18,19 @@ export type Product = {
   file?: { href: string; filename: string };
 };
 
+// New 8-ebook library (2026-07 refresh, ELE-1068). Product ids are kept stable
+// so existing anchors, Stripe env keys, and gated download wiring keep working;
+// only the customer-facing title/tagline/description/price changed. "short-king"
+// is the net-new 8th book — its PDF + Stripe link are follow-up infra.
 export const EBOOKS: Product[] = [
   {
     id: "she-replied-now-what",
     kind: "ebook",
-    title: "She Replied, Now What",
-    tagline: "Turn a match into a date.",
+    title: "The Text That Lands",
+    tagline: "Openers to date, no dead air.",
     description:
-      "The exact texting framework to build momentum fast. What to say, when to say it, and how to get her off the app.",
-    priceUsd: 12,
+      "The complete texting system: openers, momentum, and the exact messages that get her off the app and onto a date.",
+    priceUsd: 15,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SHE_REPLIED",
     file: {
       href: "/api/download/she-replied-now-what.pdf",
@@ -34,55 +38,13 @@ export const EBOOKS: Product[] = [
     },
   },
   {
-    id: "first-date-blueprint",
-    kind: "ebook",
-    title: "First Date Blueprint",
-    tagline: "Lead the vibe. Close the loop.",
-    description:
-      "Venue selection, conversation structure, and the exact exit lines that make her want to see you again.",
-    priceUsd: 12,
-    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_FIRST_DATE",
-    file: {
-      href: "/api/download/first-date-blueprint.pdf",
-      filename: "first-date-blueprint.pdf",
-    },
-  },
-  {
-    id: "unshakeable",
-    kind: "ebook",
-    title: "Unshakeable",
-    tagline: "Unbothered energy. Trainable frame.",
-    description:
-      "The mindset reps that make rejection feel like weather. Frame, abundance, and the daily habits that keep you grounded.",
-    priceUsd: 12,
-    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_UNSHAKEABLE",
-    file: {
-      href: "/api/download/unshakeable.pdf",
-      filename: "unshakeable.pdf",
-    },
-  },
-  {
-    id: "presence-code",
-    kind: "ebook",
-    title: "Presence Code",
-    tagline: "Walk in. Own the room.",
-    description:
-      "Body language, vocal tonality, and eye contact habits that communicate status before you say a word.",
-    priceUsd: 12,
-    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_PRESENCE",
-    file: {
-      href: "/api/download/presence-code.pdf",
-      filename: "presence-code.pdf",
-    },
-  },
-  {
     id: "approach-like-a-king",
     kind: "ebook",
-    title: "Approach Like a King",
-    tagline: "Cold approach. Zero hesitation.",
+    title: "The Standing Man",
+    tagline: "Nervous to natural in five seconds.",
     description:
-      "The opener framework to go from nervous to natural. Bars, gyms, daytime, and everywhere in between.",
-    priceUsd: 12,
+      "The complete approach system: the 5-second rule, the openers, and the frame that turns nervous into natural.",
+    priceUsd: 15,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_APPROACH",
     file: {
       href: "/api/download/approach-like-a-king.pdf",
@@ -92,11 +54,11 @@ export const EBOOKS: Product[] = [
   {
     id: "attraction-conversation",
     kind: "ebook",
-    title: "Attraction Conversation",
-    tagline: "Speak so she leans in.",
+    title: "What She's Actually Thinking",
+    tagline: "Read her before she speaks.",
     description:
-      "Storytelling, pacing, and push-pull techniques that make you the most interesting person she has talked to.",
-    priceUsd: 12,
+      "Female psychology decoded: what she's actually attracted to, how she tests you, and how to read her before she says a word.",
+    priceUsd: 15,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_CONVERSATION",
     file: {
       href: "/api/download/attraction-conversation.pdf",
@@ -104,17 +66,73 @@ export const EBOOKS: Product[] = [
     },
   },
   {
+    id: "first-date-blueprint",
+    kind: "ebook",
+    title: "Dating Decoded",
+    tagline: "The first date system.",
+    description:
+      "The first date system: where to go, what to say, and how to become the man she can't replace.",
+    priceUsd: 15,
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_FIRST_DATE",
+    file: {
+      href: "/api/download/first-date-blueprint.pdf",
+      filename: "first-date-blueprint.pdf",
+    },
+  },
+  {
+    id: "unshakeable",
+    kind: "ebook",
+    title: "The Inner Game",
+    tagline: "Make rejection feel like weather.",
+    description:
+      "Confidence, frame, and discipline: the mindset reps that make rejection feel like weather instead of a verdict.",
+    priceUsd: 15,
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_UNSHAKEABLE",
+    file: {
+      href: "/api/download/unshakeable.pdf",
+      filename: "unshakeable.pdf",
+    },
+  },
+  {
     id: "swipe-right-on-yourself",
     kind: "ebook",
-    title: "Swipe Right on Yourself",
-    tagline: "The profile that gets replies.",
+    title: "The Swipe",
+    tagline: "The profile that stops the scroll.",
     description:
-      "Photos, bio, and opening lines that work. Built for shorter guys who want to stop getting ghosted before the first message.",
-    priceUsd: 12,
+      "The algorithm, the photos, and the bio: the exact dating app profile system for men who keep getting swiped past.",
+    priceUsd: 15,
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SWIPE_RIGHT",
     file: {
       href: "/api/download/swipe-right-on-yourself.pdf",
       filename: "swipe-right-on-yourself.pdf",
+    },
+  },
+  {
+    id: "presence-code",
+    kind: "ebook",
+    title: "Dress Tall",
+    tagline: "Style for a shorter frame.",
+    description:
+      "The style, wardrobe, and grooming system built for a shorter frame — real and perceived height, no gym required.",
+    priceUsd: 15,
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_PRESENCE",
+    file: {
+      href: "/api/download/presence-code.pdf",
+      filename: "presence-code.pdf",
+    },
+  },
+  {
+    id: "short-king",
+    kind: "ebook",
+    title: "Short King",
+    tagline: "The belief underneath it all.",
+    description:
+      "Height is not the variable. The belief underneath the whole library, plus the map back into every other book.",
+    priceUsd: 15,
+    paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_SHORT_KING",
+    file: {
+      href: "/api/download/short-king.pdf",
+      filename: "short-king.pdf",
     },
   },
 ];
@@ -138,7 +156,7 @@ export const COACHING_PRODUCTS: Product[] = [
     title: "The Inner Circle",
     tagline: "Month to month. Cancel anytime.",
     description:
-      "4 coaching calls a month, unlimited WhatsApp, personalized game plan, and all 7 ebooks free on signup.",
+      "4 coaching calls a month, unlimited WhatsApp, personalized game plan, and all 8 ebooks free on signup.",
     priceUsd: 150,
     cadence: "/month",
     paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_MONTHLY_COACHING",

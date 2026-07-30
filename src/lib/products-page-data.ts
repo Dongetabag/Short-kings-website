@@ -2,12 +2,13 @@
 
 export const EBOOK_DISPLAY_ORDER = [
   "she-replied-now-what",
-  "first-date-blueprint",
-  "unshakeable",
-  "presence-code",
   "approach-like-a-king",
   "attraction-conversation",
+  "first-date-blueprint",
+  "unshakeable",
   "swipe-right-on-yourself",
+  "presence-code",
+  "short-king",
 ] as const;
 
 export const EBOOK_PAGE_COPY: Record<
@@ -16,45 +17,51 @@ export const EBOOK_PAGE_COPY: Record<
 > = {
   "she-replied-now-what": {
     description:
-      "The exact texting framework to build momentum and get her off the app.",
-  },
-  "first-date-blueprint": {
-    description:
-      "Venue, conversation structure, and the exit lines that make her want to see you again.",
-  },
-  unshakeable: {
-    description: "The mindset reps that make rejection feel like weather.",
-  },
-  "presence-code": {
-    description:
-      "Body language, vocal tonality, and eye contact that communicate status before you speak.",
+      "The complete texting system: openers, momentum, and the exact messages that get her off the app and onto a date.",
   },
   "approach-like-a-king": {
     description:
-      "The opener framework to go from nervous to natural anywhere.",
+      "The complete approach system: the 5-second rule, the openers, and the frame that turns nervous into natural.",
   },
   "attraction-conversation": {
     description:
-      "Storytelling and push-pull techniques that make you the most interesting person in the room.",
+      "Female psychology decoded: what she's actually attracted to, how she tests you, and how to read her before she says a word.",
+  },
+  "first-date-blueprint": {
+    description:
+      "The first date system: where to go, what to say, and how to become the man she can't replace.",
+  },
+  unshakeable: {
+    description:
+      "Confidence, frame, and discipline: the mindset reps that make rejection feel like weather instead of a verdict.",
   },
   "swipe-right-on-yourself": {
     description:
-      "Photos, bio, and opening lines built for shorter guys who want to stop getting ghosted.",
+      "The algorithm, the photos, and the bio: the exact dating app profile system for men who keep getting swiped past.",
+  },
+  "presence-code": {
+    description:
+      "The style, wardrobe, and grooming system built for a shorter frame — real and perceived height, no gym required.",
+  },
+  "short-king": {
+    description:
+      "Height is not the variable. The belief underneath the whole library, plus the map back into every other book.",
   },
 };
 
 export const PROTOCOLS_INCLUDES = [
-  "Approach Like a King",
-  "She Replied, Now What",
-  "First Date Blueprint",
-  "Unshakeable",
-  "Presence Code",
-  "Attraction Conversation",
-  "Swipe Right on Yourself",
+  "The Text That Lands",
+  "The Standing Man",
+  "What She's Actually Thinking",
+  "Dating Decoded",
+  "The Inner Game",
+  "The Swipe",
+  "Dress Tall",
+  "Short King",
 ] as const;
 
 export const PLAYBOOK_INCLUDES = [
-  "All 7 ebooks included",
+  "All 8 ebooks included",
   "2 coaching calls (30 min each)",
   "Dating app audit",
   "Short Kings Style Guide",
@@ -77,5 +84,5 @@ export const COACHING_INCLUDES = [
   "Unlimited WhatsApp access",
   "Personalized monthly game plan",
   "Dating app audit",
-  "All 7 ebooks free on signup",
+  "All 8 ebooks free on signup",
 ] as const;

@@ -202,7 +202,7 @@ export function DatingFunnelFlow({ paymentLinks }: Props) {
             Where should we send your match?
           </h2>
           <p className="mt-3 text-sm leading-7 text-white/65">
-            Free chapter from <em>Approach Like a King</em> plus your personalized offer.
+            Free chapter from <em>The Standing Man</em> plus your personalized offer.
             Unsubscribe anytime.
           </p>
           <form onSubmit={onEmailSubmit} className="mt-8 space-y-4">

@@ -47,6 +47,11 @@ const FILES: Record<string, ProtectedFile> = {
     downloadName: "swipe-right-on-yourself.pdf",
     requiredEntitlements: ["protocols", "playbook", "coaching", "empire"],
   },
+  "short-king.pdf": {
+    privatePath: "ebooks/short-king.pdf",
+    downloadName: "short-king.pdf",
+    requiredEntitlements: ["protocols", "playbook", "coaching", "empire"],
+  },
   "SKE-fitness-3-day-program.pdf": {
     privatePath: "fitness/SKE Fitness 3 day program.pdf",
     downloadName: "SKE Fitness 3 day program.pdf",

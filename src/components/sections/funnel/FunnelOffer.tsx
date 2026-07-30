@@ -5,11 +5,11 @@ import { THE_EMPIRE, THE_PLAYBOOK } from "@/lib/site";
 
 const OFFERS = [
   {
-    title: "The 7 Protocols",
+    title: "The 8 Protocols",
     description:
-      "Seven playbooks built specifically for short men covering approach, texting, first dates, mindset, presence, attraction, and dating profiles.",
-    price: "$65 for all 7",
-    cta: "Get the 7 Protocols",
+      "Eight playbooks built specifically for short men covering texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together.",
+    price: "$100 for all 8",
+    cta: "Get all 8",
     href: "/products#seven-protocols",
     primary: true,
   },

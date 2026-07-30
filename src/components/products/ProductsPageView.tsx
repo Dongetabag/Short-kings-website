@@ -118,13 +118,13 @@ export function ProductsPageView({ paymentLinks }: Props) {
             >
               <ProductOfferCard
                 id="seven-protocols"
-                tag="7 ebooks"
-                name="The 7 Protocols"
+                tag="8 ebooks"
+                name="The 8 Protocols"
                 forLine="For the man in pain who wants to start tonight."
-                description="Seven playbooks built specifically for short men. Approach, text, first dates, mindset, presence, attraction, and dating profiles. Each one is a standalone system you can run the same day you buy it."
+                description="Eight playbooks built specifically for short men. Texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together. Each one is a standalone system you can run the same day you buy it."
                 includes={PROTOCOLS_INCLUDES}
-                price={`$${SEVEN_PROTOCOLS.priceBundleUsd} for all 7 · or $${SEVEN_PROTOCOLS.priceEachUsd} each`}
-                cta="Get all 7"
+                price={`$${SEVEN_PROTOCOLS.priceBundleUsd} for all 8 · or $${SEVEN_PROTOCOLS.priceEachUsd} each`}
+                cta="Get all 8"
                 href={protocolsHref ?? undefined}
                 external
               />
@@ -207,7 +207,7 @@ export function ProductsPageView({ paymentLinks }: Props) {
                 Individual playbooks
               </p>
               <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">
-                Seven ebooks. $12 each.
+                Eight ebooks. $15 each.
               </h2>
             </Reveal>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -228,7 +228,7 @@ export function ProductsPageView({ paymentLinks }: Props) {
                       </p>
                       <div className="mt-4 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
                         <p className="font-display text-xl font-bold text-gold">
-                          $12
+                          ${book.priceUsd}
                         </p>
                         {href ? (
                           <a

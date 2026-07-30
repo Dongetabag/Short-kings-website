@@ -115,7 +115,7 @@ export function recommendOffer(
       cta: "Get The Playbook",
       href: "/products#the-playbook",
       secondary: [
-        { label: "Start with 7 Protocols ($65)", href: "/products#seven-protocols" },
+        { label: "Start with 8 Protocols ($100)", href: "/products#seven-protocols" },
       ],
     };
   }
@@ -125,8 +125,8 @@ export function recommendOffer(
     title: SEVEN_PROTOCOLS.title,
     eyebrow: SEVEN_PROTOCOLS.eyebrow,
     description: SEVEN_PROTOCOLS.description,
-    priceLabel: `$${SEVEN_PROTOCOLS.priceBundleUsd} for all 7`,
-    cta: "Get the 7 Protocols",
+    priceLabel: `$${SEVEN_PROTOCOLS.priceBundleUsd} for all 8`,
+    cta: "Get all 8",
     href: "/products#seven-protocols",
     secondary: [
       { label: "Skip to The Playbook", href: "/products#the-playbook" },
