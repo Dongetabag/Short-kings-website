@@ -27,14 +27,14 @@ type NextStep = {
 
 const PRODUCT_FLOWS: Record<string, NextStep> = {
   "seven-protocols": {
-    title: "All 7 Protocols are yours.",
-    body: "We are emailing the download links to the address you used at checkout. Save the PDFs to your phone before you read them. Most clients start with Approach Like a King or She Replied, Now What.",
+    title: "All 8 Protocols are yours.",
+    body: "We are emailing the download links to the address you used at checkout. Save the PDFs to your phone before you read them. Most clients start with The Standing Man or The Text That Lands.",
     cta: { label: "See the Reviews", href: "/testimonials" },
     fineprint: "Email landing in your inbox in under five minutes. Check spam if you do not see it.",
   },
   "the-playbook": {
     title: "Welcome to The Playbook.",
-    body: "All 7 ebooks plus your 2 coaching calls are unlocked. We will email the ebook links shortly. To book your first 30-minute call with Axel, use the link below.",
+    body: "All 8 ebooks plus your 2 coaching calls are unlocked. We will email the ebook links shortly. To book your first 30-minute call with Axel, use the link below.",
     cta: { label: "Book your first call", href: SITE.coaching.calendly, external: true },
     fineprint: "Calendly opens in a new tab. Pick any open slot in the next 14 days.",
   },
@@ -56,13 +56,14 @@ const PRODUCT_FLOWS: Record<string, NextStep> = {
     cta: { label: "Pre-book your first weekly call", href: SITE.coaching.calendly, external: true },
     fineprint: "Limited to 5 active clients. You are one of them now.",
   },
-  "she-replied-now-what": EBOOK_FLOW("She Replied, Now What"),
-  "first-date-blueprint": EBOOK_FLOW("First Date Blueprint"),
-  unshakeable: EBOOK_FLOW("Unshakeable"),
-  "presence-code": EBOOK_FLOW("Presence Code"),
-  "approach-like-a-king": EBOOK_FLOW("Approach Like a King"),
-  "attraction-conversation": EBOOK_FLOW("Attraction Conversation"),
-  "swipe-right-on-yourself": EBOOK_FLOW("Swipe Right on Yourself"),
+  "she-replied-now-what": EBOOK_FLOW("The Text That Lands"),
+  "approach-like-a-king": EBOOK_FLOW("The Standing Man"),
+  "attraction-conversation": EBOOK_FLOW("What She's Actually Thinking"),
+  "first-date-blueprint": EBOOK_FLOW("Dating Decoded"),
+  unshakeable: EBOOK_FLOW("The Inner Game"),
+  "swipe-right-on-yourself": EBOOK_FLOW("The Swipe"),
+  "presence-code": EBOOK_FLOW("Dress Tall"),
+  "short-king": EBOOK_FLOW("Short King"),
 };
 
 function EBOOK_FLOW(title: string): NextStep {

@@ -29,7 +29,7 @@ export const TESTIMONIALS: Testimonial[] = [
     city: "Dallas, TX",
     title: "Hinge optimization",
     daysIn: 21,
-    product: "Swipe Right on Yourself",
+    product: "The Swipe",
     quote:
       "My Hinge was embarrassing before this. Wrong photos, no bio, opening with hey. Axel rebuilt the whole thing. Within two weeks I had more matches than the previous six months combined.",
     initial: "M",
@@ -55,7 +55,7 @@ export const TESTIMONIALS: Testimonial[] = [
     city: "Chicago, IL",
     title: "Approach work",
     daysIn: 44,
-    product: "Approach Like a King",
+    product: "The Standing Man",
     quote:
       "I used to freeze up the second I saw a girl I wanted to talk to. This ebook killed that completely. The opener structure is so simple that you stop overthinking and just go. Three approaches my first week out.",
     initial: "D",
@@ -68,9 +68,9 @@ export const TESTIMONIALS: Testimonial[] = [
     city: "Brooklyn, NY",
     title: "Mindset reset",
     daysIn: 51,
-    product: "Unshakeable",
+    product: "The Inner Game",
     quote:
-      "I kept getting in my head about my height before dates. Unshakeable is the only thing that actually fixed that. Not by ignoring it but by completely reframing what it means. I stopped performing and started just being myself.",
+      "I kept getting in my head about my height before dates. The Inner Game is the only thing that actually fixed that. Not by ignoring it but by completely reframing what it means. I stopped performing and started just being myself.",
     initial: "R",
     rating: 5,
   },
@@ -81,7 +81,7 @@ export const TESTIMONIALS: Testimonial[] = [
     city: "Miami, FL",
     title: "Texting game",
     daysIn: 38,
-    product: "She Replied, Now What",
+    product: "The Text That Lands",
     quote:
       "I was getting matches but never getting to the date. I would just run out of things to say or wait too long and she would ghost. This ebook gave me a clear system. My date rate went from almost zero to multiple a month.",
     initial: "T",

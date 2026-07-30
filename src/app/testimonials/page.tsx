@@ -55,7 +55,7 @@ const PHOTO_CARDS = [
 const NO_PHOTO_CARDS = [
   {
     id: "david-k",
-    productTag: "Approach Like a King",
+    productTag: "The Standing Man",
     quote:
       "I used to freeze up the second I saw a girl I wanted to talk to. This ebook killed that completely. The opener structure is so simple that you stop overthinking and just go. Three approaches my first week out.",
     name: "David K.",
