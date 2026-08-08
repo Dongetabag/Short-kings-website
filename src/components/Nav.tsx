@@ -21,7 +21,9 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 transition-all",
+        // Above ConversionPopup (z-50) so Products / Reviews / Dating stay clickable
+        // even while the modal is open.
+        "sticky top-0 z-[60] transition-all",
         scrolled
           ? "border-b border-ruby/40 bg-black/90 backdrop-blur-md"
           : "border-b border-transparent bg-black/40 backdrop-blur-sm"

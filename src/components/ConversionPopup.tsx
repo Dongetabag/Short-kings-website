@@ -1,14 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { AXEL_CALENDLY } from "@/lib/home-funnel";
+
+const STORAGE_KEY = "ske-conversion-popup-dismissed";
 
 export function ConversionPopup() {
   const [open, setOpen] = useState(false);
 
+  const dismiss = useCallback(() => {
+    setOpen(false);
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      // Ignore private-mode / blocked storage.
+    }
+  }, []);
+
   useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem(STORAGE_KEY) === "1") return;
+    } catch {
+      // Continue — still show once this session if storage is unavailable.
+    }
+
     const timer = window.setTimeout(() => {
       setOpen(true);
     }, 10000);
@@ -22,10 +39,16 @@ export function ConversionPopup() {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") dismiss();
+    };
+    window.addEventListener("keydown", onKeyDown);
+
     return () => {
       document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
     };
-  }, [open]);
+  }, [open, dismiss]);
 
   if (!open) return null;
 
@@ -36,12 +59,17 @@ export function ConversionPopup() {
       aria-modal="true"
       aria-labelledby="conversion-popup-headline"
     >
-      <div className="absolute inset-0 bg-black/70" aria-hidden />
+      <button
+        type="button"
+        className="absolute inset-0 bg-black/70"
+        aria-label="Close popup"
+        onClick={dismiss}
+      />
 
-      <div className="relative w-full max-w-md rounded-sm border border-white/10 bg-stone/95 p-6 shadow-2xl sm:p-8">
+      <div className="relative z-10 w-full max-w-md rounded-sm border border-white/10 bg-stone/95 p-6 shadow-2xl sm:p-8">
         <button
           type="button"
-          onClick={() => setOpen(false)}
+          onClick={dismiss}
           aria-label="Close popup"
           className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-sm text-white/70 transition hover:bg-white/10 hover:text-white"
         >
@@ -60,10 +88,14 @@ export function ConversionPopup() {
         </p>
 
         <div className="mt-6 flex flex-col gap-3">
-          <Link href="/dating/start" className="btn-primary w-full">
+          <Link href="/dating/start" className="btn-primary w-full" onClick={dismiss}>
             Take the 2-min assessment
           </Link>
-          <Link href={AXEL_CALENDLY} className="btn-outline w-full">
+          <Link
+            href={AXEL_CALENDLY}
+            className="btn-outline w-full"
+            onClick={dismiss}
+          >
             Book a call with Axel
           </Link>
         </div>
