@@ -9,7 +9,7 @@ import {
   type TierProduct,
 } from "@/lib/product-tiers";
 
-export type ResolvedTierProduct = TierProduct & { href: string | null };
+export type ResolvedTierProduct = TierProduct & { href?: string | null };
 
 type ResolvedTier = Omit<ProductTier, "products"> & {
   products: ResolvedTierProduct[];
