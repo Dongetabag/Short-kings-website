@@ -1,4 +1,4 @@
-export const AXEL_CALENDLY = "https://calendly.com/shortkingsempire/30min";
+export const AXEL_CALENDLY = "https://calendly.com/shortkingsempire/gameplan";
 
 export const AXEL_PORTRAIT = "/media/gallery/Axel-27.JPG";
 

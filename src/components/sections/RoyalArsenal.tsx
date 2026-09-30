@@ -3,16 +3,13 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ProductTierPicker } from "@/components/sections/ProductTierPicker";
 import { PRODUCT_TIERS } from "@/lib/product-tiers";
-import { resolvePaymentLink } from "@/lib/products";
 
 export function RoyalArsenal() {
   const tiers = PRODUCT_TIERS.map((tier) => ({
     ...tier,
     products: tier.products.map((product) => ({
       ...product,
-      href: product.paymentLinkEnvKey
-        ? resolvePaymentLink(product.paymentLinkEnvKey)
-        : null,
+      href: product.href ?? null,
     })),
   }));
 
@@ -24,7 +21,7 @@ export function RoyalArsenal() {
             eyebrow="Products"
             titleTop="Choose your"
             titleHighlight="tier."
-            subtitle="Tap a tier to see what's included — from ebooks and AI through coaching and The Empire."
+            subtitle="Tap a tier to see what's included, from ebooks and AI through coaching and The Empire."
           />
         </Reveal>
 

@@ -53,14 +53,14 @@ export function PillarPage({ pillar, tiles }: Props) {
             </div>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href={isDating ? "/dating/start" : "/products#the-playbook"}
+                href={isDating ? "/dating/start" : "/products#dating-system"}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-6 font-semibold text-black hover:bg-goldLight"
               >
                 <Crown className="h-4 w-4" />{" "}
                 {isDating ? "Take the assessment" : "Get the full system"}
               </Link>
               <Link
-                href="https://calendly.com/shortkingsempire/30min"
+                href="https://calendly.com/shortkingsempire/gameplan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-gold/40 bg-white/[0.04] px-6 font-semibold text-white hover:bg-white/[0.08]"

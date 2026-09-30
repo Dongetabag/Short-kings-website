@@ -1,9 +1,5 @@
-import {
-  INNER_CIRCLE,
-  SEVEN_PROTOCOLS,
-  THE_EMPIRE,
-  THE_PLAYBOOK,
-} from "@/lib/site";
+import { OFFER_LINKS } from "@/lib/offer-links";
+import { INNER_CIRCLE, SEVEN_PROTOCOLS, THE_EMPIRE } from "@/lib/site";
 
 export type DatingFunnelAnswers = {
   height: "under-56" | "56-58" | "59-plus";
@@ -12,8 +8,8 @@ export type DatingFunnelAnswers = {
 };
 
 export type DatingFunnelRecommendationId =
-  | "seven-protocols"
-  | "the-playbook"
+  | "dating-system"
+  | "strategy-call"
   | "inner-circle"
   | "the-empire";
 
@@ -28,33 +24,33 @@ export const DATING_FUNNEL_QUESTIONS: DatingFunnelQuestion[] = [
   {
     id: "height",
     prompt: "Where do you land on height?",
-    subtitle: "This system was built for shorter men — your frame shapes the playbook.",
+    subtitle: "This system was built for shorter men. Your frame shapes the playbook.",
     options: [
       { value: "under-56", label: "Under 5'6\"" },
-      { value: "56-58", label: "5'6\" – 5'8\"" },
+      { value: "56-58", label: "5'6\" to 5'8\"" },
       { value: "59-plus", label: "5'9\" or taller (still want the edge)" },
     ],
   },
   {
     id: "pain",
     prompt: "What's costing you the most dates right now?",
-    subtitle: "Pick the wall that feels loudest — we route you to the right starting move.",
+    subtitle: "Pick the wall that feels loudest. We route you to the right starting move.",
     options: [
-      { value: "apps", label: "Apps — matches die in the inbox" },
-      { value: "confidence", label: "Approach & presence — I freeze up IRL" },
-      { value: "texting", label: "Texting & dates — conversations fizzle" },
-      { value: "everything", label: "All of the above — I need the full system" },
+      { value: "apps", label: "Apps: matches die in the inbox" },
+      { value: "confidence", label: "Approach and presence: I freeze up IRL" },
+      { value: "texting", label: "Texting and dates: conversations fizzle" },
+      { value: "everything", label: "All of the above: I need the full system" },
     ],
   },
   {
     id: "readiness",
     prompt: "How ready are you to invest in fixing this?",
-    subtitle: "No wrong answer — we match the offer to where you are today.",
+    subtitle: "No wrong answer. We match the offer to where you are today.",
     options: [
-      { value: "exploring", label: "Just exploring — want to start small" },
-      { value: "starter", label: "Ready for a one-time bundle (~$185)" },
+      { value: "exploring", label: "Just exploring: want to start small" },
+      { value: "starter", label: "Ready for a Strategy Call ($100)" },
       { value: "coaching", label: "Want Axel in my corner monthly" },
-      { value: "empire", label: "Done figuring it out — full transformation" },
+      { value: "empire", label: "Done figuring it out: full transformation" },
     ],
   },
 ];
@@ -80,12 +76,12 @@ export function recommendOffer(
       title: THE_EMPIRE.title,
       eyebrow: THE_EMPIRE.eyebrow,
       description: THE_EMPIRE.description,
-      priceLabel: `$${THE_EMPIRE.priceUsd} · ${THE_EMPIRE.cadence}`,
+      priceLabel: `$${THE_EMPIRE.priceUsd}`,
       cta: "Apply for The Empire",
-      href: "/products#the-empire",
+      href: OFFER_LINKS.empire,
       typeform: true,
       secondary: [
-        { label: "See The Inner Circle instead", href: "/products#inner-circle" },
+        { label: "See 1 on 1 Coaching instead", href: "/products#coaching" },
       ],
     };
   }
@@ -98,38 +94,39 @@ export function recommendOffer(
       description: INNER_CIRCLE.description,
       priceLabel: `$${INNER_CIRCLE.priceUsd}${INNER_CIRCLE.cadence}`,
       cta: "Join The Inner Circle",
-      href: "/products#inner-circle",
+      href: "/products#coaching",
       secondary: [
-        { label: "Start with The Playbook", href: "/products#the-playbook" },
+        { label: "Start with the 30 Day System", href: "/products#dating-system" },
       ],
     };
   }
 
   if (answers.readiness === "starter" || answers.pain === "everything") {
     return {
-      id: "the-playbook",
-      title: THE_PLAYBOOK.title,
-      eyebrow: THE_PLAYBOOK.eyebrow,
-      description: THE_PLAYBOOK.description,
-      priceLabel: `$${THE_PLAYBOOK.priceUsd} one time`,
-      cta: "Get The Playbook",
-      href: "/products#the-playbook",
+      id: "strategy-call",
+      title: "The Strategy Call",
+      eyebrow: "The Diagnosis",
+      description:
+        "One 60 minute call with Axel. We diagnose exactly what's holding you back and you leave with a clear game plan to fix it.",
+      priceLabel: "$100",
+      cta: "Book My Strategy Call",
+      href: OFFER_LINKS.strategyCall,
       secondary: [
-        { label: "Start with 8 Protocols ($100)", href: "/products#seven-protocols" },
+        { label: "Start with the 30 Day System", href: "/products#dating-system" },
       ],
     };
   }
 
   return {
-    id: "seven-protocols",
+    id: "dating-system",
     title: SEVEN_PROTOCOLS.title,
     eyebrow: SEVEN_PROTOCOLS.eyebrow,
     description: SEVEN_PROTOCOLS.description,
     priceLabel: `$${SEVEN_PROTOCOLS.priceUsd}`,
-    cta: "Get all 8",
-    href: "/products#seven-protocols",
+    cta: "Start My 30 Days",
+    href: OFFER_LINKS.datingSystem,
     secondary: [
-      { label: "Skip to The Playbook", href: "/products#the-playbook" },
+      { label: "Book a Strategy Call", href: "/products#strategy-call" },
     ],
   };
 }
@@ -138,7 +135,7 @@ export const DATING_FUNNEL_INTRO = {
   eyebrow: "2-minute assessment",
   title: "See what Axel would recommend for your situation.",
   subtitle:
-    "Watch the 60-second clip, answer three questions, and get a personalized starting offer — built for shorter men coming from TikTok and Instagram.",
+    "Watch the 60-second clip, answer three questions, and get a personalized starting offer built for shorter men coming from TikTok and Instagram.",
   videoSrc: "/media/dating/dating-funnel.mp4",
   videoPoster: "/media/video-poster.jpg",
 } as const;

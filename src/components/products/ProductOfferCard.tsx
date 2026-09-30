@@ -1,9 +1,7 @@
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
 import Link from "next/link";
-import { TypeformPopupButton } from "@/components/typeform/TypeformPopupButton";
 import { DiscountPriceDisplay } from "@/components/ui/DiscountPriceDisplay";
-
-const EMPIRE_TYPEFORM_ID = "GVVKVMWI";
+import type { CompareRow } from "@/lib/offer-links";
 
 export type OfferDiscountPrice = {
   compareAtLabel: string;
@@ -22,15 +20,17 @@ type ProductOfferCardProps = {
   /** Muted delivery detail shown between description and price. */
   deliveryNote?: string;
   includes?: readonly string[];
+  /** When set, shows included (gold check) vs not (grey X + strikethrough). */
+  compareRows?: CompareRow[];
+  /** Lock description height so side by side comparison checklists align. */
+  descriptionMinClass?: string;
   price?: string;
   priceNote?: string;
-  /** When set, renders strikethrough value + NOW price + red save badge. */
   discountPrice?: OfferDiscountPrice;
   cta: string;
   href?: string;
   external?: boolean;
   featured?: boolean;
-  typeform?: boolean;
 };
 
 export function ProductOfferCard({
@@ -41,6 +41,8 @@ export function ProductOfferCard({
   description,
   deliveryNote,
   includes,
+  compareRows,
+  descriptionMinClass,
   price,
   priceNote,
   discountPrice,
@@ -48,7 +50,6 @@ export function ProductOfferCard({
   href,
   external,
   featured,
-  typeform,
 }: ProductOfferCardProps) {
   const borderClass = featured
     ? "border-gold/50 shadow-[0_0_40px_rgba(212,175,55,0.1)]"
@@ -57,6 +58,10 @@ export function ProductOfferCard({
   const ctaClass = featured
     ? "inline-flex min-h-11 w-full items-center justify-center rounded-md bg-gold px-5 text-sm font-semibold text-black hover:bg-goldLight"
     : "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-gold/40 bg-white/[0.04] px-5 text-sm font-semibold text-white hover:bg-white/[0.08]";
+
+  const rows =
+    compareRows ??
+    includes?.map((label) => ({ label, included: true as boolean }));
 
   return (
     <article
@@ -67,30 +72,48 @@ export function ProductOfferCard({
       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold/80">
         {tag}
       </p>
-      <h3 className="mt-2 font-display text-xl font-bold text-white sm:text-2xl">
+      <h3 className="mt-2 font-display text-xl font-bold uppercase text-white sm:text-2xl">
         {name}
       </h3>
       <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/45">
         {forLine}
       </p>
-      <p className="mt-3 flex-1 text-sm leading-7 text-white/65">{description}</p>
+      <p
+        className={`mt-3 text-sm leading-7 text-white/65 ${descriptionMinClass ?? ""}`}
+      >
+        {description}
+      </p>
       {deliveryNote ? (
         <p className="mt-3 text-xs leading-relaxed text-white/45">{deliveryNote}</p>
       ) : null}
-      {includes && includes.length > 0 ? (
+      {rows && rows.length > 0 ? (
         <ul className="mt-4 space-y-2">
-          {includes.map((item) => (
+          {rows.map((row) => (
             <li
-              key={item}
-              className="flex items-start gap-2 text-sm leading-snug text-white/70"
+              key={row.label}
+              className={`flex min-h-[1.35rem] items-start gap-2 text-sm leading-snug ${
+                row.included ? "text-white/70" : "text-white/35"
+              }`}
             >
-              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" aria-hidden />
-              <span>{item}</span>
+              {row.included ? (
+                <Check
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold"
+                  aria-hidden
+                />
+              ) : (
+                <X
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-white/35"
+                  aria-hidden
+                />
+              )}
+              <span className={row.included ? undefined : "line-through"}>
+                {row.label}
+              </span>
             </li>
           ))}
         </ul>
       ) : null}
-      <div className="mt-5 border-t border-white/10 pt-5">
+      <div className="mt-auto border-t border-white/10 pt-5">
         {discountPrice ? (
           <DiscountPriceDisplay
             compareAtLabel={discountPrice.compareAtLabel}
@@ -101,7 +124,7 @@ export function ProductOfferCard({
           />
         ) : (
           <>
-            <p className="font-display text-xl font-bold text-gold sm:text-2xl">
+            <p className="font-display text-xl font-bold uppercase text-gold sm:text-2xl">
               {price}
             </p>
             {priceNote ? (
@@ -111,14 +134,7 @@ export function ProductOfferCard({
             ) : null}
           </>
         )}
-        {typeform ? (
-          <TypeformPopupButton
-            formId={EMPIRE_TYPEFORM_ID}
-            className={`mt-4 ${ctaClass}`}
-          >
-            {cta}
-          </TypeformPopupButton>
-        ) : href ? (
+        {href ? (
           <Link
             href={href}
             {...(external
