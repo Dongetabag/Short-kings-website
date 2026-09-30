@@ -37,8 +37,8 @@ export function Footer() {
             <Link href="/products#the-playbook" className="text-white/65 hover:text-white">
               The Playbook
             </Link>
-            <Link href="/products#ebooks" className="text-white/65 hover:text-white">
-              Dating Ebooks
+            <Link href="/products#seven-protocols" className="text-white/65 hover:text-white">
+              The 8 Protocols
             </Link>
             <Link href="/products#inner-circle" className="text-white/65 hover:text-white">
               The Inner Circle
