@@ -9,7 +9,7 @@ export function RoyalArsenal() {
     ...tier,
     products: tier.products.map((product) => ({
       ...product,
-      href: product.href ?? null,
+      href: product.href ?? undefined,
     })),
   }));
 
