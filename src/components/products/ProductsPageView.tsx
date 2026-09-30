@@ -4,24 +4,18 @@ import type { ReactNode } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductOfferCard } from "@/components/products/ProductOfferCard";
 import {
-  COACHING_INCLUDES,
-  EMPIRE_INCLUDES,
-  PLAYBOOK_INCLUDES,
-  PROTOCOLS_INCLUDES,
-} from "@/lib/products-page-data";
-import {
-  GYM_NUTRITION_PLAN,
-  INNER_CIRCLE,
-  SEVEN_PROTOCOLS,
-  SITE,
-  THE_EMPIRE,
-  THE_PLAYBOOK,
-} from "@/lib/site";
+  BUILT_DIFFERENT_INCLUDES,
+  DATING_SYSTEM_INCLUDES,
+  OFFER_LINKS,
+  STRATEGY_CALL_INCLUDES,
+  coachingCompareRows,
+  empireCompareRows,
+} from "@/lib/offer-links";
 
 const TIER_PILLS = [
-  { label: "Tier 1 — Start Tonight", href: "#tier-1" },
-  { label: "Tier 2 — The System", href: "#tier-2" },
-  { label: "Tier 3 — Done With You", href: "#tier-3" },
+  { label: "Tier 1: Start Tonight", href: "#tier-1" },
+  { label: "Tier 2: Get The Plan", href: "#tier-2" },
+  { label: "Tier 3: Done With You", href: "#tier-3" },
 ] as const;
 
 function TierSection({
@@ -42,7 +36,7 @@ function TierSection({
       <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-gold/70">
         {label}
       </p>
-      <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">
+      <h2 className="mt-2 font-display text-3xl font-bold uppercase text-white sm:text-4xl">
         {title}
       </h2>
       <p className="mt-2 max-w-2xl text-sm leading-7 text-white/60 sm:text-base">
@@ -53,24 +47,7 @@ function TierSection({
   );
 }
 
-type Props = {
-  /**
-   * Resolved Stripe payment-link URLs, keyed by their STRIPE_PAYMENT_LINK_*
-   * env var name. Resolved server-side in src/app/products/page.tsx because
-   * non-NEXT_PUBLIC_ env vars are not inlined into client bundles.
-   */
-  paymentLinks: Record<string, string | null>;
-};
-
-export function ProductsPageView({ paymentLinks }: Props) {
-  const resolve = (key: string | undefined): string | null => {
-    if (!key) return null;
-    return paymentLinks[key] ?? null;
-  };
-
-  const protocolsHref = resolve(SEVEN_PROTOCOLS.paymentLinkEnvKey);
-  const playbookHref = resolve(THE_PLAYBOOK.paymentLinkEnvKey);
-
+export function ProductsPageView() {
   return (
     <>
       <div className="mx-auto max-w-6xl px-4 py-10 sm:py-16">
@@ -108,23 +85,25 @@ export function ProductsPageView({ paymentLinks }: Props) {
               title="Start Tonight"
               description="For the man who wants to start right now without committing to coaching yet."
             >
-              <ProductOfferCard
-                id="seven-protocols"
-                tag="30-day system"
-                name="The 30 Day Short King Dating System"
-                forLine="For the man in pain who wants to start tonight."
-                description="Eight playbooks built specifically for short men. Texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together. Each one is a standalone system you can run the same day you buy it."
-                includes={PROTOCOLS_INCLUDES}
-                discountPrice={{
-                  compareAtLabel: SEVEN_PROTOCOLS.compareAtLabel,
-                  currentPrice: `$${SEVEN_PROTOCOLS.priceUsd}`,
-                  badge: SEVEN_PROTOCOLS.saveBadge,
-                  finePrint: SEVEN_PROTOCOLS.priceFinePrint,
-                }}
-                cta="Get all 8"
-                href={protocolsHref ?? undefined}
-                external
-              />
+              <div className="lg:col-span-2 lg:max-w-xl">
+                <ProductOfferCard
+                  id="dating-system"
+                  tag="8 EBOOKS + 2 BONUSES"
+                  name="The 30 Day Short King Dating System"
+                  forLine="From overlooked to chosen in 30 days."
+                  description={`Eight playbooks built specifically for men under 5'10". Texting, approach, female psychology, the first date, mindset, dating apps, style and grooming, and the belief that holds the whole system together. Each one is a standalone system you can run the same day you buy it.`}
+                  includes={DATING_SYSTEM_INCLUDES}
+                  discountPrice={{
+                    compareAtLabel: "$100 VALUE",
+                    currentPrice: "$27.99",
+                    badge: "SAVE 72%",
+                    finePrint: "7 day money back guarantee.",
+                  }}
+                  cta="Start My 30 Days"
+                  href={OFFER_LINKS.datingSystem}
+                  external
+                />
+              </div>
             </TierSection>
           </Reveal>
 
@@ -132,32 +111,33 @@ export function ProductsPageView({ paymentLinks }: Props) {
             <TierSection
               id="tier-2"
               label="Tier 2"
-              title="The System"
-              description="For the man who wants the full system and is ready to put in the work independently."
+              title="Get The Plan"
+              description="For the man who wants a clear plan and is ready to run it himself."
             >
               <ProductOfferCard
-                id="the-playbook"
-                tag="Complete system"
-                name="The Playbook"
-                forLine="For the man who wants everything in one place."
-                description="The complete Short Kings system. Every framework, every protocol, every tool Axel built over five years. Two coaching calls included so you see what working with him feels like before committing to more."
-                includes={PLAYBOOK_INCLUDES}
-                price={`$${THE_PLAYBOOK.priceUsd} one time · save $435+`}
-                cta="Get The Playbook"
-                href={playbookHref ?? undefined}
+                id="strategy-call"
+                tag="The Diagnosis"
+                name="The Strategy Call"
+                forLine="For the man who wants to know exactly what's wrong and how to fix it."
+                description="One 60 minute call with Axel. We break down your profile, your texts, and where things keep falling apart. You leave knowing exactly what's holding you back and with a clear game plan to fix it. Then you run it on your own."
+                includes={STRATEGY_CALL_INCLUDES}
+                price="$100 ONE TIME"
+                cta="Book My Strategy Call"
+                href={OFFER_LINKS.strategyCall}
                 external
                 featured
               />
               <ProductOfferCard
                 id="built-different"
-                tag="Short man physique system"
+                tag="Short Man Physique System"
                 name="Built Different"
                 forLine="For the man who wants to build the body that changes how the room reads him."
-                description="A gym and nutrition protocol built specifically for shorter men. Whether you want to lose weight and build muscle or focus purely on building muscle this is the exact program built for your frame. Delivered entirely through the Trainerize app. After purchase you will receive an email invite to access your program directly on Trainerize."
-                deliveryNote="Delivered via the Trainerize app. Invite sent to your email after purchase."
-                price={`$${GYM_NUTRITION_PLAN.priceUsd} one time`}
+                description="A gym and nutrition program built specifically for shorter men. Whether you want to lose fat and build muscle or focus purely on building muscle, this is the exact program built for your frame. Delivered entirely through the Trainerize app."
+                includes={BUILT_DIFFERENT_INCLUDES}
+                price="$65 ONE TIME"
+                priceNote="Delivered via the Trainerize app. Invite sent to your email after purchase."
                 cta="Get Built Different"
-                href="https://www.trainerize.me/profile/skefitness/Axel.Cruz/"
+                href={OFFER_LINKS.builtDifferent}
                 external
               />
             </TierSection>
@@ -171,38 +151,41 @@ export function ProductsPageView({ paymentLinks }: Props) {
               description="For the man who is ready to stop figuring it out alone and work directly with Axel."
             >
               <ProductOfferCard
-                id="inner-circle"
-                tag="1-on-1 coaching"
-                name="1-on-1 Coaching"
-                forLine="For the man who wants direct access to Axel month to month."
-                description="Four coaching calls a month with Axel directly. Unlimited WhatsApp access between calls. A personalized game plan built around your specific situation. Month to month with no long term commitment required."
-                includes={COACHING_INCLUDES}
-                price={`$${INNER_CIRCLE.priceUsd} per month · cancel anytime`}
-                cta="Book on Calendly"
-                href={SITE.coaching.calendly}
+                id="coaching"
+                tag="Accountability"
+                name="1 on 1 Coaching"
+                forLine="For the man who has the plan and wants someone making sure he runs it."
+                description="Knowing what to do and actually doing it are two different things. Every other week we get on a call, review what happened, fix what didn't work, and set your next moves. Every Monday you send your goals. Every Friday you report back. No drifting, no excuses, no going back to old habits. Month to month, cancel anytime."
+                compareRows={coachingCompareRows()}
+                descriptionMinClass="min-h-[11.5rem] sm:min-h-[10.5rem]"
+                price="$250 PER MONTH · CANCEL ANYTIME"
+                cta="Start Coaching"
+                href={OFFER_LINKS.coaching}
                 external
               />
               <ProductOfferCard
-                id="the-empire"
-                tag="Limited to 5 clients"
+                id="empire"
+                tag="Limited to 5 Clients"
                 name="The Empire: 3 Month Transform"
                 forLine="For the man who is done figuring it out and wants Axel in his corner every single day."
-                description="Three months. Axel is in your phone reviewing real conversations, debriefing every date, and building your system from the ground up alongside you. This is not a course. This is a personal dating director."
-                includes={EMPIRE_INCLUDES}
+                description="Three months. Axel is in your phone reviewing real conversations as they happen, prepping you before every date and debriefing you after. Your profile gets rebuilt. Your style gets upgraded. Your body gets built. This is not coaching. This is a personal dating director."
+                compareRows={empireCompareRows()}
+                descriptionMinClass="min-h-[11.5rem] sm:min-h-[10.5rem]"
                 discountPrice={{
-                  compareAtLabel: THE_EMPIRE.compareAtLabel,
-                  currentPrice: `$${THE_EMPIRE.priceUsd}`,
-                  badge: THE_EMPIRE.saveBadge,
-                  secondaryLine: THE_EMPIRE.paymentPlanLabel,
-                  finePrint: THE_EMPIRE.priceFinePrint,
+                  compareAtLabel: "$1,500 VALUE",
+                  currentPrice: "$999.99",
+                  badge: "SAVE $500",
+                  secondaryLine: "OR 3 PAYMENTS OF $333.33",
+                  finePrint:
+                    "Split via Affirm or Afterpay. Pay in installments and start today.",
                 }}
                 cta="Apply for Empire"
+                href={OFFER_LINKS.empire}
+                external
                 featured
-                typeform
               />
             </TierSection>
           </Reveal>
-
         </div>
       </div>
     </>

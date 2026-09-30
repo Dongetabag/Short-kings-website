@@ -34,11 +34,17 @@ export function Footer() {
 
           <div className="flex flex-col gap-3 text-sm">
             <p className="eyebrow">Products</p>
-            <Link href="/products#the-playbook" className="text-white/65 hover:text-white">
-              The Playbook
+            <Link href="/products#dating-system" className="text-white/65 hover:text-white">
+              The 30 Day Dating System
             </Link>
-            <Link href="/products#seven-protocols" className="text-white/65 hover:text-white">
-              The 30 Day System
+            <Link href="/products#strategy-call" className="text-white/65 hover:text-white">
+              The Strategy Call
+            </Link>
+            <Link href="/products#coaching" className="text-white/65 hover:text-white">
+              1 on 1 Coaching
+            </Link>
+            <Link href="/products#empire" className="text-white/65 hover:text-white">
+              The Empire
             </Link>
             <Link href="/products#inner-circle" className="text-white/65 hover:text-white">
               The Inner Circle

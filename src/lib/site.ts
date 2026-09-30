@@ -14,7 +14,7 @@ export const SITE = {
     /** Set NEXT_PUBLIC_CALENDLY_COACHING_URL in Vercel (full event URL, no trailing slash). */
     calendly:
       process.env.NEXT_PUBLIC_CALENDLY_COACHING_URL?.replace(/\/$/, "") ||
-      "https://calendly.com/shortkingsempire/30min",
+      "https://calendly.com/shortkingsempire/gameplan",
     pricePerSession: 150,
   },
   email: "support@shortkingsempire.com",
@@ -37,11 +37,10 @@ export const ADMIN_NAV = [
 ] as const;
 
 /**
- * Entry offer — 30-day dating system. The `id`/anchor stays "seven-protocols" so
- * existing #seven-protocols links keep working.
+ * Entry offer: 30 Day Short King Dating System.
  */
 export const SEVEN_PROTOCOLS = {
-  id: "seven-protocols",
+  id: "dating-system",
   title: "The 30 Day Short King Dating System",
   eyebrow: "30-day system",
   description:
@@ -57,7 +56,7 @@ export const SEVEN_PROTOCOLS = {
 } as const;
 
 export const THE_PLAYBOOK = {
-  id: "the-playbook",
+  id: "legacy-playbook",
   title: "The Playbook",
   eyebrow: "Starter commitment",
   description:

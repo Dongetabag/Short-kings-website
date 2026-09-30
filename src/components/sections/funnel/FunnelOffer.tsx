@@ -1,17 +1,14 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { DiscountPriceDisplay } from "@/components/ui/DiscountPriceDisplay";
-import { AXEL_CALENDLY } from "@/lib/home-funnel";
-import { SEVEN_PROTOCOLS, THE_EMPIRE, THE_PLAYBOOK } from "@/lib/site";
+import { OFFER_LINKS } from "@/lib/offer-links";
 
 type Offer = {
   title: string;
   description: string;
   cta: string;
+  href: string;
   primary: boolean;
-  href?: string;
-  external?: boolean;
-  typeform?: boolean;
   price?: string;
   discount?: {
     compareAtLabel: string;
@@ -22,48 +19,46 @@ type Offer = {
 
 const OFFERS: Offer[] = [
   {
-    title: SEVEN_PROTOCOLS.title,
-    description:
-      "Eight playbooks built specifically for short men covering texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together.",
+    title: "The 30 Day Short King Dating System",
     discount: {
-      compareAtLabel: SEVEN_PROTOCOLS.compareAtLabel,
-      currentPrice: `$${SEVEN_PROTOCOLS.priceUsd}`,
-      badge: SEVEN_PROTOCOLS.saveBadge,
+      compareAtLabel: "$100 VALUE",
+      currentPrice: "$27.99",
+      badge: "SAVE 72%",
     },
-    cta: "Get all 8",
-    href: "/products#seven-protocols",
+    description: `Eight playbooks built specifically for men under 5'10". Texting, approach, female psychology, the first date, mindset, dating apps, style and grooming, and the belief that holds it all together.`,
+    cta: "Start My 30 Days",
+    href: OFFER_LINKS.datingSystem,
     primary: true,
   },
   {
-    title: "The Playbook",
+    title: "The Strategy Call",
+    price: "$100",
     description:
-      "The complete Short Kings system in one place. Every framework, every tool, every protocol.",
-    price: `$${THE_PLAYBOOK.priceUsd}`,
-    cta: "Get The Playbook",
-    href: "/products#the-playbook",
+      "One 60 minute call with Axel. We diagnose exactly what's holding you back and you leave with a clear game plan to fix it.",
+    cta: "Book My Strategy Call",
+    href: OFFER_LINKS.strategyCall,
     primary: false,
   },
   {
-    title: "1-on-1 Coaching Call",
+    title: "1 on 1 Coaching",
+    price: "$250 PER MONTH",
     description:
-      "A direct call with Axel. Bring your situation. Leave with a plan built specifically for you.",
-    price: "Book via Calendly",
-    cta: "Book a call with Axel",
-    href: AXEL_CALENDLY,
-    external: true,
+      "Two calls a month plus weekly check ins. You have the plan. Axel makes sure you run it.",
+    cta: "Start Coaching",
+    href: OFFER_LINKS.coaching,
     primary: false,
   },
   {
-    title: THE_EMPIRE.title,
-    description:
-      "The full done-with-you experience. Three months of coaching, accountability, and system implementation side by side with Axel.",
+    title: "The Empire: 3 Month Transform",
     discount: {
-      compareAtLabel: THE_EMPIRE.compareAtLabel,
-      currentPrice: `$${THE_EMPIRE.priceUsd}`,
-      badge: THE_EMPIRE.saveBadge,
+      compareAtLabel: "$1,500 VALUE",
+      currentPrice: "$999.99",
+      badge: "SAVE $500",
     },
+    description:
+      "Axel in your corner every day for three months. Real conversations reviewed as they happen, prep before every date, your profile rebuilt, and your body built.",
     cta: "Apply for Empire",
-    typeform: true,
+    href: OFFER_LINKS.empire,
     primary: false,
   },
 ];
@@ -74,9 +69,6 @@ export function FunnelOffer() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-5 sm:grid-cols-2">
           {OFFERS.map((offer, i) => {
-            const href = offer.href;
-            const isExternal = Boolean(offer.external);
-            const isTypeform = Boolean(offer.typeform);
             const ctaClass = offer.primary ? "btn-primary" : "btn-outline";
 
             return (
@@ -94,7 +86,7 @@ export function FunnelOffer() {
                       aria-hidden
                     />
                   ) : null}
-                  <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">
+                  <h3 className="font-display text-2xl font-bold uppercase text-white sm:text-3xl">
                     {offer.title}
                   </h3>
                   <div className="mt-2">
@@ -106,7 +98,7 @@ export function FunnelOffer() {
                         badge={offer.discount.badge}
                       />
                     ) : (
-                      <p className="font-display text-2xl font-bold text-gold sm:text-3xl">
+                      <p className="font-display text-2xl font-bold uppercase text-gold sm:text-3xl">
                         {offer.price}
                       </p>
                     )}
@@ -114,27 +106,14 @@ export function FunnelOffer() {
                   <p className="mt-4 flex-1 text-sm leading-7 text-white/65 sm:text-base">
                     {offer.description}
                   </p>
-                  {isTypeform ? (
-                    <button
-                      type="button"
-                      data-tf-popup="GVVKVMWI"
-                      data-tf-opacity="100"
-                      data-tf-button-hide="true"
-                      className={`mt-6 ${ctaClass}`}
-                    >
-                      {offer.cta}
-                    </button>
-                  ) : href ? (
-                    <Link
-                      href={href}
-                      {...(isExternal
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className={`mt-6 ${ctaClass}`}
-                    >
-                      {offer.cta}
-                    </Link>
-                  ) : null}
+                  <Link
+                    href={offer.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-6 ${ctaClass}`}
+                  >
+                    {offer.cta}
+                  </Link>
                 </article>
               </Reveal>
             );

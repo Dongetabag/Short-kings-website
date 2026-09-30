@@ -168,7 +168,7 @@ export default function TestimonialsPage() {
                 Run the system. Send us the win. We will feature you.
               </p>
               <Link
-                href="https://calendly.com/shortkingsempire/30min"
+                href="https://calendly.com/shortkingsempire/gameplan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold px-7 font-semibold text-black hover:bg-goldLight"

@@ -26,13 +26,13 @@ type NextStep = {
 };
 
 const PRODUCT_FLOWS: Record<string, NextStep> = {
-  "seven-protocols": {
+  "dating-system": {
     title: "All 8 Protocols are yours.",
     body: "We are emailing the download links to the address you used at checkout. Save the PDFs to your phone before you read them. Most clients start with The Standing Man or The Text That Lands.",
     cta: { label: "See the Reviews", href: "/testimonials" },
     fineprint: "Email landing in your inbox in under five minutes. Check spam if you do not see it.",
   },
-  "the-playbook": {
+  "legacy-playbook": {
     title: "Welcome to The Playbook.",
     body: "All 8 ebooks plus your 2 coaching calls are unlocked. We will email the ebook links shortly. To book your first 30-minute call with Axel, use the link below.",
     cta: { label: "Book your first call", href: SITE.coaching.calendly, external: true },
@@ -50,7 +50,13 @@ const PRODUCT_FLOWS: Record<string, NextStep> = {
     cta: { label: "Book your first call", href: SITE.coaching.calendly, external: true },
     fineprint: "Cancel anytime from your Stripe receipt email. WhatsApp invite comes from a +1 US number.",
   },
-  "the-empire": {
+  "empire": {
+    title: "Welcome to The Empire.",
+    body: "Axel will personally reach out within 12 hours to kick off your 3 months. Expect a call, a WhatsApp invite, and a written game plan in your inbox by tomorrow.",
+    cta: { label: "Pre-book your first weekly call", href: SITE.coaching.calendly, external: true },
+    fineprint: "Limited to 5 active clients. You are one of them now.",
+  },
+  "the-empire-legacy-alias-placeholder": {
     title: "Welcome to The Empire.",
     body: "Axel will personally reach out within 12 hours to kick off your 3 months. Expect a call, a WhatsApp invite, and a written game plan in your inbox by tomorrow.",
     cta: { label: "Pre-book your first weekly call", href: SITE.coaching.calendly, external: true },
