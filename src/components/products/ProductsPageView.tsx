@@ -5,13 +5,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProductOfferCard } from "@/components/products/ProductOfferCard";
 import {
   COACHING_INCLUDES,
-  EBOOK_DISPLAY_ORDER,
-  EBOOK_PAGE_COPY,
   EMPIRE_INCLUDES,
   PLAYBOOK_INCLUDES,
   PROTOCOLS_INCLUDES,
 } from "@/lib/products-page-data";
-import { EBOOKS } from "@/lib/products";
 import {
   GYM_NUTRITION_PLAN,
   INNER_CIRCLE,
@@ -74,11 +71,6 @@ export function ProductsPageView({ paymentLinks }: Props) {
   const protocolsHref = resolve(SEVEN_PROTOCOLS.paymentLinkEnvKey);
   const playbookHref = resolve(THE_PLAYBOOK.paymentLinkEnvKey);
 
-  const ebooksById = Object.fromEntries(EBOOKS.map((e) => [e.id, e]));
-  const orderedEbooks = EBOOK_DISPLAY_ORDER.map((id) => ebooksById[id]).filter(
-    Boolean
-  );
-
   return (
     <>
       <div className="mx-auto max-w-6xl px-4 py-10 sm:py-16">
@@ -123,7 +115,7 @@ export function ProductsPageView({ paymentLinks }: Props) {
                 forLine="For the man in pain who wants to start tonight."
                 description="Eight playbooks built specifically for short men. Texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together. Each one is a standalone system you can run the same day you buy it."
                 includes={PROTOCOLS_INCLUDES}
-                price={`$${SEVEN_PROTOCOLS.priceBundleUsd} for all 8 · or $${SEVEN_PROTOCOLS.priceEachUsd} each`}
+                price={`$${SEVEN_PROTOCOLS.priceBundleUsd} for all 8`}
                 cta="Get all 8"
                 href={protocolsHref ?? undefined}
                 external
@@ -200,57 +192,6 @@ export function ProductsPageView({ paymentLinks }: Props) {
               />
             </TierSection>
           </Reveal>
-
-          <section id="individual-ebooks" className="scroll-mt-24">
-            <Reveal>
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-gold/70">
-                Individual playbooks
-              </p>
-              <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">
-                Eight ebooks. $15 each.
-              </h2>
-            </Reveal>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {orderedEbooks.map((book, i) => {
-                const href = resolve(book.paymentLinkEnvKey);
-                const copy = EBOOK_PAGE_COPY[book.id as keyof typeof EBOOK_PAGE_COPY];
-                return (
-                  <Reveal
-                    key={book.id}
-                    stagger={(((i % 3) + 1) as 1 | 2 | 3)}
-                  >
-                    <article className="flex h-full flex-col rounded-lg border border-white/10 bg-stone/30 p-4 sm:p-5">
-                      <h3 className="font-display text-lg font-bold text-white">
-                        {book.title}
-                      </h3>
-                      <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
-                        {copy?.description ?? book.description}
-                      </p>
-                      <div className="mt-4 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
-                        <p className="font-display text-xl font-bold text-gold">
-                          ${book.priceUsd}
-                        </p>
-                        {href ? (
-                          <a
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex min-h-10 items-center rounded-md bg-gold px-4 text-xs font-semibold text-black hover:bg-goldLight sm:text-sm"
-                          >
-                            Buy
-                          </a>
-                        ) : (
-                          <span className="text-[10px] uppercase tracking-[0.16em] text-white/40">
-                            Setup pending
-                          </span>
-                        )}
-                      </div>
-                    </article>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </section>
 
         </div>
       </div>

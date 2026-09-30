@@ -1,6 +1,6 @@
 import Script from "next/script";
 import { ProductsPageView } from "@/components/products/ProductsPageView";
-import { EBOOKS, resolvePaymentLink } from "@/lib/products";
+import { resolvePaymentLink } from "@/lib/products";
 import { SEVEN_PROTOCOLS, THE_PLAYBOOK } from "@/lib/site";
 
 /**
@@ -18,7 +18,6 @@ export default function ProductsPage() {
   const keys = [
     SEVEN_PROTOCOLS.paymentLinkEnvKey,
     THE_PLAYBOOK.paymentLinkEnvKey,
-    ...EBOOKS.map((b) => b.paymentLinkEnvKey),
   ];
   for (const k of keys) {
     if (k) paymentLinks[k] = resolvePaymentLink(k);

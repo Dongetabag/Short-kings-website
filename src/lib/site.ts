@@ -46,7 +46,6 @@ export const SEVEN_PROTOCOLS = {
   eyebrow: "8 ebooks",
   description:
     "The Text That Lands, The Standing Man, What She's Actually Thinking, Dating Decoded, The Inner Game, The Swipe, Dress Tall, Short King.",
-  priceEachUsd: 15,
   priceBundleUsd: 100,
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_EBOOK_BUNDLE",
 } as const;
