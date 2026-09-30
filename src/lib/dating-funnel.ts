@@ -125,7 +125,7 @@ export function recommendOffer(
     title: SEVEN_PROTOCOLS.title,
     eyebrow: SEVEN_PROTOCOLS.eyebrow,
     description: SEVEN_PROTOCOLS.description,
-    priceLabel: `$${SEVEN_PROTOCOLS.priceBundleUsd} for all 8`,
+    priceLabel: `$${SEVEN_PROTOCOLS.priceUsd}`,
     cta: "Get all 8",
     href: "/products#seven-protocols",
     secondary: [

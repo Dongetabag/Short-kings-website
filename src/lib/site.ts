@@ -37,16 +37,22 @@ export const ADMIN_NAV = [
 ] as const;
 
 /**
- * Entry offer — all eight ebooks. The `id`/anchor stays "seven-protocols" so
- * existing #seven-protocols links keep working; only the display copy changed.
+ * Entry offer — 30-day dating system. The `id`/anchor stays "seven-protocols" so
+ * existing #seven-protocols links keep working.
  */
 export const SEVEN_PROTOCOLS = {
   id: "seven-protocols",
-  title: "The 8 Protocols",
-  eyebrow: "8 ebooks",
+  title: "The 30 Day Short King Dating System",
+  eyebrow: "30-day system",
   description:
     "The Text That Lands, The Standing Man, What She's Actually Thinking, Dating Decoded, The Inner Game, The Swipe, Dress Tall, Short King.",
-  priceBundleUsd: 100,
+  /** @deprecated use priceUsd — kept for older call sites during transition */
+  priceBundleUsd: 27.99,
+  priceUsd: 27.99,
+  compareAtUsd: 100,
+  compareAtLabel: "$100 VALUE",
+  saveBadge: "SAVE 72%",
+  priceFinePrint: "7 day money back guarantee.",
   paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_EBOOK_BUNDLE",
 } as const;
 
@@ -100,13 +106,18 @@ export const COACHING = INNER_CIRCLE;
 
 export const THE_EMPIRE = {
   id: "the-empire",
-  title: "The Empire",
+  title: "The Empire: 3 Month Transform",
   eyebrow: "Done with you",
   description:
     "Same 3 months. Completely different level of access. Axel is in your phone reviewing texts, debriefing every date — your personal dating director.",
-  priceUsd: 997,
-  cadence: "3 months (~$332/mo)",
-  originalPriceUsd: 2400,
+  priceUsd: 999.99,
+  cadence: "3 months",
+  originalPriceUsd: 1500,
+  compareAtLabel: "$1,500 VALUE",
+  saveBadge: "SAVE $500",
+  paymentPlanLabel: "OR 3 PAYMENTS OF $333.33",
+  priceFinePrint:
+    "Split via Affirm or Afterpay. Pay in installments and start today.",
   scarcity: "Limited to 5 clients",
   includes: [
     "Everything in The Inner Circle",
@@ -120,7 +131,7 @@ export const THE_EMPIRE = {
     "Body language & style breakdown",
     "Relationship roadmap",
   ],
-  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_TRANSFORMATION_3MO",
+  paymentLinkEnvKey: "STRIPE_PAYMENT_LINK_TRANSFORMAT_3MO",
 } as const;
 
 /** @deprecated use THE_EMPIRE */

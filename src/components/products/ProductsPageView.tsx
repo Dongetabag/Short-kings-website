@@ -110,12 +110,17 @@ export function ProductsPageView({ paymentLinks }: Props) {
             >
               <ProductOfferCard
                 id="seven-protocols"
-                tag="8 ebooks"
-                name="The 8 Protocols"
+                tag="30-day system"
+                name="The 30 Day Short King Dating System"
                 forLine="For the man in pain who wants to start tonight."
                 description="Eight playbooks built specifically for short men. Texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together. Each one is a standalone system you can run the same day you buy it."
                 includes={PROTOCOLS_INCLUDES}
-                price={`$${SEVEN_PROTOCOLS.priceBundleUsd} for all 8`}
+                discountPrice={{
+                  compareAtLabel: SEVEN_PROTOCOLS.compareAtLabel,
+                  currentPrice: `$${SEVEN_PROTOCOLS.priceUsd}`,
+                  badge: SEVEN_PROTOCOLS.saveBadge,
+                  finePrint: SEVEN_PROTOCOLS.priceFinePrint,
+                }}
                 cta="Get all 8"
                 href={protocolsHref ?? undefined}
                 external
@@ -180,12 +185,17 @@ export function ProductsPageView({ paymentLinks }: Props) {
               <ProductOfferCard
                 id="the-empire"
                 tag="Limited to 5 clients"
-                name="The Empire — 3 Month Transformation"
+                name="The Empire: 3 Month Transform"
                 forLine="For the man who is done figuring it out and wants Axel in his corner every single day."
                 description="Three months. Axel is in your phone reviewing real conversations, debriefing every date, and building your system from the ground up alongside you. This is not a course. This is a personal dating director."
                 includes={EMPIRE_INCLUDES}
-                price={`$${THE_EMPIRE.priceUsd} · 3 months · approximately $332 per month`}
-                priceNote="Split via Affirm or Afterpay. Pay in installments and start today."
+                discountPrice={{
+                  compareAtLabel: THE_EMPIRE.compareAtLabel,
+                  currentPrice: `$${THE_EMPIRE.priceUsd}`,
+                  badge: THE_EMPIRE.saveBadge,
+                  secondaryLine: THE_EMPIRE.paymentPlanLabel,
+                  finePrint: THE_EMPIRE.priceFinePrint,
+                }}
                 cta="Apply for Empire"
                 featured
                 typeform

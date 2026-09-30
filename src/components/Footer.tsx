@@ -38,7 +38,7 @@ export function Footer() {
               The Playbook
             </Link>
             <Link href="/products#seven-protocols" className="text-white/65 hover:text-white">
-              The 8 Protocols
+              The 30 Day System
             </Link>
             <Link href="/products#inner-circle" className="text-white/65 hover:text-white">
               The Inner Circle
