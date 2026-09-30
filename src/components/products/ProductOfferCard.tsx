@@ -1,8 +1,17 @@
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { TypeformPopupButton } from "@/components/typeform/TypeformPopupButton";
+import { DiscountPriceDisplay } from "@/components/ui/DiscountPriceDisplay";
 
 const EMPIRE_TYPEFORM_ID = "GVVKVMWI";
+
+export type OfferDiscountPrice = {
+  compareAtLabel: string;
+  currentPrice: string;
+  badge: string;
+  secondaryLine?: string;
+  finePrint?: string;
+};
 
 type ProductOfferCardProps = {
   id?: string;
@@ -13,8 +22,10 @@ type ProductOfferCardProps = {
   /** Muted delivery detail shown between description and price. */
   deliveryNote?: string;
   includes?: readonly string[];
-  price: string;
+  price?: string;
   priceNote?: string;
+  /** When set, renders strikethrough value + NOW price + red save badge. */
+  discountPrice?: OfferDiscountPrice;
   cta: string;
   href?: string;
   external?: boolean;
@@ -32,6 +43,7 @@ export function ProductOfferCard({
   includes,
   price,
   priceNote,
+  discountPrice,
   cta,
   href,
   external,
@@ -79,10 +91,26 @@ export function ProductOfferCard({
         </ul>
       ) : null}
       <div className="mt-5 border-t border-white/10 pt-5">
-        <p className="font-display text-xl font-bold text-gold sm:text-2xl">{price}</p>
-        {priceNote ? (
-          <p className="mt-1 text-xs leading-relaxed text-white/50">{priceNote}</p>
-        ) : null}
+        {discountPrice ? (
+          <DiscountPriceDisplay
+            compareAtLabel={discountPrice.compareAtLabel}
+            currentPrice={discountPrice.currentPrice}
+            badge={discountPrice.badge}
+            secondaryLine={discountPrice.secondaryLine}
+            finePrint={discountPrice.finePrint}
+          />
+        ) : (
+          <>
+            <p className="font-display text-xl font-bold text-gold sm:text-2xl">
+              {price}
+            </p>
+            {priceNote ? (
+              <p className="mt-1 text-xs leading-relaxed text-white/50">
+                {priceNote}
+              </p>
+            ) : null}
+          </>
+        )}
         {typeform ? (
           <TypeformPopupButton
             formId={EMPIRE_TYPEFORM_ID}

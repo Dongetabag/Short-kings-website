@@ -1,14 +1,35 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { DiscountPriceDisplay } from "@/components/ui/DiscountPriceDisplay";
 import { AXEL_CALENDLY } from "@/lib/home-funnel";
-import { THE_EMPIRE, THE_PLAYBOOK } from "@/lib/site";
+import { SEVEN_PROTOCOLS, THE_EMPIRE, THE_PLAYBOOK } from "@/lib/site";
 
-const OFFERS = [
+type Offer = {
+  title: string;
+  description: string;
+  cta: string;
+  primary: boolean;
+  href?: string;
+  external?: boolean;
+  typeform?: boolean;
+  price?: string;
+  discount?: {
+    compareAtLabel: string;
+    currentPrice: string;
+    badge: string;
+  };
+};
+
+const OFFERS: Offer[] = [
   {
-    title: "The 8 Protocols",
+    title: SEVEN_PROTOCOLS.title,
     description:
       "Eight playbooks built specifically for short men covering texting, approach, female psychology, dating, mindset, dating app presence, style and grooming, and the belief that holds the whole system together.",
-    price: "$100 for all 8",
+    discount: {
+      compareAtLabel: SEVEN_PROTOCOLS.compareAtLabel,
+      currentPrice: `$${SEVEN_PROTOCOLS.priceUsd}`,
+      badge: SEVEN_PROTOCOLS.saveBadge,
+    },
     cta: "Get all 8",
     href: "/products#seven-protocols",
     primary: true,
@@ -33,15 +54,19 @@ const OFFERS = [
     primary: false,
   },
   {
-    title: "The Empire — 3 Month Transformation",
+    title: THE_EMPIRE.title,
     description:
       "The full done-with-you experience. Three months of coaching, accountability, and system implementation side by side with Axel.",
-    price: `$${THE_EMPIRE.priceUsd}`,
+    discount: {
+      compareAtLabel: THE_EMPIRE.compareAtLabel,
+      currentPrice: `$${THE_EMPIRE.priceUsd}`,
+      badge: THE_EMPIRE.saveBadge,
+    },
     cta: "Apply for Empire",
     typeform: true,
     primary: false,
   },
-] as const;
+];
 
 export function FunnelOffer() {
   return (
@@ -49,9 +74,9 @@ export function FunnelOffer() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-5 sm:grid-cols-2">
           {OFFERS.map((offer, i) => {
-            const href = "href" in offer ? offer.href : undefined;
-            const isExternal = "external" in offer && offer.external;
-            const isTypeform = "typeform" in offer && offer.typeform;
+            const href = offer.href;
+            const isExternal = Boolean(offer.external);
+            const isTypeform = Boolean(offer.typeform);
             const ctaClass = offer.primary ? "btn-primary" : "btn-outline";
 
             return (
@@ -72,9 +97,20 @@ export function FunnelOffer() {
                   <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">
                     {offer.title}
                   </h3>
-                  <p className="mt-2 font-display text-2xl font-bold text-gold sm:text-3xl">
-                    {offer.price}
-                  </p>
+                  <div className="mt-2">
+                    {offer.discount ? (
+                      <DiscountPriceDisplay
+                        size="hero"
+                        compareAtLabel={offer.discount.compareAtLabel}
+                        currentPrice={offer.discount.currentPrice}
+                        badge={offer.discount.badge}
+                      />
+                    ) : (
+                      <p className="font-display text-2xl font-bold text-gold sm:text-3xl">
+                        {offer.price}
+                      </p>
+                    )}
+                  </div>
                   <p className="mt-4 flex-1 text-sm leading-7 text-white/65 sm:text-base">
                     {offer.description}
                   </p>
