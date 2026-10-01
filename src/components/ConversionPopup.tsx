@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import { AXEL_CALENDLY } from "@/lib/home-funnel";
+import { OFFER_LINKS } from "@/lib/offer-links";
 
 export function ConversionPopup() {
   const [open, setOpen] = useState(false);
@@ -63,7 +63,12 @@ export function ConversionPopup() {
           <Link href="/dating/start" className="btn-primary w-full">
             Take the 2-min assessment
           </Link>
-          <Link href={AXEL_CALENDLY} className="btn-outline w-full">
+          <Link
+            href={OFFER_LINKS.gameplan}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline w-full"
+          >
             Book a call with Axel
           </Link>
         </div>
