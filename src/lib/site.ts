@@ -19,9 +19,9 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
+  { label: "Assessment", href: "/dating/start" },
   { label: "Products", href: "/products" },
   { label: "Reviews", href: "/testimonials" },
-  { label: "Dating", href: "/dating" },
 ] as const;
 
 export const ADMIN_NAV = [

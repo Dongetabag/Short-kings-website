@@ -92,8 +92,8 @@ export default function TestimonialsPage() {
               system and sent back the proof.
             </p>
             <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4">
-              <Stat label="Reviews on file" value="6" />
-              <Stat label="Five star reviews" value="6/6" />
+              <Stat label="Shorter men coached" value="100+" />
+              <Stat label="Reported date wins" value="94%" />
               <Stat label="Fastest first win" value="14 days" />
             </div>
           </Reveal>
