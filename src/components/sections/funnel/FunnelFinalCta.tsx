@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { AXEL_CALENDLY } from "@/lib/home-funnel";
+import { OFFER_LINKS } from "@/lib/offer-links";
 
 export function FunnelFinalCta() {
   return (
@@ -13,17 +14,27 @@ export function FunnelFinalCta() {
         <Reveal>
           <p className="text-xl font-semibold leading-relaxed text-white/85 sm:text-2xl">
             You have read the proof. You know the gap is real. The only question
-            left is whether you keep carrying it alone or you let Axel build the
-            plan with you.
+            left is whether you keep carrying it alone or you start running the
+            system tonight.
           </p>
-          <Link
-            href={AXEL_CALENDLY}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary mt-9"
-          >
-            Book a call with Axel
-          </Link>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href={OFFER_LINKS.datingSystem}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full sm:w-auto"
+            >
+              Start the 30-Day System — $27.99
+            </Link>
+            <Link
+              href={AXEL_CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline w-full sm:w-auto"
+            >
+              Book a call with Axel
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

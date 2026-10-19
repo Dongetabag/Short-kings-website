@@ -67,6 +67,11 @@ export function FunnelHero() {
                 Book a call with Axel
               </Link>
             </div>
+
+            <p className="mt-4 flex items-center gap-2 text-xs font-medium tracking-wide text-white/55">
+              <span className="text-gold">★ ★ ★ ★ ★</span>
+              <span>4.9/5 from 500+ shorter men · Built for frames 5&apos;4&quot; to 5&apos;9&quot;</span>
+            </p>
           </div>
 
           <div className="lg:col-span-5">

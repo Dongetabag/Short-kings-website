@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Download } from "lucide-react";
 import { TypeformPopupButton } from "@/components/typeform/TypeformPopupButton";
 import {
   DATING_FUNNEL_INTRO,
@@ -287,9 +287,29 @@ export function DatingFunnelFlow({ paymentLinks }: Props) {
               ))}
             </ul>
           ) : null}
+
+          <div className="mt-8 rounded-lg border border-gold/40 bg-gold/[0.08] p-5 text-left">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-gold/40 bg-gold/15 text-gold">
+                <Download className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-display text-sm font-bold text-white">Your Free Chapter Is Ready</p>
+                <p className="text-xs text-white/70">The Standing Man: Chapter 1 &middot; 5-Second Trigger PDF</p>
+              </div>
+            </div>
+            <a
+              href="/downloads/the-standing-man-chapter-1.pdf"
+              download="The-Standing-Man-Chapter-1.pdf"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-sm bg-gold px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-black transition hover:bg-goldLight"
+            >
+              <Download className="h-4 w-4" /> Download Chapter 1 PDF Now
+            </a>
+          </div>
+
           {leadSaved ? (
-            <p className="mt-6 text-center text-xs text-white/45">
-              Check your inbox for the free chapter.
+            <p className="mt-4 text-center text-xs text-white/45">
+              Your recommendation and free gift have been recorded.
             </p>
           ) : null}
           <Link
